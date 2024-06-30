@@ -15,6 +15,7 @@ dist-ssr
 # chalice
 .chalice/deployments/
 .chalice/venv/
+**/*.pyc
 *.pyc
 server/**/__pycache__
 server/**/__pycache__/*
