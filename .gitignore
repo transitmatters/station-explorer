@@ -18,6 +18,8 @@ dist-ssr
 *.pyc
 server/**/__pycache__
 server/**/__pycache__/*
+server/__pycache__
+server/__pycache__/*
 requirements.txt
 server/cfn/*
 server/.chalice/deployments/*
@@ -35,3 +37,4 @@ server/.chalice/deployments/*
 
 # env
 .envrc
+
