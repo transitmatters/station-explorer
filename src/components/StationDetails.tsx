@@ -1,10 +1,11 @@
+import classNames from 'classnames';
+import React from 'react';
 import { useGetWalkscoreForStation } from '../api/walkscore';
-import { Station } from '../types/station';
+import type { Station } from '../types/station';
 import { useParkingStats } from '../utils/parking';
 import { StationDetailSection } from './StationDetailSection';
 import { AccessibleIcon } from './icons/AccessibleIcon';
 import { DataSection } from './DataSection';
-import classNames from 'classnames';
 
 interface StationDetailsProps {
   station: Station;
@@ -15,6 +16,8 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
 
   const radius = 1000;
   const { percentParking, parkingSpots, parkingSqFt } = useParkingStats(station, radius);
+
+  // TODO: All these sections should be filled out
 
   return (
     <>
@@ -81,9 +84,11 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
         />
       </StationDetailSection>
       <StationDetailSection sectionName="Accessibility">
+        {/* TODO */}
         <AccessibleIcon notAccessible={!station.accessible} />
-        <p>2 Elevators out of service</p>
+        <p>Test Data: 2 Elevators out of service</p>
       </StationDetailSection>
+      <StationDetailSection sectionName="Transit">{/* TODO */}Test</StationDetailSection>
       <StationDetailSection sectionName="Bike">
         {walkscore.data?.bike && (
           <DataSection

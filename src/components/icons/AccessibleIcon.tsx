@@ -1,6 +1,7 @@
 import { faBan, faWheelchair } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
+import React from 'react';
 
 interface AccessibleIconProps {
   notAccessible?: boolean;

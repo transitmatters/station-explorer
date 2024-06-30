@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { faExpand } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames';
 import { getStation } from '../../../constants/stations';
 import LeafletMap from '../../map/LeafletMap';
 import type { Station as StationType } from '../../../types/station';
@@ -6,9 +9,7 @@ import ThemeSwitcher from '../../ThemeSwitcher';
 import { HorizontalDivider } from '../../HorizontalDivider';
 import { CompareSelector } from '../../CompareSelector';
 import { StationDetails } from '../../StationDetails';
-import { faExpand } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames';
+import { MapSettingsButton } from '../../map/MapSettingsButton';
 
 interface StationProps {
   stationId: string;
@@ -17,9 +18,9 @@ interface StationProps {
 export const Station: React.FunctionComponent<StationProps> = ({ stationId }) => {
   const [station, setStation] = useState<StationType | undefined>(getStation(stationId));
   const [mapNavigation, setMapNavigation] = useState<boolean>(false);
-  // TODO: Remove temp display
 
   if (!station) {
+    // TODO: show actual error page
     return <div>Station not found</div>;
   }
 
@@ -49,8 +50,9 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
             }}
           />
         </div>
+        <MapSettingsButton />
         <button
-          className="ounded-lg absolute left-0 right-0 z-[500] m-auto w-fit -translate-y-16 cursor-pointer rounded-md border border-gray-300 bg-white p-2 text-cyan-700 dark:text-cyan-800 md:-translate-y-12"
+          className="absolute left-0 right-0 z-[500] m-auto w-fit -translate-y-16 cursor-pointer rounded-lg border border-gray-300 bg-white p-2 text-cyan-700 dark:text-cyan-800 md:-translate-y-12"
           onClick={() => {
             setMapNavigation(true);
           }}

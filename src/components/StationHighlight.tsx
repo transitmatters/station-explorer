@@ -1,9 +1,10 @@
 import classnames from 'classnames';
-import { AccessibleIcon } from './icons/AccessibleIcon';
-import { Station } from '../types/station';
-import { LINE_BG_COLOR_MAP } from '../constants/colors';
 import { Link } from '@tanstack/react-router';
+import React from 'react';
+import type { Station } from '../types/station';
+import { LINE_BG_COLOR_MAP } from '../constants/colors';
 import { useBreakpoint } from '../utils/hooks/useBreakpoint';
+import { AccessibleIcon } from './icons/AccessibleIcon';
 
 interface StationHighlightProps {
   station: Station;

@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
-import { useBreakpoint } from '../utils/hooks/useBreakpoint';
+import type { ReactNode } from 'react';
 import classNames from 'classnames';
+import React from 'react';
+import { useBreakpoint } from '../utils/hooks/useBreakpoint';
 
 interface DataSectionProps {
   title: string;

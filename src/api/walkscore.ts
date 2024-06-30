@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import type { WalkScore } from '../types/walkscore';
-import { Station } from '../types/station';
+import type { Station } from '../types/station';
 
 const WALKSCORE_PROXY =
   process.env.NODE_ENV === 'production'

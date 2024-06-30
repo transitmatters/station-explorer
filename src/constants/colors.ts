@@ -1,4 +1,4 @@
-import { Line } from '../types/line';
+import type { Line } from '../types/line';
 
 export const COLORS = {
   mbta: {

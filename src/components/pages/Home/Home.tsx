@@ -4,9 +4,10 @@ import {
   faMapMarked,
   faWheelchair,
 } from '@fortawesome/free-solid-svg-icons';
-import OverviewCircle from '../../OverviewCircle';
-import ThemeSwitcher from '../../ThemeSwitcher';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import { OverviewCircle } from '../../OverviewCircle';
+import ThemeSwitcher from '../../ThemeSwitcher';
 import { StationHighlight } from '../../StationHighlight';
 import { chooseRandomStations } from '../../../constants/stations';
 import { TMLogo } from '../../TMLogo';

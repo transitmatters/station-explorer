@@ -1,4 +1,4 @@
-import { GTFS_COLOR_LINE_IDS } from '../constants/line';
+import type { GTFS_COLOR_LINE_IDS } from '../constants/line';
 
 export type Line =
   | 'line-red'

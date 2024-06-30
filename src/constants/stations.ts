@@ -1,4 +1,4 @@
-import { Station } from '../types/station';
+import type { Station } from '../types/station';
 import stations_json from './stations.json';
 
 export const stations = stations_json as Station[];

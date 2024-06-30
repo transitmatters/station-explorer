@@ -3,7 +3,6 @@ import React from 'react';
 import { MarkerLayer } from 'react-leaflet-marker';
 import type { LatLngTuple } from 'leaflet';
 import type { Station } from '../../types/station';
-import { MBTAStationMarker } from './MBTAStationMarker';
 import {
   lineColorBBorder,
   lineColorBorder,
@@ -15,6 +14,7 @@ import {
 } from '../../styles/general';
 import { COMMUTER_RAIL_LINES, RAPID_LINES } from '../../constants/line';
 import { stations } from '../../constants/stations';
+import { MBTAStationMarker } from './MBTAStationMarker';
 
 export const StationBorderColors = (station: Station): string[] => {
   const colorLines = [

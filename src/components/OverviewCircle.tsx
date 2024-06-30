@@ -4,7 +4,7 @@ interface OverviewCircleProps {
   children: React.ReactNode;
 }
 
-const OverviewCircle: React.FunctionComponent<OverviewCircleProps> = ({ children }) => {
+export const OverviewCircle: React.FunctionComponent<OverviewCircleProps> = ({ children }) => {
   return (
     <div className={'m-6 h-24 w-24 content-center justify-center rounded-full'}>
       <div
@@ -27,5 +27,3 @@ const OverviewCircle: React.FunctionComponent<OverviewCircleProps> = ({ children
     </div>
   );
 };
-
-export default OverviewCircle;

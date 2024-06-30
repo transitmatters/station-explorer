@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const TMLogo: React.FunctionComponent = () => {
   return (
     <a href="https://transitmatters.org">

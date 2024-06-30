@@ -16,7 +16,7 @@ interface MapSettingsModalProps {
   setShowBikePaths: (showBikePaths: boolean) => void;
 }
 
-export const MapSettingsModal: React.FC<MapSettingsModalProps> = ({
+export const MapSettingsModal: React.FunctionComponent<MapSettingsModalProps> = ({
   isOpen,
   setIsOpen,
   showParking,
@@ -28,7 +28,7 @@ export const MapSettingsModal: React.FC<MapSettingsModalProps> = ({
 }) => {
   return (
     <Transition.Root show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setIsOpen}>
+      <Dialog as="div" className="relative z-[500]" onClose={setIsOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -41,7 +41,7 @@ export const MapSettingsModal: React.FC<MapSettingsModalProps> = ({
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
         </Transition.Child>
 
-        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div className="fixed inset-0 z-[500] w-screen overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}

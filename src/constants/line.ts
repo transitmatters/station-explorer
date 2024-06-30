@@ -1,4 +1,4 @@
-import { Line, LineObject } from '../types/line';
+import type { Line, LineObject } from '../types/line';
 import { COLORS } from './colors';
 
 export const GTFS_COLOR_LINE_IDS = ['line-Red', 'line-Orange', 'line-Blue', 'line-Green'] as const;

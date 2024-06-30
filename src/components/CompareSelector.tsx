@@ -1,5 +1,6 @@
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 
 interface CompareSelectorProps {}
 
@@ -17,7 +18,7 @@ const CompareButton: React.FunctionComponent = () => {
   return (
     <button
       title={'Compare Stations'}
-      className={`group z-10 flex h-1/2 items-center justify-center rounded-full bg-opacity-10 p-1 text-gray-500 hover:bg-cyan-700 hover:text-white focus:outline-none dark:text-gray-400 dark:hover:bg-cyan-800 dark:hover:text-white sm:rounded-lg`}
+      className={`group z-[450] flex h-1/2 items-center justify-center rounded-full bg-opacity-10 p-1 text-gray-500 hover:bg-cyan-700 hover:text-white focus:outline-none dark:text-gray-400 dark:hover:bg-cyan-800 dark:hover:text-white sm:rounded-lg`}
     >
       <span className="flex items-center">
         <FontAwesomeIcon

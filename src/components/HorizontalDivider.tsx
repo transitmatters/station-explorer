@@ -1,3 +1,4 @@
+import React from 'react';
 import { useBreakpoint } from '../utils/hooks/useBreakpoint';
 
 interface HorizontalDividerProps {
