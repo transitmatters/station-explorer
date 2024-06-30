@@ -1,0 +1,2542 @@
+[
+  {
+    "stop_name": "Alewife",
+    "station": "place-alfcl",
+    "order": 1,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "coordinates": [-71.1420773119539, 42.396121027916756],
+    "lines": ["line-red"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Cambridge"
+  },
+  {
+    "stop_name": "Davis",
+    "station": "place-davis",
+    "order": 2,
+    "coordinates": [-71.12223401928372, 42.39675185636241],
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "lines": ["line-red"],
+    "municipality": "Somerville"
+  },
+  {
+    "stop_name": "Porter",
+    "station": "place-portr",
+    "order": 3,
+    "coordinates": [-71.11911421896355, 42.3883204798639],
+    "accessible": true,
+    "lines": ["line-red", "cr-fitchburg"],
+    "municipality": "Cambridge"
+  },
+  {
+    "stop_name": "Harvard",
+    "station": "place-harsq",
+    "order": 4,
+    "accessible": true,
+    "coordinates": [-71.11890607285167, 42.37402923084183],
+    "lines": ["line-red"],
+    "municipality": "Cambridge"
+  },
+  {
+    "stop_name": "Central",
+    "station": "place-cntsq",
+    "order": 5,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.10382518006278, 42.36543993910913],
+    "lines": ["line-red"],
+    "municipality": "Cambridge"
+  },
+  {
+    "stop_name": "Kendall/MIT",
+    "short": "Kendall",
+    "station": "place-knncl",
+    "order": 6,
+    "accessible": true,
+    "coordinates": [-71.08619149362897, 42.36241534494076],
+    "lines": ["line-red"],
+    "municipality": "Cambridge"
+  },
+  {
+    "stop_name": "Charles/MGH",
+    "short": "MGH",
+    "station": "place-chmnl",
+    "order": 7,
+    "accessible": true,
+    "coordinates": [-71.07108060736338, 42.361167622212555],
+    "lines": ["line-red"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Park Street",
+    "short": "Park St",
+    "station": "place-pktrm",
+    "order": 8,
+    "accessible": true,
+    "coordinates": [-71.06224495439349, 42.35630564267532],
+    "lines": ["line-red", "line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Downtown Crossing",
+    "short": "DTX",
+    "station": "place-dwnxg",
+    "order": 9,
+    "accessible": true,
+    "coordinates": [-71.06049310660444, 42.35545008727899],
+    "lines": ["line-red", "line-orange"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "South Station",
+    "short": "S. Station",
+    "station": "place-sstat",
+    "order": 10,
+    "accessible": true,
+    "coordinates": [-71.05522411156839, 42.35260464573478],
+    "lines": [
+      "line-red",
+      "line-silver",
+      "cr-fairmount",
+      "cr-worcester",
+      "cr-franklin",
+      "cr-greenbush",
+      "cr-kingston",
+      "cr-middleborough",
+      "cr-needham",
+      "cr-providence",
+      "cr-foxboro"
+    ],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Broadway",
+    "station": "place-brdwy",
+    "order": 11,
+    "accessible": true,
+    "coordinates": [-71.05717003941312, 42.34258168600754],
+    "lines": ["line-red"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Andrew",
+    "station": "place-andrw",
+    "order": 12,
+    "accessible": true,
+    "coordinates": [-71.05697754578115, 42.33011322520407],
+    "lines": ["line-red"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "JFK/UMass",
+    "short": "JFK",
+    "station": "place-jfk",
+    "order": 101,
+    "accessible": true,
+    "coordinates": [-71.05236076657424, 42.320636509459824],
+    "lines": ["line-red", "cr-greenbush", "cr-kingston", "cr-middleborough"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Savin Hill",
+    "station": "place-shmnl",
+    "order": 102,
+    "accessible": true,
+    "coordinates": [-71.05364006133503, 42.31074782475063],
+    "lines": ["line-red"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Fields Corner",
+    "short": "Fields Cor.",
+    "station": "place-fldcr",
+    "order": 103,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.06192392219717, 42.300001622650505],
+    "lines": ["line-red"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Shawmut",
+    "station": "place-smmnl",
+    "order": 104,
+    "accessible": true,
+    "coordinates": [-71.06582888832982, 42.29310744989661],
+    "lines": ["line-red"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Ashmont",
+    "station": "place-asmnl",
+    "order": 105,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "coordinates": [-71.06343014428334, 42.28388354653585],
+    "lines": ["line-red", "line-mattapan"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "North Quincy",
+    "short": "N. Quincy",
+    "station": "place-nqncy",
+    "order": 202,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.03044263936602, 42.275976380297415],
+    "lines": ["line-red"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Quincy"
+  },
+  {
+    "stop_name": "Wollaston",
+    "station": "place-wlsta",
+    "order": 203,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "coordinates": [-71.02054283814307, 42.26670977185839],
+    "lines": ["line-red"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Quincy"
+  },
+  {
+    "stop_name": "Quincy Center",
+    "short": "Quincy Ctr.",
+    "station": "place-qnctr",
+    "order": 204,
+    "accessible": true,
+    "coordinates": [-71.00564054323864, 42.25208702636003],
+    "lines": ["line-red", "cr-greenbush", "cr-kingston", "cr-middleborough"],
+    "municipality": "Quincy"
+  },
+  {
+    "stop_name": "Quincy Adams",
+    "short": "Q. Adams",
+    "station": "place-qamnl",
+    "order": 205,
+    "accessible": true,
+    "coordinates": [-71.00694130297018, 42.233293689733806],
+    "lines": ["line-red"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "parking_garage": true,
+    "municipality": "Quincy"
+  },
+  {
+    "stop_name": "Braintree",
+    "station": "place-brntn",
+    "order": 206,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "coordinates": [-71.0017025430377, 42.207537257351355],
+    "lines": ["line-red", "cr-greenbush", "cr-kingston", "cr-middleborough"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "parking_garage": true,
+    "municipality": "Braintree"
+  },
+  {
+    "stop_name": "Oak Grove",
+    "station": "place-ogmnl",
+    "order": 1,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "coordinates": [-71.07082632876849, 42.437504597359634],
+    "lines": ["line-orange", "cr-haverhill"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Malden"
+  },
+  {
+    "stop_name": "Malden Center",
+    "short": "Malden Ctr.",
+    "station": "place-mlmnl",
+    "order": 2,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "coordinates": [-71.07431521595218, 42.42658098096979],
+    "lines": ["line-orange", "cr-haverhill"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Malden"
+  },
+  {
+    "stop_name": "Wellington",
+    "station": "place-welln",
+    "order": 3,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.07711743873362, 42.40174005251547],
+    "lines": ["line-orange"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "parking_lot": true,
+    "municipality": "Medford"
+  },
+  {
+    "stop_name": "Assembly",
+    "station": "place-astao",
+    "order": 4,
+    "accessible": true,
+    "coordinates": [-71.0771253379968, 42.392155913098435],
+    "lines": ["line-orange"],
+    "municipality": "Somerville"
+  },
+  {
+    "stop_name": "Sullivan Square",
+    "short": "Sullivan Sq",
+    "station": "place-sull",
+    "order": 5,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.07693157345818, 42.384297418100914],
+    "lines": ["line-orange"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Community College",
+    "short": "Comm. Coll.",
+    "station": "place-ccmnl",
+    "order": 6,
+    "accessible": true,
+    "coordinates": [-71.07033821609618, 42.37390813278847],
+    "lines": ["line-orange"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "North Station",
+    "short": "N. Station",
+    "station": "place-north",
+    "order": 7,
+    "accessible": true,
+    "coordinates": [-71.05998293491109, 42.36514376184885],
+    "lines": [
+      "line-orange",
+      "line-green",
+      "cr-newburyport",
+      "cr-fitchburg",
+      "cr-haverhill",
+      "cr-lowell"
+    ],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Haymarket",
+    "station": "place-haecl",
+    "order": 8,
+    "accessible": true,
+    "coordinates": [-71.05785165728992, 42.362472520303136],
+    "lines": ["line-orange", "line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "State Street",
+    "short": "State St",
+    "station": "place-state",
+    "order": 9,
+    "accessible": true,
+    "coordinates": [-71.05781905424712, 42.35879934320063],
+    "lines": ["line-orange", "line-blue"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Chinatown",
+    "station": "place-chncl",
+    "order": 11,
+    "accessible": true,
+    "coordinates": [-71.06258053989707, 42.35247413411866],
+    "lines": ["line-orange"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Tufts Medical Center",
+    "short": "Tufts Medical",
+    "station": "place-tumnl",
+    "order": 12,
+    "accessible": true,
+    "coordinates": [-71.06391632313627, 42.34983936198039],
+    "lines": ["line-orange"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Back Bay",
+    "station": "place-bbsta",
+    "order": 13,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "coordinates": [-71.07510604132653, 42.347559095739506],
+    "lines": [
+      "line-orange",
+      "cr-foxboro",
+      "cr-worcester",
+      "cr-franklin",
+      "cr-needham",
+      "cr-providence"
+    ],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Massachusetts Avenue",
+    "short": "Mass Ave",
+    "station": "place-masta",
+    "order": 14,
+    "accessible": true,
+    "coordinates": [-71.07942039768363, 42.337962652119266],
+    "lines": ["line-orange"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Ruggles",
+    "station": "place-rugg",
+    "order": 15,
+    "accessible": true,
+    "coordinates": [-71.08977030598976, 42.336452737838414],
+    "lines": ["line-orange", "cr-franklin", "cr-needham", "cr-providence"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Roxbury Crossing",
+    "short": "Roxbury Xing",
+    "station": "place-rcmnl",
+    "order": 16,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.09572883332143, 42.3312095165599],
+    "lines": ["line-orange"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Jackson Square",
+    "short": "Jackson Sq",
+    "station": "place-jaksn",
+    "order": 17,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.09993247620687, 42.32317162155772],
+    "lines": ["line-orange"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Stony Brook",
+    "station": "place-sbmnl",
+    "order": 18,
+    "accessible": true,
+    "coordinates": [-71.10435720272945, 42.31724666007611],
+    "lines": ["line-orange"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Green Street",
+    "short": "Green St",
+    "station": "place-grnst",
+    "order": 19,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.1080593951544, 42.309898743597685],
+    "lines": ["line-orange"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Forest Hills",
+    "station": "place-forhl",
+    "order": 20,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "coordinates": [-71.11419142947183, 42.30077124174312],
+    "lines": ["line-orange", "cr-franklin", "cr-needham"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Wonderland",
+    "station": "place-wondl",
+    "order": 1,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "coordinates": [-70.9915444795054, 42.41371900023943],
+    "lines": ["line-blue"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "parking_lot": true,
+    "municipality": "Revere"
+  },
+  {
+    "stop_name": "Revere Beach",
+    "short": "Revere Bch.",
+    "station": "place-rbmnl",
+    "order": 2,
+    "accessible": true,
+    "coordinates": [-70.99250348685123, 42.407842404277304],
+    "lines": ["line-blue"],
+    "municipality": "Revere"
+  },
+  {
+    "stop_name": "Beachmont",
+    "station": "place-bmmnl",
+    "order": 3,
+    "accessible": true,
+    "coordinates": [-70.99253225084686, 42.39725164596786],
+    "lines": ["line-blue"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Revere"
+  },
+  {
+    "stop_name": "Suffolk Downs",
+    "short": "Suff. Downs",
+    "station": "place-sdmnl",
+    "order": 4,
+    "accessible": true,
+    "coordinates": [-70.99714972550416, 42.390496463343666],
+    "lines": ["line-blue"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Orient Heights",
+    "short": "Orient Hts.",
+    "station": "place-orhte",
+    "order": 5,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.00479639613563, 42.38684164362632],
+    "lines": ["line-blue"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Wood Island",
+    "station": "place-wimnl",
+    "order": 6,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.02291228775546, 42.37964743542034],
+    "lines": ["line-blue"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Airport",
+    "station": "place-aport",
+    "order": 7,
+    "accessible": true,
+    "coordinates": [-71.03001541698075, 42.374257639573955],
+    "lines": ["line-blue", "line-silver"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Maverick",
+    "station": "place-mvbcl",
+    "order": 8,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.03957976452097, 42.36899298085771],
+    "lines": ["line-blue"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Aquarium",
+    "station": "place-aqucl",
+    "order": 9,
+    "accessible": true,
+    "coordinates": [-71.05193843452263, 42.35951696211841],
+    "lines": ["line-blue"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Government Center",
+    "short": "Gov. Center",
+    "station": "place-gover",
+    "order": 11,
+    "accessible": true,
+    "coordinates": [-71.05945866865088, 42.35929659818088],
+    "lines": ["line-blue", "line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Bowdoin",
+    "station": "place-bomnl",
+    "order": 12,
+    "accessible": false,
+    "coordinates": [-71.06183707177904, 42.36116074813561],
+    "lines": ["line-blue"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Medford/Tufts",
+    "station": "place-mdftf",
+    "order": 1,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.11769947884699, 42.408840144413674],
+    "lines": ["line-green"],
+    "municipality": "Medford"
+  },
+  {
+    "stop_name": "Ball Square",
+    "short": "Ball Sq",
+    "station": "place-balsq",
+    "order": 2,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.11065157483903, 42.39951877057597],
+    "lines": ["line-green"],
+    "municipality": "Medford"
+  },
+  {
+    "stop_name": "Magoun Square",
+    "short": "Magoun Sq",
+    "station": "place-mgngl",
+    "order": 3,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.10643683706161, 42.39385203142245],
+    "lines": ["line-green"],
+    "municipality": "Somerville"
+  },
+  {
+    "stop_name": "Gilman Square",
+    "short": "Gilman Sq",
+    "station": "place-gilmn",
+    "order": 4,
+    "accessible": true,
+    "coordinates": [-71.09627898245753, 42.38774855527955],
+    "lines": ["line-green"],
+    "municipality": "Somerville"
+  },
+  {
+    "stop_name": "East Somerville",
+    "station": "place-esomr",
+    "order": 5,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.08654300350182, 42.37944770272681],
+    "lines": ["line-green"],
+    "municipality": "Somerville"
+  },
+  {
+    "stop_name": "Union Square",
+    "short": "Union Sq",
+    "station": "place-unsqu",
+    "order": 6,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.09507610201335, 42.37746482063085],
+    "lines": ["line-green"],
+    "municipality": "Somerville"
+  },
+  {
+    "stop_name": "Lechmere",
+    "station": "place-lech",
+    "order": 7,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.07650953012276, 42.37162186584587],
+    "lines": ["line-green"],
+    "municipality": "Cambridge"
+  },
+  {
+    "stop_name": "Science Park",
+    "station": "place-spmnl",
+    "order": 8,
+    "accessible": true,
+    "coordinates": [-71.0677439879553, 42.36674243369941],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Boylston",
+    "station": "place-boyls",
+    "order": 13,
+    "accessible": false,
+    "coordinates": [-71.06460214049746, 42.35302131572687],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Arlington",
+    "station": "place-armnl",
+    "order": 14,
+    "accessible": true,
+    "coordinates": [-71.07098957216165, 42.35176844680484],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Copley",
+    "station": "place-coecl",
+    "order": 15,
+    "accessible": true,
+    "coordinates": [-71.07797545349253, 42.34990759582836],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Hynes",
+    "station": "place-hymnl",
+    "order": 16,
+    "accessible": false,
+    "coordinates": [-71.0873145576371, 42.347982285130975],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Kenmore",
+    "station": "place-kencl",
+    "order": 17,
+    "accessible": true,
+    "coordinates": [-71.09534868325512, 42.348814285355004],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Blandford Street",
+    "short": "Blandford St",
+    "station": "place-bland",
+    "order": 101,
+    "accessible": false,
+    "coordinates": [-71.1000555872087, 42.34919807685957],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Boston University East",
+    "station": "place-buest",
+    "order": 102,
+    "accessible": true,
+    "coordinates": [-71.10442793966416, 42.34972114226164],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Boston University Central",
+    "station": "place-bucen",
+    "order": 103,
+    "accessible": true,
+    "coordinates": [-71.10703612049464, 42.35004075702679],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Amory Street",
+    "station": "place-amory",
+    "order": 105,
+    "accessible": true,
+    "coordinates": [-71.11470750829879, 42.350966166481726],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Babcock Street",
+    "station": "place-babck",
+    "order": 107,
+    "accessible": true,
+    "coordinates": [-71.1199201198467, 42.35159305167674],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Packards Corner",
+    "station": "place-brico",
+    "order": 108,
+    "accessible": false,
+    "coordinates": [-71.12522582972619, 42.35178581335218],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Harvard Avenue",
+    "station": "place-harvd",
+    "order": 109,
+    "accessible": true,
+    "coordinates": [-71.13100726113383, 42.350411774810304],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Griggs Street",
+    "station": "place-grigg",
+    "order": 110,
+    "accessible": false,
+    "coordinates": [-71.13436462642305, 42.348819512853204],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Allston Street",
+    "station": "place-alsgr",
+    "order": 111,
+    "accessible": false,
+    "coordinates": [-71.13763680046425, 42.348576095002805],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Warren Street",
+    "station": "place-wrnst",
+    "order": 112,
+    "accessible": false,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.14024039501022, 42.34862364982661],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Washington Street",
+    "short": "Washington St",
+    "station": "place-wascm",
+    "order": 113,
+    "accessible": true,
+    "coordinates": [-71.14254885115989, 42.344123289955306],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Sutherland Road",
+    "station": "place-sthld",
+    "order": 114,
+    "accessible": false,
+    "coordinates": [-71.14632990186321, 42.34156149797488],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Chiswick Road",
+    "station": "place-chswk",
+    "order": 115,
+    "accessible": false,
+    "coordinates": [-71.15095131525393, 42.34061808283805],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Chestnut Hill Avenue",
+    "short": "Chestnut Hill Ave",
+    "station": "place-chill",
+    "order": 116,
+    "accessible": false,
+    "coordinates": [-71.15265529729677, 42.338577768819135],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "South Street",
+    "station": "place-sougr",
+    "order": 117,
+    "accessible": false,
+    "coordinates": [-71.15726165487304, 42.33945403927003],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Boston College",
+    "station": "place-lake",
+    "order": 118,
+    "accessible": true,
+    "coordinates": [-71.16702496371806, 42.34015543866325],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Saint Marys Street",
+    "station": "place-smary",
+    "order": 201,
+    "accessible": true,
+    "coordinates": [-71.10723956448349, 42.34598737155037],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Hawes Street",
+    "station": "place-hwsst",
+    "order": 202,
+    "accessible": false,
+    "coordinates": [-71.11117480120801, 42.34485991616301],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Kent Street",
+    "station": "place-kntst",
+    "order": 203,
+    "accessible": false,
+    "coordinates": [-71.11429128686976, 42.34401012128103],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Saint Paul Street (C)",
+    "short": "Saint Paul St",
+    "station": "place-stpul",
+    "order": 204,
+    "accessible": false,
+    "coordinates": [-71.11718908593329, 42.343210424690504],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Coolidge Corner",
+    "station": "place-cool",
+    "order": 205,
+    "accessible": true,
+    "coordinates": [-71.12129543780442, 42.34214998557575],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Summit Avenue",
+    "station": "place-sumav",
+    "order": 206,
+    "accessible": false,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.12578786977899, 42.34102836524763],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Brandon Hall",
+    "station": "place-bndhl",
+    "order": 207,
+    "accessible": false,
+    "coordinates": [-71.12865720041415, 42.340053638167774],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Fairbanks Street",
+    "station": "place-fbkst",
+    "order": 208,
+    "accessible": false,
+    "coordinates": [-71.13129703270397, 42.33964025614947],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Washington Square",
+    "short": "Washington Sq",
+    "station": "place-bcnwa",
+    "order": 209,
+    "accessible": true,
+    "coordinates": [-71.13536707673275, 42.339327415869064],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Tappan Street",
+    "station": "place-tapst",
+    "order": 210,
+    "accessible": false,
+    "coordinates": [-71.138441384533, 42.338518819481905],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Dean Road",
+    "station": "place-denrd",
+    "order": 211,
+    "accessible": false,
+    "coordinates": [-71.14195534190397, 42.337714335251015],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Englewood Avenue",
+    "station": "place-engav",
+    "order": 212,
+    "accessible": false,
+    "coordinates": [-71.1454983930447, 42.336984804269484],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Cleveland Circle",
+    "short": "Cleveland Cir",
+    "station": "place-clmnl",
+    "order": 213,
+    "accessible": true,
+    "coordinates": [-71.14928663073547, 42.336136714894266],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Fenway",
+    "station": "place-fenwy",
+    "order": 301,
+    "accessible": true,
+    "coordinates": [-71.10460442804983, 42.3451586371175],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Longwood",
+    "station": "place-longw",
+    "order": 302,
+    "accessible": true,
+    "coordinates": [-71.10993456944726, 42.34166911654718],
+    "lines": ["line-green"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Brookline Village",
+    "station": "place-bvmnl",
+    "order": 303,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.11682793517372, 42.33259466444791],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Brookline Hills",
+    "station": "place-brkhl",
+    "order": 304,
+    "accessible": true,
+    "coordinates": [-71.1267274031737, 42.33129459027284],
+    "lines": ["line-green"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Beaconsfield",
+    "station": "place-bcnfd",
+    "order": 305,
+    "accessible": false,
+    "coordinates": [-71.14025927261312, 42.33569218472996],
+    "lines": ["line-green"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Reservoir",
+    "station": "place-rsmnl",
+    "order": 306,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.14837901822938, 42.33513990903663],
+    "lines": ["line-green"],
+    "municipality": "Brookline"
+  },
+  {
+    "stop_name": "Chestnut Hill",
+    "station": "place-chhil",
+    "order": 307,
+    "accessible": false,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.16460873449554, 42.326741781629615],
+    "lines": ["line-green"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Newton"
+  },
+  {
+    "stop_name": "Newton Centre",
+    "station": "place-newto",
+    "order": 308,
+    "accessible": true,
+    "coordinates": [-71.19236980764195, 42.32941548752982],
+    "lines": ["line-green"],
+    "municipality": "Newton"
+  },
+  {
+    "stop_name": "Newton Highlands",
+    "station": "place-newtn",
+    "order": 309,
+    "accessible": true,
+    "coordinates": [-71.20550185798365, 42.322354080603446],
+    "lines": ["line-green"],
+    "municipality": "Newton"
+  },
+  {
+    "stop_name": "Eliot",
+    "station": "place-eliot",
+    "order": 310,
+    "accessible": false,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.2165880469504, 42.31897816711658],
+    "lines": ["line-green"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Newton"
+  },
+  {
+    "stop_name": "Waban",
+    "station": "place-waban",
+    "order": 311,
+    "accessible": false,
+    "coordinates": [-71.23069341911206, 42.325877716768886],
+    "lines": ["line-green"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Newton"
+  },
+  {
+    "stop_name": "Woodland",
+    "station": "place-woodl",
+    "order": 312,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.24326789756216, 42.33283282398856],
+    "lines": ["line-green"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Newton"
+  },
+  {
+    "stop_name": "Riverside",
+    "station": "place-river",
+    "order": 313,
+    "accessible": true,
+    "enclosed_bike_parking": true,
+    "coordinates": [-71.25255434001781, 42.337398408130646],
+    "lines": ["line-green"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Newton"
+  },
+  {
+    "stop_name": "Prudential",
+    "station": "place-prmnl",
+    "order": 401,
+    "accessible": true,
+    "coordinates": [-71.08119909208664, 42.34576811139249],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Symphony",
+    "station": "place-symcl",
+    "order": 402,
+    "accessible": false,
+    "coordinates": [-71.08494060848427, 42.34272033783001],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Northeastern University",
+    "station": "place-nuniv",
+    "order": 403,
+    "accessible": true,
+    "coordinates": [-71.08965205455883, 42.34005063291596],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Museum of Fine Arts",
+    "short": "Museum Fine Arts",
+    "station": "place-mfa",
+    "order": 404,
+    "accessible": true,
+    "coordinates": [-71.09497605113634, 42.33792513899964],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Longwood Medical Area",
+    "station": "place-lngmd",
+    "order": 405,
+    "accessible": true,
+    "coordinates": [-71.09956099897516, 42.33614100894477],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Brigham Circle",
+    "station": "place-brmnl",
+    "order": 406,
+    "accessible": true,
+    "coordinates": [-71.10372418778329, 42.33457104974001],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Fenwood Road",
+    "station": "place-fenwd",
+    "order": 407,
+    "accessible": false,
+    "coordinates": [-71.10564567075349, 42.33374540645192],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Mission Park",
+    "station": "place-mispk",
+    "order": 408,
+    "accessible": false,
+    "coordinates": [-71.1095849635522, 42.3331794092204],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Riverway",
+    "station": "place-rvrwy",
+    "order": 409,
+    "accessible": false,
+    "coordinates": [-71.1119506665, 42.331978007820986],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Back of the Hill",
+    "station": "place-bckhl",
+    "order": 410,
+    "accessible": false,
+    "coordinates": [-71.11107040791865, 42.329638250481544],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Heath Street",
+    "station": "place-hsmnl",
+    "order": 411,
+    "accessible": true,
+    "coordinates": [-71.11028101742203, 42.328311284444304],
+    "lines": ["line-green"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Cedar Grove",
+    "station": "place-cedgr",
+    "coordinates": [-71.060394, 42.279629],
+    "accessible": true,
+    "lines": ["line-mattapan"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Butler",
+    "station": "place-butlr",
+    "coordinates": [-71.062519, 42.272429],
+    "accessible": true,
+    "lines": ["line-mattapan"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Milton",
+    "station": "place-miltt",
+    "coordinates": [-71.067266, 42.270349],
+    "accessible": true,
+    "lines": ["line-mattapan"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Milton"
+  },
+  {
+    "stop_name": "Central Avenue",
+    "station": "place-cenav",
+    "coordinates": [-71.073444, 42.270027],
+    "accessible": true,
+    "lines": ["line-mattapan"],
+    "municipality": "Milton"
+  },
+  {
+    "stop_name": "Valley Road",
+    "station": "place-valrd",
+    "coordinates": [-71.081343, 42.268347],
+    "accessible": false,
+    "lines": ["line-mattapan"],
+    "municipality": "Milton"
+  },
+  {
+    "stop_name": "Capen Street",
+    "station": "place-capst",
+    "coordinates": [-71.087338, 42.267563],
+    "accessible": true,
+    "lines": ["line-mattapan"],
+    "municipality": "Milton"
+  },
+  {
+    "stop_name": "Mattapan",
+    "station": "place-matt",
+    "coordinates": [-71.092486, 42.26762],
+    "accessible": true,
+    "lines": ["line-mattapan"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Silver Line Way",
+    "station": "place-conrd",
+    "coordinates": [-71.038385, 42.347154],
+    "accessible": true,
+    "lines": ["line-silver"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "World Trade Center",
+    "station": "place-wtcst",
+    "coordinates": [-71.04246, 42.34863],
+    "accessible": true,
+    "lines": ["line-silver"],
+    "enclosed_bike_parking": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Courthouse",
+    "station": "place-crtst",
+    "coordinates": [-71.04685, 42.35245],
+    "accessible": true,
+    "lines": ["line-silver"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Readville",
+    "station": "place-DB-0095",
+    "coordinates": [-71.133246, 42.238405],
+    "accessible": true,
+    "lines": ["cr-fairmount", "cr-franklin"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Fairmount",
+    "station": "place-DB-2205",
+    "coordinates": [-71.11927, 42.253638],
+    "accessible": true,
+    "lines": ["cr-fairmount"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Blue Hill Avenue",
+    "short": "Blue Hill Ave",
+    "station": "place-DB-2222",
+    "coordinates": [-71.095782, 42.271466],
+    "accessible": true,
+    "lines": ["cr-fairmount"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Morton Street",
+    "station": "place-DB-2230",
+    "coordinates": [-71.085475, 42.280994],
+    "accessible": true,
+    "lines": ["cr-fairmount"],
+    "enclosed_bike_parking": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Talbot Avenue",
+    "station": "place-DB-2240",
+    "coordinates": [-71.07814, 42.292246],
+    "accessible": true,
+    "lines": ["cr-fairmount"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Four Corners/Geneva",
+    "station": "place-DB-2249",
+    "coordinates": [-71.076833, 42.305037],
+    "accessible": true,
+    "lines": ["cr-fairmount"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Uphams Corner",
+    "station": "place-DB-2258",
+    "coordinates": [-71.068627, 42.319125],
+    "accessible": true,
+    "lines": ["cr-fairmount"],
+    "free_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Newmarket",
+    "station": "place-DB-2265",
+    "coordinates": [-71.065674, 42.327415],
+    "accessible": true,
+    "lines": ["cr-fairmount"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Worcester",
+    "station": "place-WML-0442",
+    "coordinates": [-71.791806, 42.261835],
+    "accessible": true,
+    "lines": ["cr-worcester"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "parking_garage": true,
+    "municipality": "Worcester"
+  },
+  {
+    "stop_name": "Grafton",
+    "station": "place-WML-0364",
+    "coordinates": [-71.685325, 42.2466],
+    "accessible": true,
+    "lines": ["cr-worcester"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Grafton"
+  },
+  {
+    "stop_name": "Westborough",
+    "station": "place-WML-0340",
+    "coordinates": [-71.647076, 42.269644],
+    "accessible": true,
+    "lines": ["cr-worcester"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Westborough"
+  },
+  {
+    "stop_name": "Southborough",
+    "station": "place-WML-0274",
+    "coordinates": [-71.524371, 42.267024],
+    "accessible": true,
+    "lines": ["cr-worcester"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Southborough"
+  },
+  {
+    "stop_name": "Framingham",
+    "station": "place-WML-0214",
+    "coordinates": [-71.420055, 42.276108],
+    "accessible": true,
+    "lines": ["cr-worcester"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Framingham"
+  },
+  {
+    "stop_name": "West Natick",
+    "station": "place-WML-0199",
+    "coordinates": [-71.391797, 42.283064],
+    "accessible": true,
+    "lines": ["cr-worcester"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Natick"
+  },
+  {
+    "stop_name": "Natick Center",
+    "station": "place-WML-0177",
+    "coordinates": [-71.347133, 42.285719],
+    "accessible": false,
+    "lines": ["cr-worcester"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Natick"
+  },
+  {
+    "stop_name": "Wellesley Square",
+    "short": "Wellesley Sq",
+    "station": "place-WML-0147",
+    "coordinates": [-71.294173, 42.297526],
+    "accessible": false,
+    "lines": ["cr-worcester"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Wellesley"
+  },
+  {
+    "stop_name": "Wellesley Hills",
+    "station": "place-WML-0135",
+    "coordinates": [-71.277044, 42.31037],
+    "accessible": false,
+    "lines": ["cr-worcester"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Wellesley"
+  },
+  {
+    "stop_name": "Wellesley Farms",
+    "station": "place-WML-0125",
+    "coordinates": [-71.272288, 42.323608],
+    "accessible": false,
+    "lines": ["cr-worcester"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Wellesley"
+  },
+  {
+    "stop_name": "Auburndale",
+    "station": "place-WML-0102",
+    "coordinates": [-71.250373, 42.345833],
+    "accessible": false,
+    "lines": ["cr-worcester"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Newton"
+  },
+  {
+    "stop_name": "West Newton",
+    "station": "place-WML-0091",
+    "coordinates": [-71.230528, 42.347878],
+    "accessible": false,
+    "lines": ["cr-worcester"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Newton"
+  },
+  {
+    "stop_name": "Newtonville",
+    "station": "place-WML-0081",
+    "coordinates": [-71.205408, 42.351702],
+    "accessible": false,
+    "lines": ["cr-worcester"],
+    "municipality": "Newton"
+  },
+  {
+    "stop_name": "Boston Landing",
+    "station": "place-WML-0035",
+    "coordinates": [-71.139883, 42.357293],
+    "accessible": true,
+    "lines": ["cr-worcester"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Lansdowne",
+    "station": "place-WML-0025",
+    "coordinates": [-71.099974, 42.347581],
+    "accessible": true,
+    "lines": ["cr-worcester"],
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Greenbush",
+    "station": "place-GRB-0276",
+    "coordinates": [-70.746641, 42.178776],
+    "accessible": true,
+    "lines": ["cr-greenbush"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Scituate"
+  },
+  {
+    "stop_name": "North Scituate",
+    "station": "place-GRB-0233",
+    "coordinates": [-70.788602, 42.219528],
+    "accessible": true,
+    "lines": ["cr-greenbush"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Scituate"
+  },
+  {
+    "stop_name": "Cohasset",
+    "station": "place-GRB-0199",
+    "coordinates": [-70.837529, 42.24421],
+    "accessible": true,
+    "lines": ["cr-greenbush"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Cohasset"
+  },
+  {
+    "stop_name": "Nantasket Junction",
+    "station": "place-GRB-0183",
+    "coordinates": [-70.869205, 42.244959],
+    "accessible": true,
+    "lines": ["cr-greenbush"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Hingham"
+  },
+  {
+    "stop_name": "West Hingham",
+    "station": "place-GRB-0162",
+    "coordinates": [-70.902708, 42.235838],
+    "accessible": true,
+    "lines": ["cr-greenbush"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Hingham"
+  },
+  {
+    "stop_name": "East Weymouth",
+    "station": "place-GRB-0146",
+    "coordinates": [-70.9214, 42.2191],
+    "accessible": true,
+    "lines": ["cr-greenbush"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Weymouth"
+  },
+  {
+    "stop_name": "Weymouth Landing/East Braintree",
+    "station": "place-GRB-0118",
+    "coordinates": [-70.968152, 42.221503],
+    "accessible": true,
+    "lines": ["cr-greenbush"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Weymouth"
+  },
+  {
+    "stop_name": "Kingston",
+    "station": "place-KB-0351",
+    "coordinates": [-70.721709, 41.97762],
+    "accessible": true,
+    "lines": ["cr-kingston"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Kingston"
+  },
+  {
+    "stop_name": "Halifax",
+    "station": "place-PB-0281",
+    "coordinates": [-70.824263, 42.014739],
+    "accessible": true,
+    "lines": ["cr-kingston"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Halifax"
+  },
+  {
+    "stop_name": "Hanson",
+    "station": "place-PB-0245",
+    "coordinates": [-70.882438, 42.043967],
+    "accessible": true,
+    "lines": ["cr-kingston"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Hanson"
+  },
+  {
+    "stop_name": "Whitman",
+    "station": "place-PB-0212",
+    "coordinates": [-70.923411, 42.082749],
+    "accessible": true,
+    "lines": ["cr-kingston"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Whitman"
+  },
+  {
+    "stop_name": "Abington",
+    "station": "place-PB-0194",
+    "coordinates": [-70.934405, 42.107156],
+    "accessible": true,
+    "lines": ["cr-kingston"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Abington"
+  },
+  {
+    "stop_name": "South Weymouth",
+    "station": "place-PB-0158",
+    "coordinates": [-70.953302, 42.155025],
+    "accessible": true,
+    "lines": ["cr-kingston"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Weymouth"
+  },
+  {
+    "stop_name": "Middleborough/Lakeville",
+    "short": "Middleborough",
+    "station": "place-MM-0356",
+    "coordinates": [-70.918444, 41.87821],
+    "accessible": true,
+    "lines": ["cr-middleborough"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Lakeville"
+  },
+  {
+    "stop_name": "Bridgewater",
+    "station": "place-MM-0277",
+    "coordinates": [-70.96537, 41.984916],
+    "accessible": true,
+    "lines": ["cr-middleborough"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Bridgewater"
+  },
+  {
+    "stop_name": "Campello",
+    "station": "place-MM-0219",
+    "coordinates": [-71.011004, 42.060951],
+    "accessible": true,
+    "lines": ["cr-middleborough"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Brockton"
+  },
+  {
+    "stop_name": "Brockton",
+    "station": "place-MM-0200",
+    "coordinates": [-71.016534, 42.084659],
+    "accessible": true,
+    "lines": ["cr-middleborough"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Brockton"
+  },
+  {
+    "stop_name": "Montello",
+    "station": "place-MM-0186",
+    "coordinates": [-71.022001, 42.106555],
+    "accessible": true,
+    "lines": ["cr-middleborough"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Brockton"
+  },
+  {
+    "stop_name": "Holbrook/Randolph",
+    "station": "place-MM-0150",
+    "coordinates": [-71.027371, 42.156343],
+    "accessible": true,
+    "lines": ["cr-middleborough"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Randolph"
+  },
+  {
+    "stop_name": "Dedham Corporate Center",
+    "station": "place-FB-0118",
+    "coordinates": [-71.174254, 42.227079],
+    "accessible": true,
+    "lines": ["cr-foxboro", "cr-franklin"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Dedham"
+  },
+  {
+    "stop_name": "Providence",
+    "station": "place-NEC-1851",
+    "coordinates": [-71.413301, 41.829293],
+    "accessible": true,
+    "lines": ["cr-foxboro", "cr-providence"],
+    "parking_garage": true,
+    "municipality": "Providence"
+  },
+  {
+    "stop_name": "Attleboro",
+    "station": "place-NEC-1969",
+    "coordinates": [-71.285094, 41.940739],
+    "accessible": true,
+    "lines": ["cr-foxboro", "cr-providence"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Attleboro"
+  },
+  {
+    "stop_name": "Mansfield",
+    "station": "place-NEC-2040",
+    "coordinates": [-71.219917, 42.032787],
+    "accessible": true,
+    "lines": ["cr-foxboro", "cr-providence"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Mansfield"
+  },
+  {
+    "stop_name": "Foxboro",
+    "station": "place-FS-0049",
+    "coordinates": [-71.26151, 42.0951],
+    "accessible": true,
+    "lines": ["cr-foxboro", "cr-franklin"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Foxborough"
+  },
+  {
+    "stop_name": "Forge Park/495",
+    "station": "place-FB-0303",
+    "coordinates": [-71.43902, 42.089941],
+    "accessible": true,
+    "lines": ["cr-franklin"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Franklin"
+  },
+  {
+    "stop_name": "Franklin",
+    "station": "place-FB-0275",
+    "coordinates": [-71.396102, 42.083238],
+    "accessible": false,
+    "lines": ["cr-franklin"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Franklin"
+  },
+  {
+    "stop_name": "Norfolk",
+    "station": "place-FB-0230",
+    "coordinates": [-71.325217, 42.120694],
+    "accessible": true,
+    "lines": ["cr-franklin"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Norfolk"
+  },
+  {
+    "stop_name": "Walpole",
+    "station": "place-FB-0191",
+    "coordinates": [-71.25779, 42.145477],
+    "accessible": false,
+    "lines": ["cr-franklin"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Walpole"
+  },
+  {
+    "stop_name": "Windsor Gardens",
+    "station": "place-FB-0166",
+    "coordinates": [-71.219366, 42.172127],
+    "accessible": false,
+    "lines": ["cr-franklin"],
+    "municipality": "Norwood"
+  },
+  {
+    "stop_name": "Norwood Central",
+    "station": "place-FB-0148",
+    "coordinates": [-71.199665, 42.188775],
+    "accessible": true,
+    "lines": ["cr-franklin"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Norwood"
+  },
+  {
+    "stop_name": "Norwood Depot",
+    "station": "place-FB-0143",
+    "coordinates": [-71.196688, 42.196857],
+    "accessible": true,
+    "lines": ["cr-franklin"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Norwood"
+  },
+  {
+    "stop_name": "Islington",
+    "station": "place-FB-0125",
+    "coordinates": [-71.183961, 42.22105],
+    "accessible": false,
+    "lines": ["cr-franklin"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Westwood"
+  },
+  {
+    "stop_name": "Endicott",
+    "station": "place-FB-0109",
+    "coordinates": [-71.158647, 42.233249],
+    "accessible": false,
+    "lines": ["cr-franklin"],
+    "free_parking": true,
+    "parking_lot": true,
+    "municipality": "Dedham"
+  },
+  {
+    "stop_name": "Hyde Park",
+    "station": "place-NEC-2203",
+    "coordinates": [-71.125526, 42.25503],
+    "accessible": true,
+    "lines": ["cr-franklin", "cr-providence"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Needham Heights",
+    "station": "place-NB-0137",
+    "coordinates": [-71.236027, 42.293444],
+    "accessible": true,
+    "lines": ["cr-needham"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Needham"
+  },
+  {
+    "stop_name": "Needham Center",
+    "station": "place-NB-0127",
+    "coordinates": [-71.237686, 42.280775],
+    "accessible": true,
+    "lines": ["cr-needham"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Needham"
+  },
+  {
+    "stop_name": "Needham Junction",
+    "station": "place-NB-0120",
+    "coordinates": [-71.235559, 42.273187],
+    "accessible": true,
+    "lines": ["cr-needham"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Needham"
+  },
+  {
+    "stop_name": "Hersey",
+    "station": "place-NB-0109",
+    "coordinates": [-71.215528, 42.275648],
+    "accessible": true,
+    "lines": ["cr-needham"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Needham"
+  },
+  {
+    "stop_name": "West Roxbury",
+    "station": "place-NB-0080",
+    "coordinates": [-71.160065, 42.281358],
+    "accessible": true,
+    "lines": ["cr-needham"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Highland",
+    "station": "place-NB-0076",
+    "coordinates": [-71.153937, 42.284969],
+    "accessible": true,
+    "lines": ["cr-needham"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Bellevue",
+    "station": "place-NB-0072",
+    "coordinates": [-71.145557, 42.286588],
+    "accessible": true,
+    "lines": ["cr-needham"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Roslindale Village",
+    "station": "place-NB-0064",
+    "coordinates": [-71.130283, 42.287442],
+    "accessible": true,
+    "lines": ["cr-needham"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Boston"
+  },
+  {
+    "stop_name": "Wickford Junction",
+    "station": "place-NEC-1659",
+    "coordinates": [-71.491147, 41.581289],
+    "accessible": true,
+    "lines": ["cr-providence"],
+    "free_parking": true,
+    "parking_garage": true,
+    "municipality": "North Kingstown"
+  },
+  {
+    "stop_name": "TF Green Airport",
+    "station": "place-NEC-1768",
+    "coordinates": [-71.442453, 41.726599],
+    "accessible": true,
+    "lines": ["cr-providence"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Warwick"
+  },
+  {
+    "stop_name": "Pawtucket/Central Falls",
+    "station": "place-NEC-1891",
+    "coordinates": [-71.392, 41.878762],
+    "accessible": true,
+    "lines": ["cr-providence"],
+    "free_parking": true,
+    "parking_lot": true,
+    "municipality": "Pawtucket"
+  },
+  {
+    "stop_name": "Sharon",
+    "station": "place-NEC-2108",
+    "coordinates": [-71.184468, 42.124553],
+    "accessible": true,
+    "lines": ["cr-providence"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Sharon"
+  },
+  {
+    "stop_name": "Stoughton",
+    "station": "place-SB-0189",
+    "coordinates": [-71.103627, 42.124084],
+    "accessible": true,
+    "lines": ["cr-providence"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Stoughton"
+  },
+  {
+    "stop_name": "Canton Center",
+    "station": "place-SB-0156",
+    "coordinates": [-71.14628, 42.157095],
+    "accessible": true,
+    "lines": ["cr-providence"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Canton"
+  },
+  {
+    "stop_name": "Canton Junction",
+    "station": "place-NEC-2139",
+    "coordinates": [-71.15376, 42.163204],
+    "accessible": true,
+    "lines": ["cr-providence"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Canton"
+  },
+  {
+    "stop_name": "Route 128",
+    "station": "place-NEC-2173",
+    "coordinates": [-71.147134, 42.210308],
+    "accessible": true,
+    "lines": ["cr-providence"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Westwood"
+  },
+  {
+    "stop_name": "Rockport",
+    "station": "place-GB-0353",
+    "coordinates": [-70.627055, 42.655491],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "free_parking": true,
+    "parking_lot": true,
+    "municipality": "Rockport"
+  },
+  {
+    "stop_name": "Gloucester",
+    "station": "place-GB-0316",
+    "coordinates": [-70.668345, 42.616799],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Gloucester"
+  },
+  {
+    "stop_name": "West Gloucester",
+    "station": "place-GB-0296",
+    "coordinates": [-70.705417, 42.611933],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Gloucester"
+  },
+  {
+    "stop_name": "Manchester",
+    "station": "place-GB-0254",
+    "coordinates": [-70.77009, 42.573687],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "free_parking": true,
+    "parking_lot": true,
+    "municipality": "Manchester-by-the-Sea"
+  },
+  {
+    "stop_name": "Beverly Farms",
+    "station": "place-GB-0229",
+    "coordinates": [-70.811405, 42.561651],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "free_parking": true,
+    "parking_lot": true,
+    "municipality": "Beverly"
+  },
+  {
+    "stop_name": "Montserrat",
+    "station": "place-GB-0198",
+    "coordinates": [-70.869254, 42.562171],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Beverly"
+  },
+  {
+    "stop_name": "Newburyport",
+    "station": "place-ER-0362",
+    "coordinates": [-70.87797, 42.797837],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Newburyport"
+  },
+  {
+    "stop_name": "Rowley",
+    "station": "place-ER-0312",
+    "coordinates": [-70.859034, 42.726845],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Rowley"
+  },
+  {
+    "stop_name": "Ipswich",
+    "station": "place-ER-0276",
+    "coordinates": [-70.840589, 42.676921],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Ipswich"
+  },
+  {
+    "stop_name": "Hamilton/Wenham",
+    "station": "place-ER-0227",
+    "coordinates": [-70.874801, 42.609212],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Hamilton"
+  },
+  {
+    "stop_name": "North Beverly",
+    "station": "place-ER-0208",
+    "coordinates": [-70.883851, 42.583779],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Beverly"
+  },
+  {
+    "stop_name": "Beverly",
+    "station": "place-ER-0183",
+    "coordinates": [-70.885432, 42.547276],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Beverly"
+  },
+  {
+    "stop_name": "Salem",
+    "station": "place-ER-0168",
+    "coordinates": [-70.895876, 42.524792],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "enclosed_bike_parking": true,
+    "pedal_park": true,
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Salem"
+  },
+  {
+    "stop_name": "Swampscott",
+    "station": "place-ER-0128",
+    "coordinates": [-70.922537, 42.473743],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Swampscott"
+  },
+  {
+    "stop_name": "Lynn",
+    "station": "place-ER-0115",
+    "coordinates": [-70.945421, 42.462953],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Lynn"
+  },
+  {
+    "stop_name": "River Works",
+    "station": "place-ER-0099",
+    "coordinates": [-70.969848, 42.449927],
+    "lines": ["cr-newburyport"],
+    "accessible": false,
+    "municipality": "Lynn"
+  },
+  {
+    "stop_name": "Chelsea",
+    "station": "place-chels",
+    "coordinates": [-71.041314, 42.397024],
+    "accessible": true,
+    "lines": ["cr-newburyport"],
+    "enclosed_bike_parking": true,
+    "municipality": "Chelsea"
+  },
+  {
+    "stop_name": "Wachusett",
+    "station": "place-FR-3338",
+    "coordinates": [-71.848488, 42.553477],
+    "accessible": true,
+    "lines": ["cr-fitchburg"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Fitchburg"
+  },
+  {
+    "stop_name": "Fitchburg",
+    "station": "place-FR-0494",
+    "coordinates": [-71.792611, 42.58072],
+    "accessible": true,
+    "lines": ["cr-fitchburg"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Fitchburg"
+  },
+  {
+    "stop_name": "North Leominster",
+    "station": "place-FR-0451",
+    "coordinates": [-71.739186, 42.539017],
+    "accessible": true,
+    "lines": ["cr-fitchburg"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Leominster"
+  },
+  {
+    "stop_name": "Shirley",
+    "station": "place-FR-0394",
+    "coordinates": [-71.648004, 42.545089],
+    "accessible": false,
+    "lines": ["cr-fitchburg"],
+    "free_parking": true,
+    "parking_lot": true,
+    "municipality": "Shirley"
+  },
+  {
+    "stop_name": "Ayer",
+    "station": "place-FR-0361",
+    "coordinates": [-71.588476, 42.559074],
+    "accessible": false,
+    "lines": ["cr-fitchburg"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Ayer"
+  },
+  {
+    "stop_name": "Littleton/Route 495",
+    "station": "place-FR-0301",
+    "coordinates": [-71.502643, 42.519236],
+    "accessible": true,
+    "lines": ["cr-fitchburg"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Littleton"
+  },
+  {
+    "stop_name": "South Acton",
+    "station": "place-FR-0253",
+    "coordinates": [-71.457744, 42.460375],
+    "accessible": true,
+    "lines": ["cr-fitchburg"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Acton"
+  },
+  {
+    "stop_name": "West Concord",
+    "station": "place-FR-0219",
+    "coordinates": [-71.392892, 42.457043],
+    "accessible": true,
+    "lines": ["cr-fitchburg"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Concord"
+  },
+  {
+    "stop_name": "Concord",
+    "station": "place-FR-0201",
+    "coordinates": [-71.357677, 42.456565],
+    "accessible": false,
+    "lines": ["cr-fitchburg"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Concord"
+  },
+  {
+    "stop_name": "Lincoln",
+    "station": "place-FR-0167",
+    "coordinates": [-71.325512, 42.413641],
+    "accessible": false,
+    "lines": ["cr-fitchburg"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Lincoln"
+  },
+  {
+    "stop_name": "Kendal Green",
+    "station": "place-FR-0132",
+    "coordinates": [-71.282411, 42.37897],
+    "accessible": false,
+    "lines": ["cr-fitchburg"],
+    "free_parking": true,
+    "parking_lot": true,
+    "municipality": "Weston"
+  },
+  {
+    "stop_name": "Brandeis/Roberts",
+    "station": "place-FR-0115",
+    "coordinates": [-71.260065, 42.361898],
+    "accessible": true,
+    "lines": ["cr-fitchburg"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Waltham"
+  },
+  {
+    "stop_name": "Waltham",
+    "station": "place-FR-0098",
+    "coordinates": [-71.235615, 42.374296],
+    "accessible": true,
+    "lines": ["cr-fitchburg"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Waltham"
+  },
+  {
+    "stop_name": "Waverley",
+    "station": "place-FR-0074",
+    "coordinates": [-71.190744, 42.3876],
+    "accessible": false,
+    "lines": ["cr-fitchburg"],
+    "municipality": "Belmont"
+  },
+  {
+    "stop_name": "Belmont",
+    "station": "place-FR-0064",
+    "coordinates": [-71.17619, 42.395896],
+    "accessible": false,
+    "lines": ["cr-fitchburg"],
+    "parking_lot": true,
+    "paid_parking": true,
+    "municipality": "Belmont"
+  },
+  {
+    "stop_name": "Haverhill",
+    "station": "place-WR-0329",
+    "coordinates": [-71.086237, 42.773474],
+    "accessible": true,
+    "lines": ["cr-haverhill"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Haverhill"
+  },
+  {
+    "stop_name": "Bradford",
+    "station": "place-WR-0325",
+    "coordinates": [-71.088411, 42.766912],
+    "accessible": true,
+    "lines": ["cr-haverhill"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Haverhill"
+  },
+  {
+    "stop_name": "Lawrence",
+    "station": "place-WR-0264",
+    "coordinates": [-71.15198, 42.701806],
+    "accessible": true,
+    "lines": ["cr-haverhill"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Lawrence"
+  },
+  {
+    "stop_name": "Andover",
+    "station": "place-WR-0228",
+    "coordinates": [-71.144502, 42.658336],
+    "accessible": true,
+    "lines": ["cr-haverhill"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Andover"
+  },
+  {
+    "stop_name": "Ballardvale",
+    "station": "place-WR-0205",
+    "coordinates": [-71.159962, 42.627356],
+    "accessible": true,
+    "lines": ["cr-haverhill"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Andover"
+  },
+  {
+    "stop_name": "Reading",
+    "station": "place-WR-0120",
+    "coordinates": [-71.108294, 42.52221],
+    "accessible": true,
+    "lines": ["cr-haverhill"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Reading"
+  },
+  {
+    "stop_name": "Anderson/Woburn",
+    "station": "place-NHRML-0127",
+    "coordinates": [-71.144475, 42.516987],
+    "accessible": true,
+    "lines": ["cr-haverhill", "cr-lowell"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Woburn"
+  },
+  {
+    "stop_name": "North Wilmington",
+    "station": "place-WR-0163",
+    "coordinates": [-71.159696, 42.569661],
+    "accessible": false,
+    "lines": ["cr-haverhill"],
+    "free_parking": true,
+    "parking_lot": true,
+    "municipality": "Wilmington"
+  },
+  {
+    "stop_name": "Wakefield",
+    "station": "place-WR-0099",
+    "coordinates": [-71.075566, 42.502126],
+    "accessible": false,
+    "lines": ["cr-haverhill"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Wakefield"
+  },
+  {
+    "stop_name": "Greenwood",
+    "station": "place-WR-0085",
+    "coordinates": [-71.067247, 42.483005],
+    "accessible": false,
+    "lines": ["cr-haverhill"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Wakefield"
+  },
+  {
+    "stop_name": "Melrose Highlands",
+    "station": "place-WR-0075",
+    "coordinates": [-71.068297, 42.469464],
+    "accessible": true,
+    "lines": ["cr-haverhill"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Melrose"
+  },
+  {
+    "stop_name": "Melrose/Cedar Park",
+    "station": "place-WR-0067",
+    "coordinates": [-71.069789, 42.458768],
+    "accessible": false,
+    "lines": ["cr-haverhill"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Melrose"
+  },
+  {
+    "stop_name": "Wyoming Hill",
+    "station": "place-WR-0062",
+    "coordinates": [-71.069379, 42.451731],
+    "accessible": false,
+    "lines": ["cr-haverhill"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Melrose"
+  },
+  {
+    "stop_name": "Lowell",
+    "station": "place-NHRML-0254",
+    "coordinates": [-71.314543, 42.63535],
+    "accessible": true,
+    "lines": ["cr-lowell"],
+    "paid_parking": true,
+    "parking_garage": true,
+    "municipality": "Lowell"
+  },
+  {
+    "stop_name": "North Billerica",
+    "station": "place-NHRML-0218",
+    "coordinates": [-71.280995, 42.593248],
+    "accessible": true,
+    "lines": ["cr-lowell"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Billerica"
+  },
+  {
+    "stop_name": "Wilmington",
+    "station": "place-NHRML-0152",
+    "coordinates": [-71.174334, 42.546624],
+    "accessible": true,
+    "lines": ["cr-lowell"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Wilmington"
+  },
+  {
+    "stop_name": "Wedgemere",
+    "station": "place-NHRML-0073",
+    "coordinates": [-71.140169, 42.444948],
+    "accessible": true,
+    "lines": ["cr-lowell"],
+    "enclosed_bike_parking": true,
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Winchester"
+  },
+  {
+    "stop_name": "West Medford",
+    "station": "place-NHRML-0055",
+    "coordinates": [-71.133342, 42.421776],
+    "accessible": false,
+    "lines": ["cr-lowell"],
+    "paid_parking": true,
+    "parking_lot": true,
+    "municipality": "Medford"
+  }
+]
