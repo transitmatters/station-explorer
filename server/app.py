@@ -1,11 +1,27 @@
-from chalice import Chalice
+import asyncio
+import json
+import os
+from datadog_lambda.wrapper import datadog_lambda_wrapper
+from chalice import Chalice, CORSConfig, ConvertToMiddleware, Response
+
+from chalicelib.mbta_api import getV3
 
 app = Chalice(app_name="server")
 
+localhost = "localhost:3000"
+TM_CORS_HOST = os.environ.get("TM_CORS_HOST", localhost)
 
-@app.route("/")
-def index():
-    return {"hello": "world"}
+if TM_CORS_HOST != localhost:
+    app.register_middleware(ConvertToMiddleware(datadog_lambda_wrapper))
+    cors_config = CORSConfig(allow_origin=f"https://{TM_CORS_HOST}", max_age=3600)
+else:
+    cors_config = CORSConfig(allow_origin="*", max_age=3600)
+
+
+@app.route("/elevators/{station_id}", cors=cors_config)
+def elevators(station_id):
+    stop_data = asyncio.run(getV3("facilities", {"filter[stop]": station_id, "filter[type]": "ELEVATOR"}))
+    return Response(json.dumps(stop_data), headers={"Content-Type": "application/json"})
 
 
 # The view function above will return {"hello": "world"}

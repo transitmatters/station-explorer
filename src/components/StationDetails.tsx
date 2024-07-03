@@ -3,6 +3,7 @@ import React from 'react';
 import { useGetWalkscoreForStation } from '../api/walkscore';
 import type { Station } from '../types/station';
 import { useParkingStats } from '../utils/parking';
+import { useGetElevatorsForStation } from '../api/facilities';
 import { StationDetailSection } from './StationDetailSection';
 import { AccessibleIcon } from './icons/AccessibleIcon';
 import { DataSection } from './DataSection';
@@ -30,6 +31,7 @@ const scoreColor = (score: number) => {
 
 export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ station }) => {
   const walkscore = useGetWalkscoreForStation(station);
+  const elevators = useGetElevatorsForStation(station);
 
   const radius = 1000;
   const { percentParking, parkingSpots, parkingSqFt } = useParkingStats(station, radius);
@@ -81,7 +83,7 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
           dataValue={
             parkingSpots > 0 ? (
               <>
-                {parkingSpots}
+                {parkingSpots.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                 <span className={'text-sm dark:text-gray-100'}>spots</span>
               </>
             ) : (
@@ -97,7 +99,7 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
           dataValue={
             parkingSqFt > 0 ? (
               <>
-                {parkingSqFt.toFixed(0)}
+                {parkingSqFt.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                 <span className={'align-top text-xs'}>²ft</span>
               </>
             ) : (
@@ -111,7 +113,9 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
       <StationDetailSection sectionName="Accessibility">
         {/* TODO */}
         <AccessibleIcon notAccessible={!station.accessible} />
-        <p>Test Data: 2 Elevators out of service</p>
+        <p>
+          This station has {elevators.data?.length ?? <LoadingIndicator />} elevator(s) available.
+        </p>
       </StationDetailSection>
       <StationDetailSection sectionName="Transit">{/* TODO */}Test</StationDetailSection>
       <StationDetailSection sectionName="Bike">

@@ -3,6 +3,7 @@ import React from 'react';
 import { Marker } from 'react-leaflet-marker';
 import classNames from 'classnames';
 import type { LatLngTuple } from 'leaflet';
+import { useNavigate } from '@tanstack/react-router';
 import mbtaIcon from '../../../public/MBTA.svg';
 import type { Station } from '../../types/station';
 
@@ -21,6 +22,8 @@ export const MBTAStationMarker: React.FC<MBTAStationMarkerProps> = ({
   borderColors,
   allowNavigation = true,
 }) => {
+  const navigate = useNavigate({ from: '/$station' });
+
   return (
     <Marker key={`marker-${station.station}`} position={position} interactive riseOnHover>
       <div
@@ -31,6 +34,7 @@ export const MBTAStationMarker: React.FC<MBTAStationMarkerProps> = ({
         onClick={() => {
           if (allowNavigation) {
             setStation(station);
+            navigate({ to: `/${station.station}` });
           }
         }}
       >
