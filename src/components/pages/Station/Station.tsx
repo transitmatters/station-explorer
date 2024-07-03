@@ -41,7 +41,7 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
         <HorizontalDivider />
         {!mapNavigation && <CompareSelector />}
       </div>
-      <div>
+      <div className="pb-8">
         <div
           className={classNames(
             'z-0 flex w-screen flex-col transition-all duration-500 ease-in-out',

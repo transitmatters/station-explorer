@@ -41,7 +41,7 @@ export const DataSection: React.FunctionComponent<DataSectionProps> = ({
           </div>
           <div className="flex shrink-0 items-center gap-x-4">
             <div className="mr-2 sm:flex sm:flex-col sm:items-end">
-              <p className={classNames('font-mono text-xl leading-6')}>{dataValue}</p>
+              <p className={classNames('font-mono text-xl leading-6 text-gray-800')}>{dataValue}</p>
             </div>
           </div>
         </div>
