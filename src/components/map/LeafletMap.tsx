@@ -59,6 +59,7 @@ const LeafletMap: React.FC<LeafletMapProps> = ({
   if (isMounted && mapCenter) {
     return (
       <MapContainer
+        key={allowNavigation ? 'full-map' : 'small-map'}
         center={mapCenter}
         zoom={15}
         minZoom={10}

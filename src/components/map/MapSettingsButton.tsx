@@ -1,9 +1,11 @@
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
+import classNames from 'classnames';
 import { MapSettingsModal } from './MapSettingsModal';
 
 interface MapSettingsButtonProps {
+  mapNavigation: boolean;
   showParking: boolean;
   setShowParking: (showParking: boolean) => void;
   includeGarages: boolean;
@@ -13,6 +15,7 @@ interface MapSettingsButtonProps {
 }
 
 export const MapSettingsButton: React.FunctionComponent<MapSettingsButtonProps> = ({
+  mapNavigation,
   showParking,
   setShowParking,
   includeGarages,
@@ -27,7 +30,12 @@ export const MapSettingsButton: React.FunctionComponent<MapSettingsButtonProps> 
       <button
         type="button"
         title={'Map Settings'}
-        className="absolute left-0 z-[500] mx-36 flex w-fit -translate-y-10 cursor-pointer rounded-md bg-white bg-opacity-95 px-3.5 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-50"
+        className={classNames(
+          'absolute left-0 z-[500] flex w-fit cursor-pointer rounded-lg border border-gray-300 bg-white bg-opacity-95 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-md hover:bg-gray-50',
+          mapNavigation
+            ? 'bottom-0 mx-8 -translate-y-10 md:-translate-y-6'
+            : 'mx-16 -translate-y-12 lg:mx-36'
+        )}
         onClick={() => setIsMapSettingsOpen(true)}
       >
         <FontAwesomeIcon icon={faCog} size={'1x'} />

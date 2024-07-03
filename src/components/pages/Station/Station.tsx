@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { faExpand } from '@fortawesome/free-solid-svg-icons';
+import { faCompress, faExpand } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { getStation } from '../../../constants/stations';
@@ -19,6 +19,10 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
   const [station, setStation] = useState<StationType | undefined>(getStation(stationId));
   const [mapNavigation, setMapNavigation] = useState<boolean>(false);
 
+  const [showParking, setShowParking] = useState<boolean>(true);
+  const [includeGarages, setIncludeGarages] = useState<boolean>(true);
+  const [showBikePaths, setShowBikePaths] = useState<boolean>(true);
+
   if (!station) {
     // TODO: show actual error page
     return <div>Station not found</div>;
@@ -35,30 +39,50 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
       <div className="flex w-full flex-col">
         <StationDetails station={station} />
         <HorizontalDivider />
-        <CompareSelector />
+        {!mapNavigation && <CompareSelector />}
       </div>
       <div>
-        <div className={classNames('z-0 flex h-[32rem] w-screen flex-col px-12 lg:px-32')}>
+        <div
+          className={classNames(
+            'z-0 flex w-screen flex-col transition-all duration-500 ease-in-out',
+            mapNavigation
+              ? 'absolute bottom-4 left-0 right-0 top-28 m-auto px-4'
+              : 'h-[32rem] px-12 lg:px-32'
+          )}
+        >
           <LeafletMap
             station={station}
             setStation={setStation}
             allowNavigation={mapNavigation}
             options={{
-              showParking: true,
-              includeGarages: true,
-              showBikePaths: true,
+              showParking: showParking,
+              includeGarages: includeGarages,
+              showBikePaths: showBikePaths,
             }}
           />
         </div>
-        <MapSettingsButton />
+        <MapSettingsButton
+          mapNavigation={mapNavigation}
+          showParking={showParking}
+          setShowParking={setShowParking}
+          includeGarages={includeGarages}
+          setIncludeGarages={setIncludeGarages}
+          showBikePaths={showBikePaths}
+          setShowBikePaths={setShowBikePaths}
+        />
         <button
-          className="absolute left-0 right-0 z-[500] m-auto w-fit -translate-y-16 cursor-pointer rounded-lg border border-gray-300 bg-white p-2 text-cyan-700 dark:text-cyan-800 md:-translate-y-12"
+          className={classNames(
+            'absolute left-0 right-0 z-[500] m-auto w-fit cursor-pointer rounded-lg border border-gray-300 bg-white p-2 px-3 text-cyan-700 shadow-lg dark:text-cyan-800',
+            mapNavigation
+              ? 'bottom-0 -translate-y-10 md:-translate-y-6'
+              : '-translate-y-16 md:-translate-y-12'
+          )}
           onClick={() => {
-            setMapNavigation(true);
+            setMapNavigation(!mapNavigation);
           }}
         >
-          <FontAwesomeIcon icon={faExpand} className="mr-2" />
-          Explore Full Map
+          <FontAwesomeIcon icon={mapNavigation ? faCompress : faExpand} className="mr-2" />
+          {mapNavigation ? 'Station Details' : 'Explore Full Map'}
         </button>
       </div>
     </div>
