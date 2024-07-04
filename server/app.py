@@ -6,7 +6,7 @@ from chalice import Chalice, CORSConfig, ConvertToMiddleware, Response
 
 from chalicelib.mbta_api import getV3
 
-app = Chalice(app_name="server")
+app = Chalice(app_name="station-explorer")
 
 localhost = "localhost:3000"
 TM_CORS_HOST = os.environ.get("TM_CORS_HOST", localhost)
@@ -18,28 +18,26 @@ else:
     cors_config = CORSConfig(allow_origin="*", max_age=3600)
 
 
-@app.route("/elevators/{station_id}", cors=cors_config)
-def elevators(station_id):
-    stop_data = asyncio.run(getV3("facilities", {"filter[stop]": station_id, "filter[type]": "ELEVATOR"}))
+@app.route("/api/facilities/{station_id}", cors=cors_config)
+def facilities(station_id):
+    stop_data = asyncio.run(
+        getV3(
+            "facilities",
+            {"filter[stop]": station_id},
+        )
+    )
     return Response(json.dumps(stop_data), headers={"Content-Type": "application/json"})
 
 
-# The view function above will return {"hello": "world"}
-# whenever you make an HTTP GET request to '/'.
-#
-# Here are a few more examples:
-#
-# @app.route('/hello/{name}')
-# def hello_name(name):
-#    # '/hello/james' -> {"hello": "james"}
-#    return {'hello': name}
-#
-# @app.route('/users', methods=['POST'])
-# def create_user():
-#     # This is the JSON body the user sent in their POST request.
-#     user_as_json = app.current_request.json_body
-#     # We'll echo the json body back to the user in a 'user' key.
-#     return {'user': user_as_json}
-#
-# See the README documentation for more examples.
-#
+@app.route("/api/alerts/{station_id}", cors=cors_config)
+def alerts(station_id):
+    stop_data = asyncio.run(
+        getV3(
+            "alerts",
+            {
+                "filter[stop]": station_id,
+                "filter[activity]": "BOARD,EXIT,RIDE,USING_ESCALATOR,BRINGING_BIKE,USING_WHEELCHAIR,STORE_BIKE,PARK_CAR",
+            },
+        )
+    )
+    return Response(json.dumps(stop_data), headers={"Content-Type": "application/json"})

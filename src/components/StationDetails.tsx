@@ -3,11 +3,16 @@ import React from 'react';
 import { useGetWalkscoreForStation } from '../api/walkscore';
 import type { Station } from '../types/station';
 import { useParkingStats } from '../utils/parking';
-import { useGetElevatorsForStation } from '../api/facilities';
+import { useGetFacilitiesForStation } from '../api/facilities';
+import { COMMUTER_RAIL_LINES } from '../constants/line';
+import { useGetAlertsForStation } from '../api/alerts';
+import type { Elevator } from '../types/facilities';
 import { StationDetailSection } from './StationDetailSection';
-import { AccessibleIcon } from './icons/AccessibleIcon';
 import { DataSection } from './DataSection';
 import { LoadingIndicator } from './LoadingIndicator';
+import { AccessiblePill } from './pills/AccessiblePill';
+import { ElevatorsPill } from './pills/ElevatorsPill';
+import { EscalatorsPill } from './pills/EscalatorsPill';
 
 interface StationDetailsProps {
   station: Station;
@@ -31,7 +36,26 @@ const scoreColor = (score: number) => {
 
 export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ station }) => {
   const walkscore = useGetWalkscoreForStation(station);
-  const elevators = useGetElevatorsForStation(station);
+  const facilities = useGetFacilitiesForStation(station);
+  const alerts = useGetAlertsForStation(station);
+
+  const elevators: Elevator[] = facilities.data?.filter(
+    (facility) => facility.type === 'ELEVATOR'
+  ) as Elevator[];
+  const elevatorAlerts = alerts.data?.filter((alert) =>
+    alert.informed_entity.some((entity) => entity.activities.includes('USING_WHEELCHAIR'))
+  );
+
+  const escalators = facilities.data?.filter((facility) => facility.type === 'ESCALATOR');
+  const escalatorsAlerts = alerts.data?.filter((alert) =>
+    alert.informed_entity.some((entity) => entity.activities.includes('USING_ESCALATOR'))
+  );
+  const levelBoarding = facilities.data?.filter(
+    (facility) => facility.type === 'FULLY_ELEVATED_PLATFORM'
+  );
+  const miniHighPlatforms = facilities.data?.filter(
+    (facility) => facility.type === 'ELEVATED_SUBPLATFORM'
+  );
 
   const radius = 1000;
   const { percentParking, parkingSpots, parkingSqFt } = useParkingStats(station, radius);
@@ -47,7 +71,7 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
           dataValue={
             <a
               className={classNames(
-                'font-mono text-2xl leading-6',
+                'font-mono text-2xl leading-6 text-inherit',
                 scoreColor(walkscore.data?.walkscore ?? 0)
               )}
               target={'_blank'}
@@ -60,62 +84,21 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
           link={walkscore.data?.help_link}
         />
       </StationDetailSection>
-      <StationDetailSection sectionName="Land Use">
-        <DataSection
-          title={'Parking Area'}
-          description="Percentage of the area within walking distance of the station taken up by parking"
-          dataValue={
-            percentParking > 0 ? (
-              <>
-                {percentParking.toFixed(1)}
-                <span className={'align-top text-sm dark:text-gray-100'}>%</span>
-              </>
-            ) : (
-              <div className="text-2xl">
-                <LoadingIndicator />
-              </div>
-            )
-          }
-        />
-        <DataSection
-          title={'Parking Spaces'}
-          description="Estimate of the number of parking spaces within walking distance of the station"
-          dataValue={
-            parkingSpots > 0 ? (
-              <>
-                {parkingSpots.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                <span className={'text-sm dark:text-gray-100'}>spots</span>
-              </>
-            ) : (
-              <div className="text-2xl">
-                <LoadingIndicator />
-              </div>
-            )
-          }
-        />
-        <DataSection
-          title={'Surface Parking Land Area'}
-          description=" Estimate of the square footage of surface parking within walking distance of the station"
-          dataValue={
-            parkingSqFt > 0 ? (
-              <>
-                {parkingSqFt.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                <span className={'align-top text-xs'}>²ft</span>
-              </>
-            ) : (
-              <div className="text-2xl">
-                <LoadingIndicator />
-              </div>
-            )
-          }
-        />
-      </StationDetailSection>
+
       <StationDetailSection sectionName="Accessibility">
         {/* TODO */}
-        <AccessibleIcon notAccessible={!station.accessible} />
-        <p>
-          This station has {elevators.data?.length ?? <LoadingIndicator />} elevator(s) available.
-        </p>
+        <div className="flex flex-row items-center justify-center gap-2 lg:gap-3">
+          <AccessiblePill accessible={station.accessible} />
+          <ElevatorsPill elevators={elevators} elevatorAlerts={elevatorAlerts} />
+          <EscalatorsPill escalators={escalators} elevatorAlerts={escalatorsAlerts} />
+        </div>
+        {station.lines.some((line) => COMMUTER_RAIL_LINES.includes(line)) && (
+          <p>
+            This station has {levelBoarding?.length ?? <LoadingIndicator />} level boarding
+            platform(s) and {miniHighPlatforms?.length ?? <LoadingIndicator />} mini-high
+            platform(s)
+          </p>
+        )}
       </StationDetailSection>
       <StationDetailSection sectionName="Transit">{/* TODO */}Test</StationDetailSection>
       <StationDetailSection sectionName="Bike">
@@ -125,7 +108,7 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
           dataValue={
             <a
               className={classNames(
-                'font-mono text-2xl leading-6',
+                'font-mono text-2xl leading-6 text-inherit',
                 scoreColor(walkscore.data?.bike.score ?? 0)
               )}
               target={'_blank'}
@@ -136,6 +119,56 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
             </a>
           }
           link={walkscore.data?.help_link}
+        />
+      </StationDetailSection>
+      <StationDetailSection sectionName="Land Use">
+        <DataSection
+          title={'Parking Area'}
+          description="Percentage of the area within walking distance of the station taken up by parking"
+          dataValue={
+            percentParking > 0 ? (
+              <div className="text-inherit">
+                {percentParking.toFixed(1)}
+                <span className={'align-top text-sm'}>%</span>
+              </div>
+            ) : (
+              <div className="text-2xl text-inherit">
+                <LoadingIndicator />
+              </div>
+            )
+          }
+        />
+        <DataSection
+          title={'Parking Spaces'}
+          description="Estimate of the number of parking spaces within walking distance of the station"
+          dataValue={
+            parkingSpots > 0 ? (
+              <div className="text-inherit">
+                {parkingSpots.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                <span className={'text-sm'}>spots</span>
+              </div>
+            ) : (
+              <div className="text-2xl text-inherit">
+                <LoadingIndicator />
+              </div>
+            )
+          }
+        />
+        <DataSection
+          title={'Surface Parking Land Area'}
+          description=" Estimate of the square footage of surface parking within walking distance of the station"
+          dataValue={
+            parkingSqFt > 0 ? (
+              <div className="text-inherit">
+                {parkingSqFt.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                <span className={'align-top text-xs'}>²ft</span>
+              </div>
+            ) : (
+              <div className="text-2xl text-inherit">
+                <LoadingIndicator />
+              </div>
+            )
+          }
         />
       </StationDetailSection>
     </>

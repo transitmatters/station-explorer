@@ -29,7 +29,7 @@ export const DataSection: React.FunctionComponent<DataSectionProps> = ({
         <div className="flex flex-row justify-between rounded-md">
           <div className="flex min-w-0 gap-x-4">
             <div className="ml-2 min-w-0 flex-auto">
-              <p className="text-start text-sm font-semibold leading-6 text-gray-600 dark:text-gray-300">
+              <p className="text-start text-sm font-semibold leading-6 text-gray-600 dark:text-gray-200">
                 {title}
               </p>
               {!isMobile && (
@@ -41,12 +41,18 @@ export const DataSection: React.FunctionComponent<DataSectionProps> = ({
           </div>
           <div className="flex shrink-0 items-center gap-x-4">
             <div className="mr-2 sm:flex sm:flex-col sm:items-end">
-              <p className={classNames('font-mono text-xl leading-6 text-gray-800')}>{dataValue}</p>
+              <p
+                className={classNames(
+                  'font-mono text-xl leading-6 text-gray-800 dark:text-gray-200'
+                )}
+              >
+                {dataValue}
+              </p>
             </div>
           </div>
         </div>
         {isMobile && (
-          <p className="mx-2 mt-1 flex text-start text-xs leading-5 text-gray-500 dark:text-gray-300">
+          <p className="mx-2 mt-1 flex text-start text-xs leading-5 text-gray-800 dark:text-gray-300">
             {description}
           </p>
         )}

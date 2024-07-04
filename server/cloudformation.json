@@ -32,6 +32,10 @@
       "Type": "String",
       "Description": "The ACM ARN of the backend certificate."
     },
+    "MbtaV3ApiKey": {
+      "Type": "String",
+      "Description": "MBTA V3 API key."
+    },
     "DDApiKey": {
       "Type": "String",
       "Description": "Datadog API key."
@@ -82,11 +86,13 @@
       }
     },
     "APIHandler": {
+      "Type": "AWS::Serverless::Function",
       "Properties": {
         "Description": "Station Explorer Backend",
         "Handler": "datadog_lambda.handler.handler",
         "Environment": {
           "Variables": {
+            "MBTA_V3_API_KEY": { "Ref": "MbtaV3ApiKey" },
             "DD_API_KEY": { "Ref": "DDApiKey" },
             "DD_VERSION": { "Ref": "GitVersion" },
             "DD_TAGS": { "Ref": "DDTags" }

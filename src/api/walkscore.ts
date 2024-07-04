@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import type { WalkScore } from '../types/walkscore';
 import type { Station } from '../types/station';
+import { ONE_DAY } from '../constants/time';
 
 const WALKSCORE_PROXY =
   process.env.NODE_ENV === 'production'
@@ -18,6 +19,6 @@ export const useGetWalkscoreForStation = (station: Station) => {
   return useQuery({
     queryKey: [`getWalkscore`, station],
     queryFn: () => getWalkscore(station),
-    staleTime: 86400,
+    staleTime: ONE_DAY,
   });
 };

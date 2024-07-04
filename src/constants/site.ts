@@ -3,7 +3,7 @@ export const BETA = 'stations.labs.transitmatters.org';
 export const LOCAL = 'localhost';
 const FRONTEND_TO_BACKEND_MAP = {
   [PRODUCTION]: 'https://stations-api.labs.transitmatters.org',
-  [BETA]: 'https://stations-api-beta.labs.transitmatters.org',
+  [BETA]: 'https://stations-api.labs.transitmatters.org',
   [LOCAL]: 'http://localhost:5000',
 };
 

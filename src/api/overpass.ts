@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import osmtogeojson from 'osmtogeojson';
 import { overpass } from 'overpass-ts';
 import type { Station } from '../types/station';
+import { THIRTY_MINUTES } from '../constants/time';
 
 export const getParkingDataForStation = async (
   station: Station,
@@ -55,7 +56,7 @@ export const useGetDataForStation = (
   return useQuery({
     queryKey: [`getStationParkingData`, station, radius, includeGarages],
     queryFn: () => getParkingDataForStation(station, radius, includeGarages),
-    staleTime: 86400,
+    staleTime: THIRTY_MINUTES,
   });
 };
 
@@ -63,6 +64,6 @@ export const useGetCyclePathDataForStation = (station: Station, radius: number) 
   return useQuery({
     queryKey: [`getStationBikeData`, station, radius],
     queryFn: () => getBikePathDataForStation(station, radius),
-    staleTime: 86400,
+    staleTime: THIRTY_MINUTES,
   });
 };

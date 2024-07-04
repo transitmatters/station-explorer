@@ -1,7 +1,7 @@
 #!/bin/bash -x
 
-if [[ -z "$DD_API_KEY" || -z "$TM_LABS_WILDCARD_CERT_ARN" ]]; then
-    echo "Must provide DD_API_KEY and TM_LABS_WILDCARD_CERT_ARN in environment" 1>&2
+if [[ -z "$DD_API_KEY" || -z "$TM_LABS_WILDCARD_CERT_ARN" || -z "$MBTA_V3_API_KEY" ]]; then
+    echo "Must provide DD_API_KEY, TM_LABS_WILDCARD_CERT_ARN and MBTA_V3_API_KEY in environment" 1>&2
     exit 1
 fi
 
@@ -40,6 +40,7 @@ aws cloudformation deploy --template-file cfn/packaged.yaml --stack-name $STACK_
     TMBackendCertArn=$BACKEND_CERT_ARN \
     TMBackendHostname=$BACKEND_HOSTNAME \
     TMBackendZone=$BACKEND_ZONE \
+    MbtaV3ApiKey=$MBTA_V3_API_KEY \
     DDApiKey=$DD_API_KEY \
     GitVersion=$GIT_VERSION \
     DDTags=$DD_TAGS

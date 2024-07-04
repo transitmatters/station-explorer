@@ -31,7 +31,7 @@ export const MapSettingsButton: React.FunctionComponent<MapSettingsButtonProps> 
         type="button"
         title={'Map Settings'}
         className={classNames(
-          'absolute left-0 z-[500] flex w-fit cursor-pointer rounded-lg border border-gray-300 bg-white bg-opacity-95 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-md hover:bg-gray-50',
+          'absolute left-0 z-[500] flex w-fit cursor-pointer rounded-lg border border-gray-300 bg-white bg-opacity-95 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-md transition-all duration-500 ease-in-out hover:bg-gray-50',
           mapNavigation
             ? 'bottom-0 mx-8 -translate-y-10 md:-translate-y-6'
             : 'mx-16 -translate-y-12 lg:mx-36'
