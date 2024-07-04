@@ -28,7 +28,7 @@ export const MBTAStationMarker: React.FC<MBTAStationMarkerProps> = ({
     <Marker key={`marker-${station.station}`} position={position} interactive riseOnHover>
       <div
         className={classNames(
-          'group absolute flex items-center justify-center',
+          'group absolute z-[1000] flex items-center justify-center',
           allowNavigation ? 'cursor-pointer' : 'cursor-default'
         )}
         onClick={() => {
@@ -42,7 +42,7 @@ export const MBTAStationMarker: React.FC<MBTAStationMarkerProps> = ({
           src={mbtaIcon}
           alt={station.stop_name}
           className={classNames(
-            'absolute flex h-6 w-6 items-center justify-center overflow-visible rounded-full border-2',
+            'absolute z-[1000] flex h-6 w-6 items-center justify-center overflow-visible rounded-full border-2',
             ...borderColors
           )}
         />

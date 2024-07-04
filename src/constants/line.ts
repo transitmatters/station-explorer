@@ -1,4 +1,4 @@
-import type { Line, LineObject } from '../types/line';
+import type { Line, LineObject, MBTARoute } from '../types/line';
 import { COLORS } from './colors';
 
 export const GTFS_COLOR_LINE_IDS = ['line-Red', 'line-Orange', 'line-Blue', 'line-Green'] as const;
@@ -11,6 +11,32 @@ export const RAPID_LINES: Line[] = [
   'line-green',
   'line-silver',
   'line-mattapan',
+];
+export const MBTA_ROUTES: MBTARoute[] = [
+  'Red',
+  'Orange',
+  'Green-B',
+  'Green-C',
+  'Green-D',
+  'Green-E',
+  'Blue',
+  'Mattapan',
+  '751',
+  '749',
+  '743',
+  'CR-Fairmount',
+  'CR-Worcester',
+  'CR-Franklin',
+  'CR-Greenbush',
+  'CR-Kingston',
+  'CR-Middleborough',
+  'CR-Needham',
+  'CR-Providence',
+  'CR-Foxboro',
+  'CR-Fitchburg',
+  'CR-Newburyport',
+  'CR-Haverhill',
+  'CR-Lowell',
 ];
 
 export const COMMUTER_RAIL_LINES: Line[] = [

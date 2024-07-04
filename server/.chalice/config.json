@@ -25,7 +25,7 @@
         "env": "prod"
       },
       "api_gateway_custom_domain": {
-        "domain_name": "stations.labs.transitmatters.org",
+        "domain_name": "stations-api.labs.transitmatters.org",
         "tls_version": "TLS_1_2",
         "certificate_arn": ""
       }

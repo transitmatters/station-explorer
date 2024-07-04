@@ -6,7 +6,7 @@ import { useParkingStats } from '../utils/parking';
 import { useGetFacilitiesForStation } from '../api/facilities';
 import { COMMUTER_RAIL_LINES } from '../constants/line';
 import { useGetAlertsForStation } from '../api/alerts';
-import type { Elevator } from '../types/facilities';
+import type { Elevator, Escalator } from '../types/facilities';
 import { StationDetailSection } from './StationDetailSection';
 import { DataSection } from './DataSection';
 import { LoadingIndicator } from './LoadingIndicator';
@@ -27,10 +27,10 @@ const scoreColor = (score: number) => {
     return 'text-yellow-500';
   } else if (score >= 60) {
     return 'text-orange-500';
-  } else if (score !== 0) {
-    return 'text-red-500';
-  } else {
+  } else if (score === 0) {
     return 'text-gray-800';
+  } else {
+    return 'text-red-500';
   }
 };
 
@@ -39,14 +39,16 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
   const facilities = useGetFacilitiesForStation(station);
   const alerts = useGetAlertsForStation(station);
 
-  const elevators: Elevator[] = facilities.data?.filter(
+  const elevators = facilities.data?.filter(
     (facility) => facility.type === 'ELEVATOR'
   ) as Elevator[];
   const elevatorAlerts = alerts.data?.filter((alert) =>
     alert.informed_entity.some((entity) => entity.activities.includes('USING_WHEELCHAIR'))
   );
 
-  const escalators = facilities.data?.filter((facility) => facility.type === 'ESCALATOR');
+  const escalators = facilities.data?.filter(
+    (facility) => facility.type === 'ESCALATOR'
+  ) as Escalator[];
   const escalatorsAlerts = alerts.data?.filter((alert) =>
     alert.informed_entity.some((entity) => entity.activities.includes('USING_ESCALATOR'))
   );
@@ -71,7 +73,7 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
           dataValue={
             <a
               className={classNames(
-                'font-mono text-2xl leading-6 text-inherit',
+                'font-mono text-2xl leading-6',
                 scoreColor(walkscore.data?.walkscore ?? 0)
               )}
               target={'_blank'}
@@ -104,18 +106,18 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
       <StationDetailSection sectionName="Bike">
         <DataSection
           title={'Bike Score®'}
-          description={walkscore.data?.bike.description ?? 'Bike Score from WalkScore.com'}
+          description={walkscore.data?.bike?.description ?? 'Bike Score from WalkScore.com'}
           dataValue={
             <a
               className={classNames(
-                'font-mono text-2xl leading-6 text-inherit',
-                scoreColor(walkscore.data?.bike.score ?? 0)
+                'font-mono text-2xl leading-6',
+                scoreColor(walkscore.data?.bike?.score ?? 0)
               )}
               target={'_blank'}
               rel="noreferrer"
               href={walkscore.data?.ws_link}
             >
-              {walkscore.data?.bike.score ?? <LoadingIndicator />}
+              {walkscore.data?.bike?.score ?? <LoadingIndicator />}
             </a>
           }
           link={walkscore.data?.help_link}

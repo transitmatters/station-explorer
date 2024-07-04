@@ -54,7 +54,7 @@ export const MBTAStations: React.FC<MBTAStationsProps> = ({
   allowNavigation = true,
 }) => {
   return (
-    <MarkerLayer>
+    <MarkerLayer className={'relative z-[1000]'} zIndexOffset={1000}>
       {stations.map((station) => {
         const borderColors = StationBorderColors(station);
         const stationCoords = station.coordinates?.sort(function (a, b) {

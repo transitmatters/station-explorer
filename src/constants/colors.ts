@@ -1,4 +1,4 @@
-import type { Line } from '../types/line';
+import type { Line, MBTARoute } from '../types/line';
 
 export const COLORS = {
   mbta: {
@@ -50,4 +50,31 @@ export const LINE_BG_COLOR_MAP: Record<Line, string> = {
   'cr-newburyport': 'bg-mbta-commuterRail',
   'cr-haverhill': 'bg-mbta-commuterRail',
   'cr-lowell': 'bg-mbta-commuterRail',
+};
+
+export const ROUTE_BG_COLOR_MAP: Record<MBTARoute, string> = {
+  Red: COLORS.mbta.red,
+  Orange: COLORS.mbta.orange,
+  'Green-B': COLORS.mbta.green,
+  'Green-C': COLORS.mbta.green,
+  'Green-D': COLORS.mbta.green,
+  'Green-E': COLORS.mbta.green,
+  Blue: COLORS.mbta.blue,
+  Mattapan: COLORS.mbta.red,
+  743: COLORS.mbta.silver,
+  751: COLORS.mbta.silver,
+  749: COLORS.mbta.silver,
+  'CR-Fairmount': COLORS.mbta.cr,
+  'CR-Worcester': COLORS.mbta.cr,
+  'CR-Franklin': COLORS.mbta.cr,
+  'CR-Greenbush': COLORS.mbta.cr,
+  'CR-Kingston': COLORS.mbta.cr,
+  'CR-Middleborough': COLORS.mbta.cr,
+  'CR-Needham': COLORS.mbta.cr,
+  'CR-Providence': COLORS.mbta.cr,
+  'CR-Foxboro': COLORS.mbta.cr,
+  'CR-Fitchburg': COLORS.mbta.cr,
+  'CR-Newburyport': COLORS.mbta.cr,
+  'CR-Haverhill': COLORS.mbta.cr,
+  'CR-Lowell': COLORS.mbta.cr,
 };

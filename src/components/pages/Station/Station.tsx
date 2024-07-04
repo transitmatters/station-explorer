@@ -19,6 +19,7 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
   const [station, setStation] = useState<StationType | undefined>(getStation(stationId));
   const [mapNavigation, setMapNavigation] = useState<boolean>(false);
 
+  const [showRouteLines, setShowRouteLines] = useState<boolean>(true);
   const [showParking, setShowParking] = useState<boolean>(true);
   const [includeGarages, setIncludeGarages] = useState<boolean>(true);
   const [showBikePaths, setShowBikePaths] = useState<boolean>(true);
@@ -55,6 +56,7 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
             setStation={setStation}
             allowNavigation={mapNavigation}
             options={{
+              showRouteLines: showRouteLines,
               showParking: showParking,
               includeGarages: includeGarages,
               showBikePaths: showBikePaths,
@@ -63,6 +65,8 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
         </div>
         <MapSettingsButton
           mapNavigation={mapNavigation}
+          showRouteLines={showRouteLines}
+          setShowRouteLines={setShowRouteLines}
           showParking={showParking}
           setShowParking={setShowParking}
           includeGarages={includeGarages}

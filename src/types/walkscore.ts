@@ -1,5 +1,5 @@
 export interface WalkScore {
-  bike: BikeScore;
+  bike: BikeScore | undefined;
   description: string;
   help_link: string;
   logo_url: string;

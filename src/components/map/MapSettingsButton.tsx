@@ -6,6 +6,8 @@ import { MapSettingsModal } from './MapSettingsModal';
 
 interface MapSettingsButtonProps {
   mapNavigation: boolean;
+  showRouteLines: boolean;
+  setShowRouteLines: (showRouteLines: boolean) => void;
   showParking: boolean;
   setShowParking: (showParking: boolean) => void;
   includeGarages: boolean;
@@ -16,6 +18,8 @@ interface MapSettingsButtonProps {
 
 export const MapSettingsButton: React.FunctionComponent<MapSettingsButtonProps> = ({
   mapNavigation,
+  showRouteLines,
+  setShowRouteLines,
   showParking,
   setShowParking,
   includeGarages,
@@ -43,6 +47,8 @@ export const MapSettingsButton: React.FunctionComponent<MapSettingsButtonProps> 
       <MapSettingsModal
         isOpen={isMapSettingsOpen}
         setIsOpen={setIsMapSettingsOpen}
+        showRouteLines={showRouteLines}
+        setShowRouteLines={setShowRouteLines}
         showParking={showParking}
         setShowParking={setShowParking}
         includeGarages={includeGarages}

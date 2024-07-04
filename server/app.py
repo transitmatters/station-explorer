@@ -41,3 +41,16 @@ def alerts(station_id):
         )
     )
     return Response(json.dumps(stop_data), headers={"Content-Type": "application/json"})
+
+
+@app.route("/api/shape/{route}", cors=cors_config)
+def route_pattern(route):
+    stop_data = asyncio.run(
+        getV3(
+            "shapes",
+            {
+                "filter[route]": route,
+            },
+        )
+    )
+    return Response(json.dumps(stop_data), headers={"Content-Type": "application/json"})

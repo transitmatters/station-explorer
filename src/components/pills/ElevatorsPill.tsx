@@ -31,7 +31,7 @@ export const ElevatorsPill: React.FunctionComponent<ElevatorsPillProps> = ({
       }
       className={classNames(
         'center-content rounded-full p-1 pr-2.5 text-sm font-semibold text-white',
-        closedElevators > 0 ? 'bg-red-400' : 'bg-green-400'
+        closedElevators > 0 ? 'bg-red-400' : totalElevators === 0 ? 'bg-gray-400' : 'bg-green-400'
       )}
     >
       <FontAwesomeIcon icon={faElevator} className={classNames('h-4 w-4 px-1.5 text-white')} />
