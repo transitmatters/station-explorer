@@ -9,7 +9,7 @@ import ThemeSwitcher from '../../ThemeSwitcher';
 import { HorizontalDivider } from '../../HorizontalDivider';
 import { CompareSelector } from '../../CompareSelector';
 import { StationDetails } from '../../StationDetails';
-import { MapSettingsButton } from '../../map/MapSettingsButton';
+import { useStore } from '../../../store';
 
 interface StationProps {
   stationId: string;
@@ -17,11 +17,10 @@ interface StationProps {
 
 export const Station: React.FunctionComponent<StationProps> = ({ stationId }) => {
   const [station, setStation] = useState<StationType | undefined>(getStation(stationId));
-  const [mapNavigation, setMapNavigation] = useState<boolean>(false);
+  const { fullMapNavigation, setFullMapNavigation } = useStore();
 
-  const [showRouteLines, setShowRouteLines] = useState<boolean>(true);
+  const [showRouteLines, setShowRouteLines] = useState<boolean>(false);
   const [showParking, setShowParking] = useState<boolean>(true);
-  const [includeGarages, setIncludeGarages] = useState<boolean>(true);
   const [showBikePaths, setShowBikePaths] = useState<boolean>(true);
 
   if (!station) {
@@ -40,53 +39,45 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
       <div className="flex w-full flex-col">
         <StationDetails station={station} />
         <HorizontalDivider />
-        {!mapNavigation && <CompareSelector />}
+        {!fullMapNavigation && <CompareSelector />}
       </div>
       <div className="pb-8">
         <div
           className={classNames(
             'z-0 flex w-screen flex-col transition-all duration-500 ease-in-out',
-            mapNavigation
+            fullMapNavigation
               ? 'absolute bottom-4 left-0 right-0 top-28 m-auto px-4'
               : 'h-[32rem] px-12 lg:px-32'
           )}
         >
           <LeafletMap
+            key={'leaflet-map'}
             station={station}
             setStation={setStation}
-            allowNavigation={mapNavigation}
             options={{
-              showRouteLines: showRouteLines,
-              showParking: showParking,
-              includeGarages: includeGarages,
-              showBikePaths: showBikePaths,
+              showRouteLines,
+              setShowRouteLines,
+              showParking,
+              setShowParking,
+              showBikePaths,
+              setShowBikePaths,
             }}
+            allowNavigation={fullMapNavigation}
           />
         </div>
-        <MapSettingsButton
-          mapNavigation={mapNavigation}
-          showRouteLines={showRouteLines}
-          setShowRouteLines={setShowRouteLines}
-          showParking={showParking}
-          setShowParking={setShowParking}
-          includeGarages={includeGarages}
-          setIncludeGarages={setIncludeGarages}
-          showBikePaths={showBikePaths}
-          setShowBikePaths={setShowBikePaths}
-        />
         <button
           className={classNames(
             'absolute left-0 right-0 z-[500] m-auto w-fit cursor-pointer rounded-lg border border-gray-300 bg-white p-2 px-3 text-cyan-700 shadow-lg transition-all duration-500 ease-in-out dark:text-cyan-800',
-            mapNavigation
+            fullMapNavigation
               ? 'bottom-0 -translate-y-10 md:-translate-y-6'
               : '-translate-y-16 md:-translate-y-12'
           )}
           onClick={() => {
-            setMapNavigation(!mapNavigation);
+            setFullMapNavigation(!fullMapNavigation);
           }}
         >
-          <FontAwesomeIcon icon={mapNavigation ? faCompress : faExpand} className="mr-2" />
-          {mapNavigation ? 'Station Details' : 'Explore Full Map'}
+          <FontAwesomeIcon icon={fullMapNavigation ? faCompress : faExpand} className="mr-2" />
+          {fullMapNavigation ? 'Station Details' : 'Explore Full Map'}
         </button>
       </div>
     </div>

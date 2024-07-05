@@ -1,23 +1,16 @@
-import {
-  LayerGroup,
-  LayersControl,
-  MapContainer,
-  Polyline,
-  TileLayer,
-  useMap,
-} from 'react-leaflet';
+import { LayersControl, MapContainer, TileLayer, useMap } from 'react-leaflet';
 import React from 'react';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import L from 'leaflet';
 // @ts-ignore
 import { MarkerLayer } from 'react-leaflet-marker';
-import { decode } from '@mapbox/polyline';
 import type { Station } from '../../types/station';
-import { useGetRouteShapeForAllRoutes } from '../../api/shape';
-import { ROUTE_BG_COLOR_MAP } from '../../constants/colors';
-import { ParkingRadius } from './ParkingRadius';
 import { MBTAStations } from './MBTAStations';
+import { WalkingRadius } from './WalkingRadius';
+import { MBTALinesLayer } from './layers/MBTALinesLayer';
+import { BikeLanesLayer } from './layers/BikeLanesLayer';
+import { ParkingLayer } from './layers/ParkingLayer';
 
 const DefaultIcon = L.icon({
   // @ts-ignore
@@ -31,14 +24,15 @@ L.Marker.prototype.options.icon = DefaultIcon;
 interface LeafletMapProps {
   station: Station;
   setStation: (station: Station) => void;
-  radius?: number;
+  allowNavigation?: boolean;
   options: {
     showRouteLines: boolean;
+    setShowRouteLines: (show: boolean) => void;
     showParking: boolean;
-    includeGarages: boolean;
+    setShowParking: (show: boolean) => void;
     showBikePaths: boolean;
+    setShowBikePaths: (show: boolean) => void;
   };
-  allowNavigation?: boolean;
 }
 
 const UpdateMapCenter = ({ mapCenter }: { mapCenter: L.LatLngTuple }) => {
@@ -52,32 +46,17 @@ const UpdateMapCenter = ({ mapCenter }: { mapCenter: L.LatLngTuple }) => {
 const LeafletMap: React.FC<LeafletMapProps> = ({
   station,
   setStation,
-  radius = 1000,
-  options: { showRouteLines, showBikePaths, showParking, includeGarages },
+  options: {
+    showRouteLines,
+    setShowRouteLines,
+    showBikePaths,
+    setShowBikePaths,
+    showParking,
+    setShowParking,
+  },
   allowNavigation = true,
 }) => {
   const [isMounted, setIsMounted] = React.useState(false);
-
-  const routePatterns = useGetRouteShapeForAllRoutes();
-
-  const routePolylines = routePatterns.map((routePattern) =>
-    routePattern.data?.map((pattern) => {
-      if (!isNaN(parseInt(pattern.id)) && pattern.route) {
-        return (
-          <Polyline
-            key={pattern.id}
-            pathOptions={{
-              interactive: false,
-              color: ROUTE_BG_COLOR_MAP[pattern.route],
-              opacity: allowNavigation ? 0.5 : 0.25,
-              className: 'relative z-10',
-            }}
-            positions={decode(pattern.polyline)}
-          />
-        );
-      }
-    })
-  );
 
   React.useEffect(() => {
     setIsMounted(true);
@@ -105,19 +84,21 @@ const LeafletMap: React.FC<LeafletMapProps> = ({
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <MBTAStations setStation={setStation} allowNavigation={allowNavigation} />
-        <LayersControl position="topright">
-          <LayersControl.Overlay name="MBTA Lines">
-            <LayerGroup>{routePolylines}</LayerGroup>
-          </LayersControl.Overlay>
-        </LayersControl>
         <MarkerLayer>
-          <ParkingRadius
-            station={station}
-            radius={radius}
-            options={{ showParking, includeGarages, showBikePaths }}
-          />
-          <UpdateMapCenter mapCenter={mapCenter} />
+          <LayersControl position="topright">
+            <LayersControl.Overlay name="MBTA Lines" checked={showRouteLines}>
+              <MBTALinesLayer setShowLayer={setShowRouteLines} />
+            </LayersControl.Overlay>
+            <LayersControl.Overlay name="Bike Lanes" checked={showBikePaths}>
+              <BikeLanesLayer station={station} setShowLayer={setShowBikePaths} />
+            </LayersControl.Overlay>
+            <LayersControl.Overlay name="Parking Lots" checked={showParking}>
+              <ParkingLayer station={station} setShowLayer={setShowParking} />
+            </LayersControl.Overlay>
+          </LayersControl>
+          <WalkingRadius station={station} />
         </MarkerLayer>
+        <UpdateMapCenter mapCenter={mapCenter} />
       </MapContainer>
     );
   }

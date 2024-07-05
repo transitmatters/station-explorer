@@ -34,7 +34,7 @@ export const MBTAStationMarker: React.FC<MBTAStationMarkerProps> = ({
         onClick={() => {
           if (allowNavigation) {
             setStation(station);
-            navigate({ to: `/${station.station}` });
+            navigate({ to: `/${station.station}`, replace: true, resetScroll: false });
           }
         }}
       >
