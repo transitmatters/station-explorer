@@ -78,3 +78,13 @@ export const ROUTE_BG_COLOR_MAP: Record<MBTARoute, string> = {
   'CR-Haverhill': COLORS.mbta.cr,
   'CR-Lowell': COLORS.mbta.cr,
 };
+
+export const ROUTE_COLOR_TO_CLASS_MAP: Record<string, string> = {
+  DA291C: 'bg-mbta-red',
+  ED8B00: 'bg-mbta-orange',
+  '00843D': 'bg-mbta-green',
+  '003DA5': 'bg-mbta-blue',
+  '7C878E': 'bg-mbta-silver',
+  FFC72C: 'bg-mbta-bus',
+  '80276C': 'bg-mbta-commuterRail',
+};

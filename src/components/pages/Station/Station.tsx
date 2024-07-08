@@ -69,8 +69,8 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
           className={classNames(
             'absolute left-0 right-0 z-[500] m-auto w-fit cursor-pointer rounded-lg border border-gray-300 bg-white p-2 px-3 text-cyan-700 shadow-lg transition-all duration-500 ease-in-out dark:text-cyan-800',
             fullMapNavigation
-              ? 'bottom-0 -translate-y-10 md:-translate-y-6'
-              : '-translate-y-16 md:-translate-y-12'
+              ? 'bottom-0 -translate-y-12 md:-translate-y-8'
+              : '-translate-y-20 md:-translate-y-16'
           )}
           onClick={() => {
             setFullMapNavigation(!fullMapNavigation);

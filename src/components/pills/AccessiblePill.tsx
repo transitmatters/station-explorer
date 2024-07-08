@@ -15,7 +15,7 @@ export const AccessiblePill: React.FunctionComponent<AccessiblePillProps> = ({
       <FontAwesomeIcon
         icon={faWheelchair}
         className={classNames(
-          'h-4 w-4 rounded-full p-1.5 text-white',
+          'h-4 w-4 rounded-lg p-1.5 text-white',
           !accessible ? 'bg-gray-500' : 'bg-blue-500'
         )}
       />

@@ -45,7 +45,7 @@ export default {
           'rb-900': '#1C1919',
         },
         mbta: {
-          red: '#D13434',
+          red: '#DA291C',
           lightRed: '#E89999',
           darkRed: '#bc2020',
           orange: '#ed8b00',
@@ -57,7 +57,7 @@ export default {
           green: '#00834d',
           lightGreen: '#80C1A6',
           darkGreen: '#0E5E3D',
-          bus: '#f5B400',
+          bus: '#FFC72C',
           lightBus: '#FFE395',
           darkBus: '#E6A800',
           commuterRail: '#80276c',

@@ -1,5 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
+import length from '@turf/length';
+import type { FeatureCollection, Geometry, GeoJsonProperties } from 'geojson';
 import { useGetWalkscoreForStation } from '../api/walkscore';
 import type { Station } from '../types/station';
 import { useParkingStats } from '../utils/parking';
@@ -7,12 +9,16 @@ import { useGetFacilitiesForStation } from '../api/facilities';
 import { COMMUTER_RAIL_LINES } from '../constants/line';
 import { useGetAlertsForStation } from '../api/alerts';
 import type { Elevator, Escalator } from '../types/facilities';
+import { WALKING_RADIUS } from '../constants/mobility';
+import { useGetCyclePathDataForStation } from '../api/overpass';
+import { useGetRoutesForStation } from '../api/routes';
 import { StationDetailSection } from './StationDetailSection';
 import { DataSection } from './DataSection';
 import { LoadingIndicator } from './LoadingIndicator';
 import { AccessiblePill } from './pills/AccessiblePill';
 import { ElevatorsPill } from './pills/ElevatorsPill';
 import { EscalatorsPill } from './pills/EscalatorsPill';
+import { RoutePill } from './pills/RoutePill';
 
 interface StationDetailsProps {
   station: Station;
@@ -38,6 +44,12 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
   const walkscore = useGetWalkscoreForStation(station);
   const facilities = useGetFacilitiesForStation(station);
   const alerts = useGetAlertsForStation(station);
+  const routes = useGetRoutesForStation(station);
+
+  const { data: bikeData, isLoading: isBikeDataLoading } = useGetCyclePathDataForStation(
+    station,
+    WALKING_RADIUS
+  );
 
   const elevators = facilities.data?.filter(
     (facility) => facility.type === 'ELEVATOR'
@@ -59,11 +71,17 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
     (facility) => facility.type === 'ELEVATED_SUBPLATFORM'
   );
 
-  const radius = 1000;
-  const { percentParking, parkingSpots, parkingSqFt } = useParkingStats(station, radius);
+  const { percentParking, parkingSpots, parkingSqFt } = useParkingStats(station, WALKING_RADIUS);
+
+  const bikeGeojson: FeatureCollection<Geometry, GeoJsonProperties> = bikeData
+    ? {
+        ...bikeData,
+        features: bikeData?.features.filter((f) => f.geometry.type !== 'Point'),
+      }
+    : { features: [], type: 'FeatureCollection' };
+  const bikeLength = length(bikeGeojson, { units: 'miles' });
 
   // TODO: All these sections should be filled out
-
   return (
     <>
       <StationDetailSection sectionName="Mobility">
@@ -86,9 +104,7 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
           link={walkscore.data?.help_link}
         />
       </StationDetailSection>
-
       <StationDetailSection sectionName="Accessibility">
-        {/* TODO */}
         <div className="flex flex-row items-center justify-center gap-2 lg:gap-3">
           <AccessiblePill accessible={station.accessible} />
           <ElevatorsPill elevators={elevators} elevatorAlerts={elevatorAlerts} />
@@ -102,7 +118,11 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
           </p>
         )}
       </StationDetailSection>
-      <StationDetailSection sectionName="Transit">{/* TODO */}Test</StationDetailSection>
+      <StationDetailSection sectionName="Transit">
+        <div className="flex flex-row items-center justify-center gap-1 lg:gap-2">
+          {routes.data?.map((route) => <RoutePill key={route.id} route={route} />)}
+        </div>
+      </StationDetailSection>
       <StationDetailSection sectionName="Bike">
         <DataSection
           title={'Bike Score®'}
@@ -121,6 +141,22 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
             </a>
           }
           link={walkscore.data?.help_link}
+        />
+        <DataSection
+          title={'Miles of Bike Lanes'}
+          description={'Miles of bike lanes that are within walking distance of the station'}
+          dataValue={
+            bikeData && !isBikeDataLoading ? (
+              <div className="text-inherit">
+                {bikeLength.toFixed(1)}
+                <span className={'text-sm'}>miles</span>
+              </div>
+            ) : (
+              <div className="text-2xl text-inherit">
+                <LoadingIndicator />
+              </div>
+            )
+          }
         />
       </StationDetailSection>
       <StationDetailSection sectionName="Land Use">

@@ -6,6 +6,7 @@ import L from 'leaflet';
 // @ts-ignore
 import { MarkerLayer } from 'react-leaflet-marker';
 import type { Station } from '../../types/station';
+import { useStore } from '../../store';
 import { MBTAStations } from './MBTAStations';
 import { WalkingRadius } from './WalkingRadius';
 import { MBTALinesLayer } from './layers/MBTALinesLayer';
@@ -56,6 +57,7 @@ const LeafletMap: React.FC<LeafletMapProps> = ({
   },
   allowNavigation = true,
 }) => {
+  const { darkMode } = useStore();
   const [isMounted, setIsMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -80,8 +82,12 @@ const LeafletMap: React.FC<LeafletMapProps> = ({
         dragging={true}
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url={
+            darkMode
+              ? 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'
+              : 'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
+          }
         />
         <MBTAStations setStation={setStation} allowNavigation={allowNavigation} />
         <MarkerLayer>

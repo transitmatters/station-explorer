@@ -29,6 +29,17 @@ def facilities(station_id):
     return Response(json.dumps(stop_data), headers={"Content-Type": "application/json"})
 
 
+@app.route("/api/routes/{station_id}", cors=cors_config)
+def routes(station_id):
+    stop_data = asyncio.run(
+        getV3(
+            "routes",
+            {"filter[stop]": station_id},
+        )
+    )
+    return Response(json.dumps(stop_data), headers={"Content-Type": "application/json"})
+
+
 @app.route("/api/alerts/{station_id}", cors=cors_config)
 def alerts(station_id):
     stop_data = asyncio.run(
