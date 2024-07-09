@@ -6,7 +6,7 @@ interface CompareSelectorProps {}
 
 export const CompareSelector: React.FunctionComponent<CompareSelectorProps> = () => {
   return (
-    <div className="absolute right-2 top-40 flex flex-col content-center items-end text-center lg:right-8">
+    <div className="absolute right-2 top-48 flex flex-col content-center items-end text-center lg:right-8">
       <hr className="mr-3 h-[40vh] w-px border-0 bg-gray-200 dark:bg-gray-500" />
       <CompareButton />
       <hr className="mr-3 h-[40vh] w-px border-0 bg-gray-200 dark:bg-gray-500" />

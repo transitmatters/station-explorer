@@ -8,9 +8,13 @@ import { AccessiblePill } from './pills/AccessiblePill';
 
 interface StationHighlightProps {
   station: Station;
+  onClick?: () => void;
 }
 
-export const StationHighlight: React.FunctionComponent<StationHighlightProps> = ({ station }) => {
+export const StationHighlight: React.FunctionComponent<StationHighlightProps> = ({
+  station,
+  onClick,
+}) => {
   const isMobile = !useBreakpoint('sm');
 
   const stopName = isMobile && station.short ? station.short : station.stop_name;
@@ -19,6 +23,7 @@ export const StationHighlight: React.FunctionComponent<StationHighlightProps> = 
     <Link
       className="group relative h-24 min-w-72 cursor-pointer content-center justify-center rounded-md bg-white hover:scale-105 hover:shadow-sm md:min-w-56"
       to={`/${station.station}`}
+      onClick={onClick}
     >
       <div
         className={classnames(

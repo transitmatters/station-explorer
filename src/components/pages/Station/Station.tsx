@@ -10,6 +10,7 @@ import { HorizontalDivider } from '../../HorizontalDivider';
 import { CompareSelector } from '../../CompareSelector';
 import { StationDetails } from '../../StationDetails';
 import { useStore } from '../../../store';
+import { DetailsHeader } from '../../DetailsHeader';
 
 interface StationProps {
   stationId: string;
@@ -22,6 +23,7 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
   const [showRouteLines, setShowRouteLines] = useState<boolean>(false);
   const [showParking, setShowParking] = useState<boolean>(true);
   const [showBikePaths, setShowBikePaths] = useState<boolean>(true);
+  const [showBikeShares, setShowBikeShares] = useState<boolean>(false);
 
   if (!station) {
     // TODO: show actual error page
@@ -30,9 +32,7 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
 
   return (
     <div className="flex w-screen flex-col content-center items-center bg-slate-50 text-center dark:bg-slate-700">
-      <div className="flex w-screen bg-cyan-700 p-8 text-2xl uppercase text-white dark:bg-cyan-800">
-        {station.stop_name} | TODO: Create Header
-      </div>
+      <DetailsHeader station={station} setStation={setStation} />
       <div className="absolute right-0 top-0 m-4 rounded-md bg-slate-50 p-2 dark:bg-slate-900">
         <ThemeSwitcher />
       </div>
@@ -61,6 +61,8 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
               setShowParking,
               showBikePaths,
               setShowBikePaths,
+              showBikeShares,
+              setShowBikeShares,
             }}
             allowNavigation={fullMapNavigation}
           />

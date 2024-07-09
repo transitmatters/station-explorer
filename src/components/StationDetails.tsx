@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import length from '@turf/length';
 import type { FeatureCollection, Geometry, GeoJsonProperties } from 'geojson';
+import pluralize from 'pluralize';
 import { useGetWalkscoreForStation } from '../api/walkscore';
 import type { Station } from '../types/station';
 import { useParkingStats } from '../utils/parking';
@@ -10,7 +11,7 @@ import { COMMUTER_RAIL_LINES } from '../constants/line';
 import { useGetAlertsForStation } from '../api/alerts';
 import type { Elevator, Escalator } from '../types/facilities';
 import { WALKING_RADIUS } from '../constants/mobility';
-import { useGetCyclePathDataForStation } from '../api/overpass';
+import { useGetBikeShareDataForStation, useGetCyclePathDataForStation } from '../api/overpass';
 import { useGetRoutesForStation } from '../api/routes';
 import { StationDetailSection } from './StationDetailSection';
 import { DataSection } from './DataSection';
@@ -47,6 +48,10 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
   const routes = useGetRoutesForStation(station);
 
   const { data: bikeData, isLoading: isBikeDataLoading } = useGetCyclePathDataForStation(
+    station,
+    WALKING_RADIUS
+  );
+  const { data: bikeShareData, isLoading: isBikeShareDataLoading } = useGetBikeShareDataForStation(
     station,
     WALKING_RADIUS
   );
@@ -105,21 +110,21 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
         />
       </StationDetailSection>
       <StationDetailSection sectionName="Accessibility">
-        <div className="flex flex-row items-center justify-center gap-2 lg:gap-3">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-2 lg:gap-3">
           <AccessiblePill accessible={station.accessible} />
           <ElevatorsPill elevators={elevators} elevatorAlerts={elevatorAlerts} />
           <EscalatorsPill escalators={escalators} elevatorAlerts={escalatorsAlerts} />
         </div>
         {station.lines.some((line) => COMMUTER_RAIL_LINES.includes(line)) && (
-          <p>
+          <div>
             This station has {levelBoarding?.length ?? <LoadingIndicator />} level boarding
             platform(s) and {miniHighPlatforms?.length ?? <LoadingIndicator />} mini-high
             platform(s)
-          </p>
+          </div>
         )}
       </StationDetailSection>
       <StationDetailSection sectionName="Transit">
-        <div className="flex flex-row items-center justify-center gap-1 lg:gap-2">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-1 lg:gap-2">
           {routes.data?.map((route) => <RoutePill key={route.id} route={route} />)}
         </div>
       </StationDetailSection>
@@ -149,7 +154,27 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
             bikeData && !isBikeDataLoading ? (
               <div className="text-inherit">
                 {bikeLength.toFixed(1)}
-                <span className={'text-sm'}>miles</span>
+                <span className={'text-sm'}>{pluralize('mile', bikeLength)}</span>
+              </div>
+            ) : (
+              <div className="text-2xl text-inherit">
+                <LoadingIndicator />
+              </div>
+            )
+          }
+        />
+        <DataSection
+          title={'Bike Share Stations'}
+          description={
+            'Number of bike share stations that are within walking distance of the station'
+          }
+          dataValue={
+            bikeShareData && !isBikeShareDataLoading ? (
+              <div className="text-inherit">
+                {bikeShareData.features.length.toFixed(0)}
+                <span className={'text-sm'}>
+                  {pluralize('station', bikeShareData.features.length)}
+                </span>
               </div>
             ) : (
               <div className="text-2xl text-inherit">
@@ -183,7 +208,7 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
             parkingSpots > 0 ? (
               <div className="text-inherit">
                 {parkingSpots.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                <span className={'text-sm'}>spots</span>
+                <span className={'text-sm'}>{pluralize('spot', parkingSpots)}</span>
               </div>
             ) : (
               <div className="text-2xl text-inherit">

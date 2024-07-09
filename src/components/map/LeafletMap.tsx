@@ -12,6 +12,7 @@ import { WalkingRadius } from './WalkingRadius';
 import { MBTALinesLayer } from './layers/MBTALinesLayer';
 import { BikeLanesLayer } from './layers/BikeLanesLayer';
 import { ParkingLayer } from './layers/ParkingLayer';
+import { BikeShareLayer } from './layers/BikeShareLayer';
 
 const DefaultIcon = L.icon({
   // @ts-ignore
@@ -33,6 +34,8 @@ interface LeafletMapProps {
     setShowParking: (show: boolean) => void;
     showBikePaths: boolean;
     setShowBikePaths: (show: boolean) => void;
+    showBikeShares: boolean;
+    setShowBikeShares: (show: boolean) => void;
   };
 }
 
@@ -52,6 +55,8 @@ const LeafletMap: React.FC<LeafletMapProps> = ({
     setShowRouteLines,
     showBikePaths,
     setShowBikePaths,
+    showBikeShares,
+    setShowBikeShares,
     showParking,
     setShowParking,
   },
@@ -97,6 +102,9 @@ const LeafletMap: React.FC<LeafletMapProps> = ({
             </LayersControl.Overlay>
             <LayersControl.Overlay name="Bike Lanes" checked={showBikePaths}>
               <BikeLanesLayer station={station} setShowLayer={setShowBikePaths} />
+            </LayersControl.Overlay>
+            <LayersControl.Overlay name="Blue Bikes" checked={showBikeShares}>
+              <BikeShareLayer station={station} setShowLayer={setShowBikeShares} />
             </LayersControl.Overlay>
             <LayersControl.Overlay name="Parking Lots" checked={showParking}>
               <ParkingLayer station={station} setShowLayer={setShowParking} />

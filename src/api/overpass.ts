@@ -48,6 +48,23 @@ export const getBikePathDataForStation = async (station: Station, radius: number
   }
 };
 
+export const getBikeShareDataForStation = async (station: Station, radius: number) => {
+  if (station.coordinates) {
+    const coordinates = station.coordinates.sort((a: number, b: number) => {
+      return b - a;
+    });
+    const query = `[timeout:30][out:json];
+    nw(around:${radius},${coordinates[0]},${coordinates[1]})["amenity"="bicycle_rental"];
+  (._;>;);
+  out body;`;
+    const response = await overpass(query);
+    const json = await response.json();
+    const geojson = osmtogeojson(json);
+
+    return geojson;
+  }
+};
+
 export const useGetDataForStation = (
   station: Station,
   radius: number,
@@ -64,6 +81,14 @@ export const useGetCyclePathDataForStation = (station: Station, radius: number) 
   return useQuery({
     queryKey: [`getStationBikeData`, station, radius],
     queryFn: () => getBikePathDataForStation(station, radius),
+    staleTime: THIRTY_MINUTES,
+  });
+};
+
+export const useGetBikeShareDataForStation = (station: Station, radius: number) => {
+  return useQuery({
+    queryKey: [`getStationBikeShareData`, station, radius],
+    queryFn: () => getBikeShareDataForStation(station, radius),
     staleTime: THIRTY_MINUTES,
   });
 };
