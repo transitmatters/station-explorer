@@ -23,7 +23,7 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
   const [showRouteLines, setShowRouteLines] = useState<boolean>(false);
   const [showParking, setShowParking] = useState<boolean>(true);
   const [showBikePaths, setShowBikePaths] = useState<boolean>(true);
-  const [showBikeShares, setShowBikeShares] = useState<boolean>(false);
+  const [showBikeShares, setShowBikeShares] = useState<boolean>(true);
 
   if (!station) {
     // TODO: show actual error page

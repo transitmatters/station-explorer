@@ -4,7 +4,6 @@ import React from 'react';
 import type { Station } from '../types/station';
 import { LINE_BG_COLOR_MAP } from '../constants/colors';
 import { useBreakpoint } from '../utils/hooks/useBreakpoint';
-import { AccessiblePill } from './pills/AccessiblePill';
 
 interface StationHighlightProps {
   station: Station;
@@ -34,8 +33,8 @@ export const StationHighlight: React.FunctionComponent<StationHighlightProps> = 
       >
         {stopName}
       </div>
-      <div className="h-10 content-center justify-center">
-        <AccessiblePill accessible={station.accessible} />
+      <div className="h-10 content-center justify-center text-lg font-semibold uppercase text-slate-600">
+        {station.municipality}
       </div>
     </Link>
   );

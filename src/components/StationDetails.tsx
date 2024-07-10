@@ -107,6 +107,10 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
             </a>
           }
           link={walkscore.data?.help_link}
+          dataSource={{
+            name: 'WalkScore®',
+            url: 'https://www.walkscore.com',
+          }}
         />
       </StationDetailSection>
       <StationDetailSection sectionName="Accessibility">
@@ -146,6 +150,10 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
             </a>
           }
           link={walkscore.data?.help_link}
+          dataSource={{
+            name: 'WalkScore®',
+            url: 'https://www.walkscore.com',
+          }}
         />
         <DataSection
           title={'Miles of Bike Lanes'}
@@ -153,7 +161,7 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
           dataValue={
             bikeData && !isBikeDataLoading ? (
               <div className="text-inherit">
-                {bikeLength.toFixed(1)}
+                {bikeLength.toFixed(1)}&nbsp;
                 <span className={'text-sm'}>{pluralize('mile', bikeLength)}</span>
               </div>
             ) : (
@@ -162,6 +170,10 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
               </div>
             )
           }
+          dataSource={{
+            name: 'OpenStreetMap',
+            url: 'https://www.openstreetmap.org/about',
+          }}
         />
         <DataSection
           title={'Bike Share Stations'}
@@ -171,7 +183,7 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
           dataValue={
             bikeShareData && !isBikeShareDataLoading ? (
               <div className="text-inherit">
-                {bikeShareData.features.length.toFixed(0)}
+                {bikeShareData.features.length.toFixed(0)}&nbsp;
                 <span className={'text-sm'}>
                   {pluralize('station', bikeShareData.features.length)}
                 </span>
@@ -182,6 +194,10 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
               </div>
             )
           }
+          dataSource={{
+            name: 'OpenStreetMap',
+            url: 'https://www.openstreetmap.org/about',
+          }}
         />
       </StationDetailSection>
       <StationDetailSection sectionName="Land Use">
@@ -200,6 +216,10 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
               </div>
             )
           }
+          dataSource={{
+            name: 'OpenStreetMap',
+            url: 'https://www.openstreetmap.org/about',
+          }}
         />
         <DataSection
           title={'Parking Spaces'}
@@ -207,7 +227,7 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
           dataValue={
             parkingSpots > 0 ? (
               <div className="text-inherit">
-                {parkingSpots.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                {parkingSpots.toLocaleString(undefined, { maximumFractionDigits: 0 })}&nbsp;
                 <span className={'text-sm'}>{pluralize('spot', parkingSpots)}</span>
               </div>
             ) : (
@@ -216,6 +236,10 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
               </div>
             )
           }
+          dataSource={{
+            name: 'OpenStreetMap',
+            url: 'https://www.openstreetmap.org/about',
+          }}
         />
         <DataSection
           title={'Surface Parking Land Area'}
@@ -232,6 +256,10 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
               </div>
             )
           }
+          dataSource={{
+            name: 'OpenStreetMap',
+            url: 'https://www.openstreetmap.org/about',
+          }}
         />
       </StationDetailSection>
     </>

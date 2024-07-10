@@ -37,9 +37,15 @@ export const getBikePathDataForStation = async (station: Station, radius: number
       return b - a;
     });
     const query = `[timeout:30][out:json];
-    wr(around:${radius},${coordinates[0]},${coordinates[1]})["highway"="cycleway"];
-  (._;>;);
-  out body;`;
+    (
+      wr(around:${radius},${coordinates[0]},${coordinates[1]})["highway"="cycleway"];
+      wr(around:${radius},${coordinates[0]},${coordinates[1]})["cycleway"]["cycleway"!="no"];
+      wr(around:${radius},${coordinates[0]},${coordinates[1]})["cycleway:left"]["cycleway:left"!="no"];
+      wr(around:${radius},${coordinates[0]},${coordinates[1]})["cycleway:right"]["cycleway:right"!="no"];
+      wr(around:${radius},${coordinates[0]},${coordinates[1]})["cycleway:both"]["cycleway:both"!="no"];
+    );
+    (._;>;);
+    out body;`;
     const response = await overpass(query);
     const json = await response.json();
     const geojson = osmtogeojson(json);
