@@ -8,7 +8,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "~3.12"
 requests = "~2.32.3"
-aiohttp = "3.9.5"
+aiohttp = "3.10.2"
 json-api-doc = "0.15.0"
 boto3 = "^1.34.140"
 pytz = "2024.1"
