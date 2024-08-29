@@ -15,9 +15,9 @@ import { ParkingLayer } from './layers/ParkingLayer';
 import { BikeShareLayer } from './layers/BikeShareLayer';
 
 const DefaultIcon = L.icon({
-  // @ts-ignore
+  // @ts-expect-error Types seem to be missing/wrong
   iconUrl: icon.src,
-  // @ts-ignore
+  // @ts-expect-error Types seem to be missing/wrong
   shadowUrl: iconShadow.src,
 });
 
