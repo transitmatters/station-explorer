@@ -73,11 +73,21 @@ export const StationSelector: React.FunctionComponent<StationSelectorProps> = ({
                 />
               </div>
             </div>
-            <span className="m-1 rounded-lg bg-slate-100 bg-opacity-30 p-1.5 text-white">
+            <span
+              className="m-1 rounded-lg bg-slate-100 bg-opacity-30 p-1.5 text-white"
+              onClick={() => {
+                alert('Sorting not yet implemented');
+              }}
+            >
               <FontAwesomeIcon icon={faSort} className="mr-1" />
               Sort by {sortedBy}
             </span>
-            <span className="m-1 rounded-lg bg-slate-100 bg-opacity-30 p-1.5 text-white">
+            <span
+              className="m-1 rounded-lg bg-slate-100 bg-opacity-30 p-1.5 text-white"
+              onClick={() => {
+                alert('Filters not yet implemented');
+              }}
+            >
               <FontAwesomeIcon icon={faFilter} className="mr-1" />
               Filter by
             </span>

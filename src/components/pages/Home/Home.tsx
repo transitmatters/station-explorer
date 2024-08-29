@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Link } from 'react-scroll';
 import { OverviewCircle } from '../../OverviewCircle';
 import ThemeSwitcher from '../../ThemeSwitcher';
 import { StationHighlight } from '../../StationHighlight';
@@ -31,12 +32,20 @@ export const Home: React.FunctionComponent = () => {
         </div>
         <div>
           <h1 className="text-6xl font-bold uppercase italic text-white">Station Explorer</h1>
-          <button className="mt-4 cursor-pointer rounded border-2 p-1 uppercase italic text-white hover:border-slate-100 hover:bg-white hover:text-cyan-700">
-            Explore
+          <button
+            type="button"
+            className="mt-4 cursor-pointer rounded border-2 p-1 uppercase italic text-white hover:border-slate-100 hover:bg-white hover:text-cyan-700"
+          >
+            <Link to="info" smooth={true} duration={1000} offset={1000}>
+              Explore
+            </Link>
           </button>
         </div>
       </div>
-      <div>
+      <div id="info">
+        <h1 className="my-8 text-3xl font-semibold uppercase italic text-white md:text-5xl">
+          What makes a good station?
+        </h1>
         <div className="mx-8 flex flex-col gap-8 md:flex-row lg:mx-24">
           <div className="flex flex-col content-center items-center">
             <OverviewCircle>
@@ -78,7 +87,11 @@ export const Home: React.FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <div className="grid w-full grid-flow-col grid-rows-6 gap-8 p-8 sm:grid-rows-6 md:grid-rows-3 lg:grid-rows-2 lg:p-32">
+      <h2 className="my-4 mt-16 text-3xl font-semibold uppercase italic text-white md:text-5xl">
+        Explore a station!
+      </h2>
+      <h5 className="text-white">Pick from one of these 6 random stations to start</h5>
+      <div className="grid w-full grid-flow-col grid-rows-6 gap-8 p-8 sm:grid-rows-6 md:grid-rows-3 lg:grid-rows-2 lg:px-32">
         {chooseRandomStations(6).map((station) => (
           <StationHighlight key={station.station} station={station} />
         ))}

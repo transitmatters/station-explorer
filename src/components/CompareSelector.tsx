@@ -25,7 +25,14 @@ const CompareButton: React.FunctionComponent = () => {
           icon={faPlusCircle}
           className="my-0.5 text-gray-500 group-hover:text-white dark:text-gray-400"
         />
-        <span className="ml-1 hidden p-0 text-xs group-hover:block">Compare</span>
+        <span
+          className="ml-1 hidden p-0 text-xs group-hover:block"
+          onClick={() => {
+            alert('Compare not yet implemented');
+          }}
+        >
+          Compare
+        </span>
       </span>
     </button>
   );
