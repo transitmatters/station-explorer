@@ -56,23 +56,23 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
     WALKING_RADIUS
   );
 
-  const elevators = facilities.data?.filter(
+  const elevators = facilities.data?.filter?.(
     (facility) => facility.type === 'ELEVATOR'
   ) as Elevator[];
-  const elevatorAlerts = alerts.data?.filter((alert) =>
+  const elevatorAlerts = alerts.data?.filter?.((alert) =>
     alert.informed_entity.some((entity) => entity.activities.includes('USING_WHEELCHAIR'))
   );
 
-  const escalators = facilities.data?.filter(
+  const escalators = facilities.data?.filter?.(
     (facility) => facility.type === 'ESCALATOR'
   ) as Escalator[];
-  const escalatorsAlerts = alerts.data?.filter((alert) =>
+  const escalatorsAlerts = alerts.data?.filter?.((alert) =>
     alert.informed_entity.some((entity) => entity.activities.includes('USING_ESCALATOR'))
   );
-  const levelBoarding = facilities.data?.filter(
+  const levelBoarding = facilities.data?.filter?.(
     (facility) => facility.type === 'FULLY_ELEVATED_PLATFORM'
   );
-  const miniHighPlatforms = facilities.data?.filter(
+  const miniHighPlatforms = facilities.data?.filter?.(
     (facility) => facility.type === 'ELEVATED_SUBPLATFORM'
   );
 
