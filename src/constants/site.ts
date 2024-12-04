@@ -4,7 +4,7 @@ export const LOCAL = 'localhost';
 const FRONTEND_TO_BACKEND_MAP = {
   [PRODUCTION]: 'https://stations-api.labs.transitmatters.org',
   [BETA]: 'https://stations-api.labs.transitmatters.org',
-  [LOCAL]: 'http://localhost:5000',
+  [LOCAL]: 'http://localhost:5555',
 };
 
 let domain = '';
