@@ -8,7 +8,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "~3.12"
-requests = "~2.32.3"
+requests = "~2.32.4"
 aiohttp = "3.11.18"
 json-api-doc = "0.15.0"
 boto3 = "^1.38.12"
