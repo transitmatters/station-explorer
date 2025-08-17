@@ -45,7 +45,7 @@ export const useParkingStats = (station: Station, radius: number) => {
       .reduce((partialSum, a) => partialSum + a, 0)
   );
 
-  const parkingSqFt = 10.764 * surface_parking_area;
+  const parkingAcres = surface_parking_area / 4047;
 
-  return { percentParking, parkingSpots, parkingSqFt };
+  return { percentParking, parkingSpots, parkingAcres };
 };
