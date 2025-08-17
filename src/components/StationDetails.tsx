@@ -80,9 +80,9 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
 
   const bikeGeojson: FeatureCollection<Geometry, GeoJsonProperties> = bikeData
     ? {
-      ...bikeData,
-      features: bikeData?.features.filter((f) => f.geometry.type !== 'Point'),
-    }
+        ...bikeData,
+        features: bikeData?.features.filter((f) => f.geometry.type !== 'Point'),
+      }
     : { features: [], type: 'FeatureCollection' };
   const bikeLength = length(bikeGeojson, { units: 'miles' });
 
