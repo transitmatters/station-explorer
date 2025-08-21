@@ -76,7 +76,7 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
     (facility) => facility.type === 'ELEVATED_SUBPLATFORM'
   );
 
-  const { percentParking, parkingSpots, parkingSqFt } = useParkingStats(station, WALKING_RADIUS);
+  const { percentParking, parkingSpots, parkingAcres } = useParkingStats(station, WALKING_RADIUS);
 
   const bikeGeojson: FeatureCollection<Geometry, GeoJsonProperties> = bikeData
     ? {
@@ -129,7 +129,9 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
       </StationDetailSection>
       <StationDetailSection sectionName="Transit">
         <div className="flex flex-row flex-wrap items-center justify-center gap-1 lg:gap-2">
-          {routes.data?.map((route) => <RoutePill key={route.id} route={route} />)}
+          {routes.data?.map((route) => (
+            <RoutePill key={route.id} route={route} />
+          ))}
         </div>
       </StationDetailSection>
       <StationDetailSection sectionName="Bike">
@@ -243,12 +245,12 @@ export const StationDetails: React.FunctionComponent<StationDetailsProps> = ({ s
         />
         <DataSection
           title={'Surface Parking Land Area'}
-          description=" Estimate of the square footage of surface parking within walking distance of the station"
+          description=" Estimate of the acreage of surface parking within walking distance of the station"
           dataValue={
-            parkingSqFt > 0 ? (
+            parkingAcres > 0 ? (
               <div className="text-inherit">
-                {parkingSqFt.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                <span className={'align-top text-xs'}>²ft</span>
+                {parkingAcres.toLocaleString(undefined, { maximumFractionDigits: 0 })}&nbsp;
+                <span className={'text-sm'}>{pluralize('acre', parkingAcres)}</span>
               </div>
             ) : (
               <div className="text-2xl text-inherit">
