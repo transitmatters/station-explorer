@@ -1,10 +1,12 @@
 export const PRODUCTION = 'stations.transitmatters.org';
 export const BETA = 'stations.labs.transitmatters.org';
-export const LOCAL = 'localhost';
+export const LOCAL = '127.0.0.1';
+export const LOCALHOST = 'localhost';
 const FRONTEND_TO_BACKEND_MAP = {
   [PRODUCTION]: 'https://stations-api.labs.transitmatters.org',
   [BETA]: 'https://stations-api.labs.transitmatters.org',
-  [LOCAL]: 'http://localhost:5555',
+  [LOCAL]: '',
+  [LOCALHOST]: '',
 };
 
 let domain = '';

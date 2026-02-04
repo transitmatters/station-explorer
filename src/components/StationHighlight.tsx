@@ -8,22 +8,20 @@ import { useBreakpoint } from '../utils/hooks/useBreakpoint';
 interface StationHighlightProps {
   station: Station;
   onClick?: () => void;
+  isCompareMode?: boolean;
 }
 
 export const StationHighlight: React.FunctionComponent<StationHighlightProps> = ({
   station,
   onClick,
+  isCompareMode = false,
 }) => {
   const isMobile = !useBreakpoint('sm');
 
   const stopName = isMobile && station.short ? station.short : station.stop_name;
 
-  return (
-    <Link
-      className="group relative h-24 min-w-72 cursor-pointer content-center justify-center rounded-md bg-white hover:scale-105 hover:shadow-sm md:min-w-56"
-      to={`/${station.station}`}
-      onClick={onClick}
-    >
+  const content = (
+    <>
       <div
         className={classnames(
           'h-14 content-center justify-center rounded-t-md font-semibold uppercase text-white',
@@ -36,6 +34,32 @@ export const StationHighlight: React.FunctionComponent<StationHighlightProps> = 
       <div className="h-10 content-center justify-center text-lg font-semibold uppercase text-slate-600">
         {station.municipality}
       </div>
+      {isCompareMode && (
+        <div className="absolute inset-0 flex items-center justify-center rounded-md bg-cyan-700 bg-opacity-80">
+          <span className="text-sm font-semibold text-white">Select to compare</span>
+        </div>
+      )}
+    </>
+  );
+
+  if (isCompareMode) {
+    return (
+      <button
+        className="group relative h-24 min-w-72 cursor-pointer content-center justify-center rounded-md bg-white hover:scale-105 hover:shadow-sm md:min-w-56"
+        onClick={onClick}
+      >
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <Link
+      className="group relative h-24 min-w-72 cursor-pointer content-center justify-center rounded-md bg-white hover:scale-105 hover:shadow-sm md:min-w-56"
+      to={`/${station.station}`}
+      onClick={onClick}
+    >
+      {content}
     </Link>
   );
 };

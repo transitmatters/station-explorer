@@ -12,7 +12,7 @@ export const DetailsHeader: React.FunctionComponent<DetailsHeaderProps> = ({
   setStation,
 }) => {
   return (
-    <div className="w-screen bg-cyan-700 dark:bg-cyan-800">
+    <div className="w-full bg-cyan-700 dark:bg-cyan-800">
       <div className="px-8 pt-8 text-start text-2xl uppercase text-white lg:text-4xl">
         {station.stop_name}
       </div>

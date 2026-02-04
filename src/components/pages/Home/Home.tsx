@@ -15,7 +15,7 @@ import { TMLogo } from '../../TMLogo';
 
 export const Home: React.FunctionComponent = () => {
   return (
-    <div className="flex w-screen flex-col content-center items-center justify-center bg-cyan-700 text-center dark:bg-cyan-800">
+    <div className="flex w-full flex-col content-center items-center justify-center bg-cyan-700 text-center dark:bg-cyan-800">
       <div className="absolute right-0 top-0 m-4 rounded-md bg-slate-50 p-2 dark:bg-slate-900">
         <ThemeSwitcher />
       </div>
@@ -91,7 +91,7 @@ export const Home: React.FunctionComponent = () => {
         Explore a station!
       </h2>
       <h5 className="text-white">Pick from one of these 6 random stations to start</h5>
-      <div className="grid w-full grid-flow-col grid-rows-6 gap-8 p-8 sm:grid-rows-6 md:grid-rows-3 lg:grid-rows-2 lg:px-32">
+      <div className="grid w-full grid-flow-row grid-cols-1 gap-8 p-8 sm:grid-cols-2 md:grid-cols-3 lg:px-32">
         {chooseRandomStations(6).map((station) => (
           <StationHighlight key={station.station} station={station} />
         ))}

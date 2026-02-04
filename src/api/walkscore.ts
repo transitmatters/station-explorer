@@ -6,7 +6,7 @@ import { ONE_DAY } from '../constants/time';
 const WALKSCORE_PROXY =
   process.env.NODE_ENV === 'production'
     ? 'https://walkscore.labs.transitmatters.org'
-    : 'http://localhost:5001';
+    : 'http://127.0.0.1:5001';
 
 export const getWalkscore = async (station: Station): Promise<WalkScore> => {
   const response = await fetch(`${WALKSCORE_PROXY}/api/walkscore/${station.station}`);

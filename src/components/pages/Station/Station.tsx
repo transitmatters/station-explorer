@@ -31,7 +31,7 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
   }
 
   return (
-    <div className="flex w-screen flex-col content-center items-center bg-slate-50 text-center dark:bg-slate-700">
+    <div className="flex w-full flex-col content-center items-center bg-slate-50 text-center dark:bg-slate-700">
       <DetailsHeader station={station} setStation={setStation} />
       <div className="absolute right-0 top-0 m-4 rounded-md bg-slate-50 p-2 dark:bg-slate-900">
         <ThemeSwitcher />
@@ -39,12 +39,12 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
       <div className="flex w-full flex-col">
         <StationDetails station={station} />
         <HorizontalDivider />
-        {!fullMapNavigation && <CompareSelector />}
+        {!fullMapNavigation && <CompareSelector currentStation={station} />}
       </div>
       <div className="pb-8">
         <div
           className={classNames(
-            'z-0 flex w-screen flex-col transition-all duration-500 ease-in-out',
+            'z-0 flex w-full flex-col transition-all duration-500 ease-in-out',
             fullMapNavigation
               ? 'absolute bottom-4 left-0 right-0 top-28 m-auto px-4'
               : 'h-[32rem] px-12 lg:px-32'

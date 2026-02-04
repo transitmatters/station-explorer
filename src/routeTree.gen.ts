@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StationIndexRouteImport } from './routes/$station/index'
+import { Route as CompareStation1Station2IndexRouteImport } from './routes/compare/$station1/$station2/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,41 @@ const StationIndexRoute = StationIndexRouteImport.update({
   path: '/$station/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompareStation1Station2IndexRoute =
+  CompareStation1Station2IndexRouteImport.update({
+    id: '/compare/$station1/$station2/',
+    path: '/compare/$station1/$station2/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$station': typeof StationIndexRoute
+  '/compare/$station1/$station2': typeof CompareStation1Station2IndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$station': typeof StationIndexRoute
+  '/compare/$station1/$station2': typeof CompareStation1Station2IndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$station/': typeof StationIndexRoute
+  '/compare/$station1/$station2/': typeof CompareStation1Station2IndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$station'
+  fullPaths: '/' | '/$station' | '/compare/$station1/$station2'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$station'
-  id: '__root__' | '/' | '/$station/'
+  to: '/' | '/$station' | '/compare/$station1/$station2'
+  id: '__root__' | '/' | '/$station/' | '/compare/$station1/$station2/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   StationIndexRoute: typeof StationIndexRoute
+  CompareStation1Station2IndexRoute: typeof CompareStation1Station2IndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +76,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StationIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare/$station1/$station2/': {
+      id: '/compare/$station1/$station2/'
+      path: '/compare/$station1/$station2'
+      fullPath: '/compare/$station1/$station2'
+      preLoaderRoute: typeof CompareStation1Station2IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   StationIndexRoute: StationIndexRoute,
+  CompareStation1Station2IndexRoute: CompareStation1Station2IndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
