@@ -11,8 +11,8 @@ import { useNavigate } from '@tanstack/react-router';
 import type { Station } from '../types/station';
 import type { Line } from '../types/line';
 import { stations } from '../constants/stations';
-import { StationHighlight } from './StationHighlight';
 import { useStore } from '../store';
+import { StationHighlight } from './StationHighlight';
 
 type SortOption = 'name' | 'line' | 'accessible';
 

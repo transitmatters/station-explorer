@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-/* eslint-disable import/no-unused-modules */
 /* eslint-disable import/no-default-export */
 
 export default {

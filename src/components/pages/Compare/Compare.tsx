@@ -65,31 +65,18 @@ const CompareHeader: React.FunctionComponent<CompareHeaderProps> = ({ station1, 
   return (
     <div className="bg-cyan-700 px-4 py-4 text-white dark:bg-cyan-800 lg:px-8">
       <div className="mb-2">
-        <Link
-          to="/"
-          className="text-sm text-cyan-100 hover:text-white"
-        >
+        <Link to="/" className="text-sm text-cyan-100 hover:text-white">
           <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
           Back to Home
         </Link>
       </div>
-      <h1 className="text-center text-xl font-bold lg:text-2xl">
-        Comparing Stations
-      </h1>
+      <h1 className="text-center text-xl font-bold lg:text-2xl">Comparing Stations</h1>
       <div className="mt-2 flex items-center justify-center gap-4 text-lg">
-        <Link
-          to="/$station"
-          params={{ station: station1.station }}
-          className="hover:underline"
-        >
+        <Link to="/$station" params={{ station: station1.station }} className="hover:underline">
           {station1.stop_name}
         </Link>
         <span className="text-cyan-300">vs</span>
-        <Link
-          to="/$station"
-          params={{ station: station2.station }}
-          className="hover:underline"
-        >
+        <Link to="/$station" params={{ station: station2.station }} className="hover:underline">
           {station2.stop_name}
         </Link>
       </div>

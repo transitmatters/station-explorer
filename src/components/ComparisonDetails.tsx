@@ -107,14 +107,10 @@ export const ComparisonDetails: React.FunctionComponent<ComparisonDetailsProps> 
     WALKING_RADIUS
   );
 
-  const { data: bikeShareData1, isLoading: isBikeShareDataLoading1 } = useGetBikeShareDataForStation(
-    station1,
-    WALKING_RADIUS
-  );
-  const { data: bikeShareData2, isLoading: isBikeShareDataLoading2 } = useGetBikeShareDataForStation(
-    station2,
-    WALKING_RADIUS
-  );
+  const { data: bikeShareData1, isLoading: isBikeShareDataLoading1 } =
+    useGetBikeShareDataForStation(station1, WALKING_RADIUS);
+  const { data: bikeShareData2, isLoading: isBikeShareDataLoading2 } =
+    useGetBikeShareDataForStation(station2, WALKING_RADIUS);
 
   const elevators1 = facilities1.data?.filter?.(
     (facility) => facility.type === 'ELEVATOR'
