@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import length from '@turf/length';
+import turfLength from '@turf/length';
 import type { FeatureCollection, Geometry, GeoJsonProperties } from 'geojson';
 import pluralize from 'pluralize';
 import { useGetWalkscoreForStation } from '../api/walkscore';
@@ -149,7 +149,7 @@ export const ComparisonDetails: React.FunctionComponent<ComparisonDetailsProps> 
         features: bikeData1?.features.filter((f) => f.geometry.type !== 'Point'),
       }
     : { features: [], type: 'FeatureCollection' };
-  const bikeLength1 = length(bikeGeojson1, { units: 'miles' });
+  const bikeLength1 = turfLength(bikeGeojson1, { units: 'miles' });
 
   const bikeGeojson2: FeatureCollection<Geometry, GeoJsonProperties> = bikeData2
     ? {
@@ -157,7 +157,7 @@ export const ComparisonDetails: React.FunctionComponent<ComparisonDetailsProps> 
         features: bikeData2?.features.filter((f) => f.geometry.type !== 'Point'),
       }
     : { features: [], type: 'FeatureCollection' };
-  const bikeLength2 = length(bikeGeojson2, { units: 'miles' });
+  const bikeLength2 = turfLength(bikeGeojson2, { units: 'miles' });
 
   const renderScore = (score: number | undefined, link?: string) => {
     if (score === undefined) return <LoadingIndicator />;
