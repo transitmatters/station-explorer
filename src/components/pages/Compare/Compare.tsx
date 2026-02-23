@@ -4,7 +4,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getStation } from '../../../constants/stations';
 import type { Station as StationType } from '../../../types/station';
-import ThemeSwitcher from '../../ThemeSwitcher';
+import { ThemeSwitcher } from '../../ThemeSwitcher';
 import { ComparisonDetails } from '../../ComparisonDetails';
 import { useStore } from '../../../store';
 

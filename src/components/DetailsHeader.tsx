@@ -19,7 +19,7 @@ export const DetailsHeader: React.FunctionComponent<DetailsHeaderProps> = ({
       <div className="lg:text-md px-8 text-start text-sm text-slate-200">
         {station.municipality}
       </div>
-      <StationSelector station={station} setStation={setStation} />
+      <StationSelector setStation={setStation} />
     </div>
   );
 };

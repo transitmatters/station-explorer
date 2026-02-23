@@ -39,14 +39,10 @@ interface FilterState {
 }
 
 interface StationSelectorProps {
-  station: Station;
   setStation: (station: Station) => void;
 }
 
-export const StationSelector: React.FunctionComponent<StationSelectorProps> = ({
-  station,
-  setStation,
-}) => {
+export const StationSelector: React.FunctionComponent<StationSelectorProps> = ({ setStation }) => {
   const navigate = useNavigate();
   const { comparisonStation, setComparisonStation } = useStore();
   const isCompareMode = comparisonStation !== null;

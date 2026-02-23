@@ -1,4 +1,4 @@
-import area from '@turf/area';
+import { area } from '@turf/area';
 import type { FeatureCollection, Geometry, GeoJsonProperties } from 'geojson';
 import { useGetDataForStation } from '../api/overpass';
 import type { Station } from '../types/station';
@@ -8,7 +8,7 @@ export const useParkingStats = (station: Station, radius: number) => {
   const { data: allData } = useGetDataForStation(station, radius, true);
 
   if (!surfaceData || !allData) {
-    return { percentParking: 0, parkingSpots: 0, parkingSqFt: 0 };
+    return { percentParking: 0, parkingSpots: 0, parkingAcres: 0 };
   }
 
   const allParkingData: FeatureCollection<Geometry, GeoJsonProperties> = {

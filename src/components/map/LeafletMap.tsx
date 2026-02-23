@@ -3,7 +3,6 @@ import React from 'react';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import L from 'leaflet';
-// @ts-ignore
 import { MarkerLayer } from 'react-leaflet-marker';
 import type { Station } from '../../types/station';
 import { useStore } from '../../store';
@@ -118,4 +117,4 @@ const LeafletMap: React.FC<LeafletMapProps> = ({
   }
 };
 
-export default LeafletMap;
+export { LeafletMap };

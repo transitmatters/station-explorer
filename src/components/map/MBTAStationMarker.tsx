@@ -1,5 +1,4 @@
 import React from 'react';
-// @ts-ignore
 import { Marker } from 'react-leaflet-marker';
 import classNames from 'classnames';
 import type { LatLngTuple } from 'leaflet';

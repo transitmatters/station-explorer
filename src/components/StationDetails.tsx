@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import length from '@turf/length';
+import { length } from '@turf/length';
 import type { FeatureCollection, Geometry, GeoJsonProperties } from 'geojson';
 import pluralize from 'pluralize';
 import { useGetWalkscoreForStation } from '../api/walkscore';

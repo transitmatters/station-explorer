@@ -63,8 +63,8 @@ export default {
           lightCommuterRail: '#942d7c',
           darkCommuterRail: '#6c215c',
           silver: '#7c878e',
-          lightSilver: '#7c878e', // TODO change to light
-          darkSilver: '#7c878e', // TODO change to dark
+          lightSilver: '#8c979e',
+          darkSilver: '#6c777e',
         },
         tm: {
           red: '#a31e1e',

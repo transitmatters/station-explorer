@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-scroll';
 import { OverviewCircle } from '../../OverviewCircle';
-import ThemeSwitcher from '../../ThemeSwitcher';
+import { ThemeSwitcher } from '../../ThemeSwitcher';
 import { StationHighlight } from '../../StationHighlight';
 import { chooseRandomStations } from '../../../constants/stations';
 import { TMLogo } from '../../TMLogo';

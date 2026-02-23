@@ -24,4 +24,4 @@ const ThemeSwitcher: React.FunctionComponent = () => {
   return <DarkModeSwitch checked={darkMode!} onChange={toggleDarkMode} size={24} />;
 };
 
-export default ThemeSwitcher;
+export { ThemeSwitcher };
