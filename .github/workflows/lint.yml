@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20', '22']
-        python-version: ['3.12']
+        node-version: ['22', '24']
+        python-version: ['3.13']
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -37,8 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20', '22']
-        python-version: ['3.12']
+        node-version: ['22', '24']
+        python-version: ['3.13']
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4

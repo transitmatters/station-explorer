@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['22']
+        node-version: ['24']
     env:
       AWS_PROFILE: transitmatters
       AWS_DEFAULT_REGION: us-east-1
@@ -26,7 +26,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.12
+          python-version: 3.13
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
