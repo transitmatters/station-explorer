@@ -38,9 +38,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
   className,
 }) => {
   const Wrapper = href ? 'a' : 'div';
-  const wrapperProps = href
-    ? { href, target: '_blank' as const, rel: 'noreferrer' }
-    : {};
+  const wrapperProps = href ? { href, target: '_blank' as const, rel: 'noreferrer' } : {};
 
   return (
     <Wrapper

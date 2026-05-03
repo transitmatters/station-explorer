@@ -31,7 +31,9 @@ export const StationBanner: React.FC<StationBannerProps> = ({
         className={classNames(
           'relative flex items-center justify-center font-bold uppercase text-white',
           lineColorClass,
-          isLarge ? 'h-20 px-6 text-2xl sm:text-3xl lg:h-24 lg:text-4xl' : 'h-14 px-3 text-xl sm:text-2xl'
+          isLarge
+            ? 'h-20 px-6 text-2xl sm:text-3xl lg:h-24 lg:text-4xl'
+            : 'h-14 px-3 text-xl sm:text-2xl'
         )}
       >
         <span className="truncate text-center">{station.stop_name}</span>

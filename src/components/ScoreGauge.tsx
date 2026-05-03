@@ -25,7 +25,10 @@ export const ScoreGauge: React.FC<ScoreGaugeProps> = ({ score, label, size = 96 
   const color = scoreColor(value);
 
   return (
-    <div className="relative flex items-center justify-center" style={{ width: size, height: size }}>
+    <div
+      className="relative flex items-center justify-center"
+      style={{ width: size, height: size }}
+    >
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="-rotate-90">
         <circle
           cx={size / 2}
@@ -48,10 +51,7 @@ export const ScoreGauge: React.FC<ScoreGaugeProps> = ({ score, label, size = 96 
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span
-          className={classNames('font-mono text-2xl font-semibold')}
-          style={{ color }}
-        >
+        <span className={classNames('font-mono text-2xl font-semibold')} style={{ color }}>
           {score ?? '—'}
         </span>
         {label && (

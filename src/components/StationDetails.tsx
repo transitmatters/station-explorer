@@ -134,9 +134,11 @@ const SingleLayout: React.FC<{ station: Station; metrics: StationMetrics }> = ({
           description="Lines and bus routes serving this station"
           value={
             <div className="flex flex-row flex-wrap items-center gap-1.5">
-              {routes?.length
-                ? routes.map((route) => <RoutePill key={route.id} route={route} />)
-                : <LoadingIndicator />}
+              {routes?.length ? (
+                routes.map((route) => <RoutePill key={route.id} route={route} />)
+              ) : (
+                <LoadingIndicator />
+              )}
             </div>
           }
         />
@@ -286,7 +288,7 @@ const expandCardsToFillSide = (children: React.ReactNode): React.ReactNode => {
   const wideClass = 'lg:col-span-2';
   return arr.map((child, i) => {
     if (!React.isValidElement(child)) return child;
-    const shouldWide = (n === 2) || (n === 3 && i === 2);
+    const shouldWide = n === 2 || (n === 3 && i === 2);
     if (!shouldWide) return child;
     const props = child.props as { className?: string };
     return React.cloneElement(child as React.ReactElement<{ className?: string }>, {
@@ -328,7 +330,6 @@ const SingleSection: React.FC<{
   );
 };
 
-
 // ─────────────────────────────────────────────────────────────────────────────
 // Compare layout
 // ─────────────────────────────────────────────────────────────────────────────
@@ -351,8 +352,18 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           description="A walkability rating of the station's surrounding area"
           dataSourceName="WalkScore®"
           dataSourceUrl="https://www.walkscore.com"
-          a={<ScoreValue value={a.metrics.walkscore?.walkscore} link={a.metrics.walkscore?.ws_link} />}
-          b={<ScoreValue value={b.metrics.walkscore?.walkscore} link={b.metrics.walkscore?.ws_link} />}
+          a={
+            <ScoreValue
+              value={a.metrics.walkscore?.walkscore}
+              link={a.metrics.walkscore?.ws_link}
+            />
+          }
+          b={
+            <ScoreValue
+              value={b.metrics.walkscore?.walkscore}
+              link={b.metrics.walkscore?.ws_link}
+            />
+          }
           winner={pickHigher(a.metrics.walkscore?.walkscore, b.metrics.walkscore?.walkscore)}
         />
       </CompareSection>
@@ -380,8 +391,18 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           description="A bikeability rating of the station's surrounding area"
           dataSourceName="WalkScore®"
           dataSourceUrl="https://www.walkscore.com"
-          a={<ScoreValue value={a.metrics.walkscore?.bike?.score} link={a.metrics.walkscore?.ws_link} />}
-          b={<ScoreValue value={b.metrics.walkscore?.bike?.score} link={b.metrics.walkscore?.ws_link} />}
+          a={
+            <ScoreValue
+              value={a.metrics.walkscore?.bike?.score}
+              link={a.metrics.walkscore?.ws_link}
+            />
+          }
+          b={
+            <ScoreValue
+              value={b.metrics.walkscore?.bike?.score}
+              link={b.metrics.walkscore?.ws_link}
+            />
+          }
           winner={pickHigher(a.metrics.walkscore?.bike?.score, b.metrics.walkscore?.bike?.score)}
         />
         <CompareMetricRow
@@ -389,8 +410,22 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           description="Miles of bike lanes within walking distance of the station"
           dataSourceName="OpenStreetMap"
           dataSourceUrl="https://www.openstreetmap.org/about"
-          a={<UnitValue ready={!!a.metrics.bikeData && !a.metrics.isBikeDataLoading} value={a.metrics.bikeLength} fmt={(v) => v.toFixed(1)} unit="mile" />}
-          b={<UnitValue ready={!!b.metrics.bikeData && !b.metrics.isBikeDataLoading} value={b.metrics.bikeLength} fmt={(v) => v.toFixed(1)} unit="mile" />}
+          a={
+            <UnitValue
+              ready={!!a.metrics.bikeData && !a.metrics.isBikeDataLoading}
+              value={a.metrics.bikeLength}
+              fmt={(v) => v.toFixed(1)}
+              unit="mile"
+            />
+          }
+          b={
+            <UnitValue
+              ready={!!b.metrics.bikeData && !b.metrics.isBikeDataLoading}
+              value={b.metrics.bikeLength}
+              fmt={(v) => v.toFixed(1)}
+              unit="mile"
+            />
+          }
           winner={pickHigher(a.metrics.bikeLength, b.metrics.bikeLength)}
         />
         <CompareMetricRow
@@ -437,8 +472,22 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           description="Estimated parking spaces within walking distance — lower is better"
           dataSourceName="OpenStreetMap"
           dataSourceUrl="https://www.openstreetmap.org/about"
-          a={<UnitValue ready={a.metrics.parkingSpots > 0} value={a.metrics.parkingSpots} fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })} unit="spot" />}
-          b={<UnitValue ready={b.metrics.parkingSpots > 0} value={b.metrics.parkingSpots} fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })} unit="spot" />}
+          a={
+            <UnitValue
+              ready={a.metrics.parkingSpots > 0}
+              value={a.metrics.parkingSpots}
+              fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+              unit="spot"
+            />
+          }
+          b={
+            <UnitValue
+              ready={b.metrics.parkingSpots > 0}
+              value={b.metrics.parkingSpots}
+              fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+              unit="spot"
+            />
+          }
           winner={pickLower(a.metrics.parkingSpots, b.metrics.parkingSpots)}
         />
         <CompareMetricRow
@@ -446,8 +495,22 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           description="Estimated surface parking acreage within walking distance — lower is better"
           dataSourceName="OpenStreetMap"
           dataSourceUrl="https://www.openstreetmap.org/about"
-          a={<UnitValue ready={a.metrics.parkingAcres > 0} value={a.metrics.parkingAcres} fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })} unit="acre" />}
-          b={<UnitValue ready={b.metrics.parkingAcres > 0} value={b.metrics.parkingAcres} fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })} unit="acre" />}
+          a={
+            <UnitValue
+              ready={a.metrics.parkingAcres > 0}
+              value={a.metrics.parkingAcres}
+              fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+              unit="acre"
+            />
+          }
+          b={
+            <UnitValue
+              ready={b.metrics.parkingAcres > 0}
+              value={b.metrics.parkingAcres}
+              fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+              unit="acre"
+            />
+          }
           winner={pickLower(a.metrics.parkingAcres, b.metrics.parkingAcres)}
         />
       </CompareSection>
@@ -530,7 +593,7 @@ const ValueCell: React.FC<{ children: React.ReactNode; highlighted: boolean }> =
   return (
     <div
       className={classNames(
-        'flex items-center justify-center rounded-md border px-3 py-3 text-center font-mono text-2xl leading-6 transition-colors',
+        'font-mono flex items-center justify-center rounded-md border px-3 py-3 text-center text-2xl leading-6 transition-colors',
         highlighted
           ? 'border-emerald-400 bg-emerald-50 text-emerald-700 dark:border-emerald-500 dark:bg-emerald-900/30 dark:text-emerald-200'
           : 'border-gray-200 bg-white text-gray-800 dark:border-gray-600 dark:bg-slate-800 dark:text-gray-100'
@@ -600,7 +663,9 @@ const PillStack: React.FC<{ side: Side }> = ({ side }) => {
 const RouteStack: React.FC<{ side: Side }> = ({ side }) => {
   return (
     <div className="flex flex-row flex-wrap items-center justify-center gap-1 rounded-md border border-gray-200 bg-white p-3 dark:border-gray-600 dark:bg-slate-800">
-      {side.metrics.routes?.map((route) => <RoutePill key={route.id} route={route} />)}
+      {side.metrics.routes?.map((route) => (
+        <RoutePill key={route.id} route={route} />
+      ))}
     </div>
   );
 };

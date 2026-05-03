@@ -32,7 +32,7 @@ export const CompareSelector: React.FunctionComponent<CompareSelectorProps> = ({
           <button
             title="Compare Stations"
             onClick={() => setIsOpen(true)}
-            className="group z-[450] flex items-center justify-center rounded-full bg-cyan-700 p-1.5 text-white shadow-sm hover:bg-cyan-800 focus:outline-none sm:rounded-lg sm:px-2 dark:bg-cyan-800 dark:hover:bg-cyan-900"
+            className="group z-[450] flex items-center justify-center rounded-full bg-cyan-700 p-1.5 text-white shadow-sm hover:bg-cyan-800 focus:outline-none dark:bg-cyan-800 dark:hover:bg-cyan-900 sm:rounded-lg sm:px-2"
           >
             <FontAwesomeIcon icon={faPlusCircle} className="my-0.5" />
             <span className="ml-1 hidden text-xs sm:inline">Compare</span>

@@ -1,6 +1,5 @@
 import { Circle } from 'react-leaflet';
 import React from 'react';
-// @ts-ignore
 import type { LatLngTuple } from 'leaflet';
 import type { Station } from '../../types/station';
 import { WALKING_RADIUS } from '../../constants/mobility';

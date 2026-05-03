@@ -30,11 +30,7 @@ export const DetailsHeader: React.FunctionComponent<DetailsHeaderProps> = ({ sta
     <div className="w-full px-4 pt-4 sm:px-6 lg:px-10 lg:pt-6">
       {isComparing ? (
         <div className="grid grid-cols-2 gap-3">
-          <StationBanner
-            station={station}
-            size="large"
-            onSwap={() => setPickerSlot('primary')}
-          />
+          <StationBanner station={station} size="large" onSwap={() => setPickerSlot('primary')} />
           <StationBanner
             station={compareStation}
             size="large"
@@ -52,12 +48,8 @@ export const DetailsHeader: React.FunctionComponent<DetailsHeaderProps> = ({ sta
       )}
       {pickerSlot && (
         <StationPicker
-          title={
-            pickerSlot === 'primary' ? 'Select a station' : 'Compare with another station'
-          }
-          excludeStationId={
-            pickerSlot === 'primary' ? compareStation?.station : station.station
-          }
+          title={pickerSlot === 'primary' ? 'Select a station' : 'Compare with another station'}
+          excludeStationId={pickerSlot === 'primary' ? compareStation?.station : station.station}
           onPick={handlePick}
           onClose={() => setPickerSlot(null)}
         />

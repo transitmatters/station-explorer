@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-/* eslint-disable import/no-unused-modules */
+
 /* eslint-disable import/no-default-export */
 
 export default {
@@ -64,8 +64,8 @@ export default {
           lightCommuterRail: '#942d7c',
           darkCommuterRail: '#6c215c',
           silver: '#7c878e',
-          lightSilver: '#7c878e', // TODO change to light
-          darkSilver: '#7c878e', // TODO change to dark
+          lightSilver: '#7c878e', // pending updated light variant
+          darkSilver: '#7c878e', // pending updated dark variant
         },
         tm: {
           red: '#a31e1e',

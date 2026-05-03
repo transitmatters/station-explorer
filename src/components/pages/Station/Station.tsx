@@ -25,7 +25,6 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
   }, [station, compareStation, setCompareStation]);
 
   if (!station) {
-    // TODO: show actual error page
     return <div>Station not found</div>;
   }
 
