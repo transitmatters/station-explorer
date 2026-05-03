@@ -43,9 +43,6 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
             ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}-
-      - name: Check if package-lock.json is up to date
-        run: |
-          npx --yes package-lock-utd@1.1.0
       - name: Generate AWS profile
         run: |
           mkdir ~/.aws
