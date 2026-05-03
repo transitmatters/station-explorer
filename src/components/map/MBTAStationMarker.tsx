@@ -22,7 +22,7 @@ export const MBTAStationMarker: React.FC<MBTAStationMarkerProps> = ({
   borderColors,
   allowNavigation = true,
 }) => {
-  const navigate = useNavigate({ from: '/$station' });
+  const navigate = useNavigate();
 
   return (
     <Marker key={`marker-${station.station}`} position={position} interactive riseOnHover>
@@ -34,7 +34,12 @@ export const MBTAStationMarker: React.FC<MBTAStationMarkerProps> = ({
         onClick={() => {
           if (allowNavigation) {
             setStation(station);
-            navigate({ to: `/${station.station}`, replace: true, resetScroll: false });
+            navigate({
+              to: '/$station',
+              params: { station: station.station },
+              replace: true,
+              resetScroll: false,
+            });
           }
         }}
       >

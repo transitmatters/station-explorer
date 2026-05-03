@@ -25,7 +25,7 @@ const StationIndexRoute = StationIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/$station': typeof StationIndexRoute
+  '/$station/': typeof StationIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -38,7 +38,7 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$station'
+  fullPaths: '/' | '/$station/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/$station'
   id: '__root__' | '/' | '/$station/'
@@ -61,7 +61,7 @@ declare module '@tanstack/react-router' {
     '/$station/': {
       id: '/$station/'
       path: '/$station'
-      fullPath: '/$station'
+      fullPath: '/$station/'
       preLoaderRoute: typeof StationIndexRouteImport
       parentRoute: typeof rootRouteImport
     }

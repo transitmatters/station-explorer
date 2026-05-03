@@ -31,14 +31,15 @@ export const Home: React.FunctionComponent = () => {
         </div>
         <div>
           <h1 className="text-6xl font-bold uppercase italic text-white">Station Explorer</h1>
-          <button
-            type="button"
-            className="mt-4 cursor-pointer rounded border-2 p-1 uppercase italic text-white hover:border-slate-100 hover:bg-white hover:text-cyan-700"
+          <Link
+            to="explore-stations"
+            smooth={true}
+            duration={800}
+            offset={-40}
+            className="mt-4 inline-block cursor-pointer rounded border-2 p-1 uppercase italic text-white hover:border-slate-100 hover:bg-white hover:text-cyan-700"
           >
-            <Link to="info" smooth={true} duration={1000} offset={1000}>
-              Explore
-            </Link>
-          </button>
+            Explore
+          </Link>
         </div>
       </div>
       <div id="info">
@@ -86,7 +87,10 @@ export const Home: React.FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <h2 className="my-4 mt-16 text-3xl font-semibold uppercase italic text-white md:text-5xl">
+      <h2
+        id="explore-stations"
+        className="my-4 mt-16 text-3xl font-semibold uppercase italic text-white md:text-5xl"
+      >
         Explore a station!
       </h2>
       <h5 className="text-white">Pick from one of these 6 random stations to start</h5>

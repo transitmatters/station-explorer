@@ -21,7 +21,8 @@ export const StationHighlight: React.FunctionComponent<StationHighlightProps> = 
   return (
     <Link
       className="group relative h-24 min-w-72 cursor-pointer content-center justify-center rounded-md bg-white hover:scale-105 hover:shadow-sm md:min-w-56"
-      to={`/${station.station}`}
+      to="/$station"
+      params={{ station: station.station }}
       onClick={onClick}
     >
       <div

@@ -19,7 +19,7 @@ export const DetailsHeader: React.FunctionComponent<DetailsHeaderProps> = ({ sta
 
   const handlePick = (picked: Station) => {
     if (pickerSlot === 'primary') {
-      navigate({ to: `/${picked.station}` as never });
+      navigate({ to: '/$station', params: { station: picked.station } });
     } else if (pickerSlot === 'compare') {
       setCompareStation(picked);
     }
