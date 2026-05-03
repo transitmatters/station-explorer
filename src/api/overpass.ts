@@ -2,7 +2,17 @@ import { useQuery } from '@tanstack/react-query';
 import osmtogeojson from 'osmtogeojson';
 import { overpass } from 'overpass-ts';
 import type { Station } from '../types/station';
-import { THIRTY_MINUTES } from '../constants/time';
+import { ONE_DAY } from '../constants/time';
+
+// Overpass enforces IP-based rate limits. These options give failing queries a
+// few backoff attempts and keep results around long enough that re-navigation
+// doesn't re-fetch.
+const overpassQueryOptions = {
+  staleTime: ONE_DAY,
+  gcTime: ONE_DAY,
+  retry: 3,
+  retryDelay: (attempt: number) => Math.min(2000 * 2 ** attempt, 30_000),
+};
 
 export const getParkingDataForStation = async (
   station: Station,
@@ -79,7 +89,7 @@ export const useGetDataForStation = (
   return useQuery({
     queryKey: [`getStationParkingData`, station, radius, includeGarages],
     queryFn: () => getParkingDataForStation(station, radius, includeGarages),
-    staleTime: THIRTY_MINUTES,
+    ...overpassQueryOptions,
   });
 };
 
@@ -87,7 +97,7 @@ export const useGetCyclePathDataForStation = (station: Station, radius: number) 
   return useQuery({
     queryKey: [`getStationBikeData`, station, radius],
     queryFn: () => getBikePathDataForStation(station, radius),
-    staleTime: THIRTY_MINUTES,
+    ...overpassQueryOptions,
   });
 };
 
@@ -95,6 +105,6 @@ export const useGetBikeShareDataForStation = (station: Station, radius: number) 
   return useQuery({
     queryKey: [`getStationBikeShareData`, station, radius],
     queryFn: () => getBikeShareDataForStation(station, radius),
-    staleTime: THIRTY_MINUTES,
+    ...overpassQueryOptions,
   });
 };

@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-scroll';
 import { OverviewCircle } from '../../OverviewCircle';
-import ThemeSwitcher from '../../ThemeSwitcher';
+import { Footer } from '../../Footer';
+import { SiteHeader } from '../../SiteHeader';
 import { StationHighlight } from '../../StationHighlight';
 import { chooseRandomStations } from '../../../constants/stations';
 import { TMLogo } from '../../TMLogo';
@@ -16,9 +17,7 @@ import { TMLogo } from '../../TMLogo';
 export const Home: React.FunctionComponent = () => {
   return (
     <div className="flex w-screen flex-col content-center items-center justify-center bg-cyan-700 text-center dark:bg-cyan-800">
-      <div className="absolute right-0 top-0 m-4 rounded-md bg-slate-50 p-2 dark:bg-slate-900">
-        <ThemeSwitcher />
-      </div>
+      <SiteHeader />
       <div className="min-h-screen content-center">
         <div className="flex flex-row items-center justify-center">
           <TMLogo />
@@ -96,6 +95,7 @@ export const Home: React.FunctionComponent = () => {
           <StationHighlight key={station.station} station={station} />
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

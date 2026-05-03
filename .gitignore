@@ -39,3 +39,4 @@ server/.chalice/deployments/*
 # env
 .envrc
 .cursor
+.claude/settings.local.json
