@@ -4,9 +4,19 @@ export type FacilityType =
   | 'ELEVATOR'
   | 'ESCALATOR'
   | 'FARE_VENDING_MACHINE'
+  | 'FARE_VENDING_RETAILER'
   | 'FARE_MEDIA_ASSISTANT'
+  | 'FARE_MEDIA_ASSISTANCE_FACILITY'
   | 'ELEVATED_SUBPLATFORM'
-  | 'BIKE_STORAGE';
+  | 'BIKE_STORAGE'
+  | 'BRIDGE_PLATE'
+  | 'ELECTRIC_CAR_CHARGERS'
+  | 'PICK_DROP'
+  | 'PORTABLE_BOARDING_LIFT'
+  | 'RAMP'
+  | 'TAXI_STAND'
+  | 'TICKET_WINDOW'
+  | 'OTHER';
 
 export interface Facility {
   id: string;

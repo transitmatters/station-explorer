@@ -2,10 +2,23 @@ import classNames from 'classnames';
 import React from 'react';
 import pluralize from 'pluralize';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBicycle,
+  faBoltLightning,
+  faCarSide,
+  faCheck,
+  faInfoCircle,
+  faRestroom,
+  faSquareParking,
+  faTicket,
+  faUniversalAccess,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { Station } from '../types/station';
 import { useStationMetrics } from '../utils/useStationMetrics';
 import type { StationMetrics } from '../utils/useStationMetrics';
+import type { Facility } from '../types/facilities';
 import { LoadingIndicator } from './LoadingIndicator';
 import { AccessiblePill } from './pills/AccessiblePill';
 import { ElevatorsPill } from './pills/ElevatorsPill';
@@ -266,6 +279,164 @@ const SingleLayout: React.FC<{ station: Station; metrics: StationMetrics }> = ({
           }
         />
       </SingleSection>
+
+      {/* Station Amenities (MBTA V3 facility data) */}
+      <SingleSection name="Station Amenities">
+        <AmenityCard
+          icon={faRestroom}
+          title="Restroom"
+          loading={false}
+          present={metrics.amenities.bathroom?.available}
+          label={metrics.amenities.bathroom?.location}
+          missingLabel="No public restroom"
+          unknownLabel="Restroom info not yet curated"
+        />
+        <AmenityCard
+          icon={faSquareParking}
+          title="Parking"
+          loading={metrics.facilitiesLoading}
+          facilities={metrics.amenities.parkingArea}
+        />
+        <AmenityCard
+          icon={faBicycle}
+          title="Bike Storage"
+          loading={metrics.facilitiesLoading}
+          facilities={metrics.amenities.bikeStorage}
+        />
+        <AmenityCard
+          icon={faTicket}
+          title="Fare Vending"
+          loading={metrics.facilitiesLoading}
+          facilities={metrics.amenities.fareVending}
+        />
+        <AmenityCard
+          icon={faTicket}
+          title="Fare Assistance"
+          loading={metrics.facilitiesLoading}
+          facilities={metrics.amenities.fareAssistance}
+        />
+        <AmenityCard
+          icon={faBoltLightning}
+          title="EV Chargers"
+          loading={metrics.facilitiesLoading}
+          facilities={metrics.amenities.evChargers}
+        />
+        <AmenityCard
+          icon={faCarSide}
+          title="Pick-up / Drop-off"
+          loading={metrics.facilitiesLoading}
+          facilities={metrics.amenities.pickDrop}
+        />
+        <AmenityCard
+          icon={faUniversalAccess}
+          title="Boarding Aids"
+          description="Bridge plates, ramps, portable lifts"
+          loading={metrics.facilitiesLoading}
+          facilities={metrics.amenities.boardingAids}
+        />
+      </SingleSection>
+    </div>
+  );
+};
+
+interface AmenityCardProps {
+  icon: IconDefinition;
+  title: string;
+  description?: string;
+  loading: boolean;
+  /** Source data when this amenity is backed by MBTA facilities. */
+  facilities?: Facility[];
+  /** Manual present/missing/unknown override (for non-facility amenities). */
+  present?: boolean;
+  /** Description text when present and facilities aren't the source. */
+  label?: string;
+  /** Text to show when not available. */
+  missingLabel?: string;
+  /** Text to show when present is undefined (data not yet curated). */
+  unknownLabel?: string;
+}
+
+const AmenityCard: React.FC<AmenityCardProps> = ({
+  icon,
+  title,
+  description,
+  loading,
+  facilities,
+  present: presentOverride,
+  label: labelOverride,
+  missingLabel = 'Not at this station',
+  unknownLabel,
+}) => {
+  const count = facilities?.length ?? 0;
+  const facilityPresent = count > 0;
+  const facilitySingleLabel =
+    count === 1 ? facilities![0].long_name || facilities![0].short_name : undefined;
+  // When `facilities` isn't provided, fall back to the manual override.
+  const usingOverride = facilities === undefined && presentOverride !== undefined;
+  const present = usingOverride ? presentOverride : facilityPresent;
+  const unknown = !facilities && presentOverride === undefined;
+
+  return (
+    <div
+      className={classNames(
+        'flex items-start gap-3 rounded-lg border p-3 shadow-sm',
+        loading
+          ? 'border-gray-200 bg-white dark:border-gray-700 dark:bg-slate-800'
+          : present
+            ? 'border-emerald-200 bg-emerald-50 dark:border-emerald-700 dark:bg-emerald-900/30'
+            : 'border-gray-200 bg-white dark:border-gray-700 dark:bg-slate-800'
+      )}
+    >
+      <div
+        className={classNames(
+          'flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white',
+          loading
+            ? 'bg-gray-300 dark:bg-gray-600'
+            : present
+              ? 'bg-emerald-600'
+              : 'bg-gray-300 dark:bg-gray-600'
+        )}
+      >
+        <FontAwesomeIcon icon={icon} />
+      </div>
+      <div className="min-w-0 flex-1 text-start">
+        <div className="flex items-center gap-2">
+          <h3 className="truncate text-sm font-semibold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          {!loading && !unknown && (
+            <FontAwesomeIcon
+              icon={present ? faCheck : faXmark}
+              className={classNames(
+                'text-xs',
+                present
+                  ? 'text-emerald-600 dark:text-emerald-300'
+                  : 'text-gray-400 dark:text-gray-500'
+              )}
+            />
+          )}
+        </div>
+        <p className="mt-0.5 text-xs text-gray-600 dark:text-gray-300">
+          {loading ? (
+            <LoadingIndicator />
+          ) : unknown ? (
+            (unknownLabel ?? missingLabel)
+          ) : !present ? (
+            missingLabel
+          ) : usingOverride ? (
+            (labelOverride ?? 'Available')
+          ) : count === 1 ? (
+            (facilitySingleLabel ?? 'Available')
+          ) : (
+            `${count} on site`
+          )}
+        </p>
+        {description && !loading && (
+          <p className="mt-1 text-[11px] italic leading-snug text-gray-500 dark:text-gray-400">
+            {description}
+          </p>
+        )}
+      </div>
     </div>
   );
 };

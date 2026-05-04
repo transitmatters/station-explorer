@@ -8,7 +8,8 @@ import { useGetBikeShareDataForStation, useGetCyclePathDataForStation } from '..
 import { WALKING_RADIUS } from '../constants/mobility';
 import { COMMUTER_RAIL_LINES } from '../constants/line';
 import type { Station } from '../types/station';
-import type { Elevator, Escalator } from '../types/facilities';
+import type { Elevator, Escalator, Facility, FacilityType } from '../types/facilities';
+import { getBathroomForStation } from '../constants/bathrooms';
 import { useParkingStats } from './parking';
 
 export const useStationMetrics = (station: Station) => {
@@ -57,6 +58,26 @@ export const useStationMetrics = (station: Station) => {
 
   const isCommuterRail = station.lines.some((line) => COMMUTER_RAIL_LINES.includes(line));
 
+  const facilitiesByType = (...types: FacilityType[]): Facility[] | undefined => {
+    if (!facilities.data) return undefined;
+    return facilities.data.filter((f) => types.includes(f.type));
+  };
+
+  const amenities = {
+    bikeStorage: facilitiesByType('BIKE_STORAGE'),
+    parkingArea: facilitiesByType('PARKING_AREA'),
+    fareVending: facilitiesByType('FARE_VENDING_MACHINE', 'FARE_VENDING_RETAILER'),
+    fareAssistance: facilitiesByType(
+      'FARE_MEDIA_ASSISTANT',
+      'FARE_MEDIA_ASSISTANCE_FACILITY',
+      'TICKET_WINDOW'
+    ),
+    evChargers: facilitiesByType('ELECTRIC_CAR_CHARGERS'),
+    pickDrop: facilitiesByType('PICK_DROP'),
+    boardingAids: facilitiesByType('BRIDGE_PLATE', 'PORTABLE_BOARDING_LIFT', 'RAMP'),
+    bathroom: getBathroomForStation(station.station),
+  };
+
   return {
     walkscore: walkscore.data,
     routes: routes.data,
@@ -72,6 +93,8 @@ export const useStationMetrics = (station: Station) => {
     bikeShareData,
     isBikeShareDataLoading,
     isCommuterRail,
+    facilitiesLoading: facilities.isLoading,
+    amenities,
     ...parking,
   };
 };
