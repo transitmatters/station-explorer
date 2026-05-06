@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-scroll';
 import { OverviewCircle } from '../../OverviewCircle';
-import ThemeSwitcher from '../../ThemeSwitcher';
+import { Footer } from '../../Footer';
+import { SiteHeader } from '../../SiteHeader';
 import { StationHighlight } from '../../StationHighlight';
 import { chooseRandomStations } from '../../../constants/stations';
 import { TMLogo } from '../../TMLogo';
@@ -16,9 +17,7 @@ import { TMLogo } from '../../TMLogo';
 export const Home: React.FunctionComponent = () => {
   return (
     <div className="flex w-screen flex-col content-center items-center justify-center bg-cyan-700 text-center dark:bg-cyan-800">
-      <div className="absolute right-0 top-0 m-4 rounded-md bg-slate-50 p-2 dark:bg-slate-900">
-        <ThemeSwitcher />
-      </div>
+      <SiteHeader />
       <div className="min-h-screen content-center">
         <div className="flex flex-row items-center justify-center">
           <TMLogo />
@@ -32,14 +31,15 @@ export const Home: React.FunctionComponent = () => {
         </div>
         <div>
           <h1 className="text-6xl font-bold uppercase italic text-white">Station Explorer</h1>
-          <button
-            type="button"
-            className="mt-4 cursor-pointer rounded border-2 p-1 uppercase italic text-white hover:border-slate-100 hover:bg-white hover:text-cyan-700"
+          <Link
+            to="explore-stations"
+            smooth={true}
+            duration={800}
+            offset={-40}
+            className="mt-4 inline-block cursor-pointer rounded border-2 p-1 uppercase italic text-white hover:border-slate-100 hover:bg-white hover:text-cyan-700"
           >
-            <Link to="info" smooth={true} duration={1000} offset={1000}>
-              Explore
-            </Link>
-          </button>
+            Explore
+          </Link>
         </div>
       </div>
       <div id="info">
@@ -87,7 +87,10 @@ export const Home: React.FunctionComponent = () => {
           </div>
         </div>
       </div>
-      <h2 className="my-4 mt-16 text-3xl font-semibold uppercase italic text-white md:text-5xl">
+      <h2
+        id="explore-stations"
+        className="my-4 mt-16 text-3xl font-semibold uppercase italic text-white md:text-5xl"
+      >
         Explore a station!
       </h2>
       <h5 className="text-white">Pick from one of these 6 random stations to start</h5>
@@ -96,6 +99,7 @@ export const Home: React.FunctionComponent = () => {
           <StationHighlight key={station.station} station={station} />
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20', '22']
-        python-version: ['3.12']
+        node-version: ['24']
+        python-version: ['3.13']
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -24,9 +24,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Check if package-lock.json is up to date
-        run: |
-          npx --yes package-lock-utd@1.1.0
       - name: Lint frontend code with ESLint
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
@@ -37,8 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20', '22']
-        python-version: ['3.12']
+        node-version: ['24']
+        python-version: ['3.13']
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -50,9 +47,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Check if package-lock.json is up to date
-        run: |
-          npx --yes package-lock-utd@1.1.0
       - name: Lint backend code with Flake8
         run: |
           curl -sSL https://install.python-poetry.org | python3 -

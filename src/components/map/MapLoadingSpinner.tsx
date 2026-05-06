@@ -2,7 +2,6 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
-// @ts-ignore
 import { Marker } from 'react-leaflet-marker';
 import type { LatLngTuple } from 'leaflet';
 import { lineColorText } from '../../styles/general';

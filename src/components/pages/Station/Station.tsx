@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
-import { faCompress, faExpand } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames';
 import { getStation } from '../../../constants/stations';
-import LeafletMap from '../../map/LeafletMap';
-import type { Station as StationType } from '../../../types/station';
-import ThemeSwitcher from '../../ThemeSwitcher';
+import { Footer } from '../../Footer';
 import { HorizontalDivider } from '../../HorizontalDivider';
-import { CompareSelector } from '../../CompareSelector';
+import { SiteHeader } from '../../SiteHeader';
 import { StationDetails } from '../../StationDetails';
 import { useStore } from '../../../store';
 import { DetailsHeader } from '../../DetailsHeader';
@@ -17,71 +14,60 @@ interface StationProps {
 }
 
 export const Station: React.FunctionComponent<StationProps> = ({ stationId }) => {
-  const [station, setStation] = useState<StationType | undefined>(getStation(stationId));
-  const { fullMapNavigation, setFullMapNavigation } = useStore();
+  const station = getStation(stationId);
+  const { compareStation, setCompareStation } = useStore();
 
-  const [showRouteLines, setShowRouteLines] = useState<boolean>(false);
-  const [showParking, setShowParking] = useState<boolean>(true);
-  const [showBikePaths, setShowBikePaths] = useState<boolean>(true);
-  const [showBikeShares, setShowBikeShares] = useState<boolean>(true);
+  // Clear compare if it matches the primary station
+  React.useEffect(() => {
+    if (station && compareStation && station.station === compareStation.station) {
+      setCompareStation(undefined);
+    }
+  }, [station, compareStation, setCompareStation]);
 
   if (!station) {
-    // TODO: show actual error page
     return <div>Station not found</div>;
   }
 
+  const isComparing = !!compareStation;
+
   return (
     <div className="flex w-screen flex-col content-center items-center bg-slate-50 text-center dark:bg-slate-700">
-      <DetailsHeader station={station} setStation={setStation} />
-      <div className="absolute right-0 top-0 m-4 rounded-md bg-slate-50 p-2 dark:bg-slate-900">
-        <ThemeSwitcher />
-      </div>
+      <SiteHeader />
+      <DetailsHeader station={station} />
       <div className="flex w-full flex-col">
-        <StationDetails station={station} />
-        <HorizontalDivider />
-        {!fullMapNavigation && <CompareSelector />}
+        <StationDetails station={station} compareStation={compareStation} />
+        {!isComparing && <HorizontalDivider />}
       </div>
-      <div className="pb-8">
-        <div
-          className={classNames(
-            'z-0 flex w-screen flex-col transition-all duration-500 ease-in-out',
-            fullMapNavigation
-              ? 'absolute bottom-4 left-0 right-0 top-28 m-auto px-4'
-              : 'h-[32rem] px-12 lg:px-32'
-          )}
-        >
-          <LeafletMap
-            key={'leaflet-map'}
-            station={station}
-            setStation={setStation}
-            options={{
-              showRouteLines,
-              setShowRouteLines,
-              showParking,
-              setShowParking,
-              showBikePaths,
-              setShowBikePaths,
-              showBikeShares,
-              setShowBikeShares,
-            }}
-            allowNavigation={fullMapNavigation}
+      <div className="w-full px-4 pb-8 pt-4 sm:px-6 lg:px-10">
+        <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-4 text-start text-sm text-gray-600 shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:text-gray-300">
+          <FontAwesomeIcon
+            icon={faCircleInfo}
+            className="mt-0.5 shrink-0 text-cyan-700 dark:text-cyan-400"
           />
+          <p>
+            See missing or inaccurate data? Much of this comes from community sources like{' '}
+            <a
+              href="https://www.openstreetmap.org/about"
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-cyan-700 underline decoration-dotted hover:decoration-solid dark:text-cyan-400"
+            >
+              OpenStreetMap
+            </a>
+            . You can{' '}
+            <a
+              href="https://www.openstreetmap.org/"
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-cyan-700 underline decoration-dotted hover:decoration-solid dark:text-cyan-400"
+            >
+              contribute fixes yourself
+            </a>{' '}
+            — updates typically show up here within 24 hours.
+          </p>
         </div>
-        <button
-          className={classNames(
-            'absolute left-0 right-0 z-[500] m-auto w-fit cursor-pointer rounded-lg border border-gray-300 bg-white p-2 px-3 text-cyan-700 shadow-lg transition-all duration-500 ease-in-out dark:text-cyan-800',
-            fullMapNavigation
-              ? 'bottom-0 -translate-y-12 md:-translate-y-8'
-              : '-translate-y-20 md:-translate-y-16'
-          )}
-          onClick={() => {
-            setFullMapNavigation(!fullMapNavigation);
-          }}
-        >
-          <FontAwesomeIcon icon={fullMapNavigation ? faCompress : faExpand} className="mr-2" />
-          {fullMapNavigation ? 'Station Details' : 'Explore Full Map'}
-        </button>
       </div>
+      <Footer />
     </div>
   );
 };

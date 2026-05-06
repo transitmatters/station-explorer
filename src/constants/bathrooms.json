@@ -1,0 +1,147 @@
+{
+  "place-alfcl": {
+    "available": true,
+    "location": "Outside fare control • multiple stalls, men/women",
+    "notes": "Bathrooms are located in the hallway from the faregates to the busway; you'll see them on the right. The men's room is smelly and full of graffiti and trash. The women's room is the same, but also had an unflushed toilet with a lot of stuff in it."
+  },
+  "place-andrw": {
+    "available": true,
+    "location": "Inside and outside fare control",
+    "notes": "Bathrooms are located to the right in a dark annex as you're heading toward the faregates to exit. Locked."
+  },
+  "place-armnl": {
+    "available": true,
+    "location": "Outside fare control",
+    "notes": "Bathrooms are located to the left of the faregates as you approach them from the outside. Both were locked, and the station's Transit Ambassador said they aren't open to the public."
+  },
+  "place-asmnl": {
+    "available": true,
+    "location": "Inside and outside fare control • single stall, all genders",
+    "notes": "Probably the hardest bathroom to find on the entire MBTA. Bathroom is located to the right when you enter the faregates from the Mattapan High Speed Line or busway. The door says \"T Personnel Only,\" but a piece of paper taped on says \"Unlocked, Open Door.\" Enter through, and you'll find a door on the left with another piece of paper taped on that says \"Mens and Womans Bathroom.\" Despite being so hard to find, it was still disgusting, from the smell to the aesthetic to the residue liquid inside the toilet."
+  },
+  "place-astao": {
+    "available": true,
+    "location": "Inside and outside fare control • single stall, all genders (?)",
+    "notes": "The bathrooms are located straight ahead as you exit the station at the Foley Street entrance. According to the Transit Ambassador, the \"men's\" room is unlocked, while the \"women's\" room is closed to the public. The implication seems to be that any member of the public can use the men's room, while the women's room is for employees only (and indeed, one of the male Transit Ambassadors did go in there to use it). Regardless, the \"men's\" room was surprisingly clean, and aside from a bit of graffiti on the wall and ceiling, was rather pleasant to use."
+  },
+  "place-bbsta": {
+    "available": true,
+    "location": "Outside fare control • multiple stalls, men/women",
+    "notes": "By far the best bathroom on the MBTA. Located straight ahead as you walk toward the staircases to Tracks 1, 2, and 3 in the Commuter Rail station. These bathrooms are incredibly spacious with lots of capacity, and the sinks function as water, soap, and dryer dispensers all at once. Note that these are open from 6 AM to 10 PM, with an hour-long closed period from 1 to 2 PM."
+  },
+  "place-brntn": {
+    "available": true,
+    "location": "Inside and outside fare control • single stall, men/women",
+    "notes": "Bathrooms are located to the left as you head toward the faregates to exit. The men's room was a grim affair, with scuffed-up, cracked walls and some residue in the toilet from the previous person's visit. There was liquid everywhere, and the door didn't lock. The women's room had the same grim aesthetic, but was not nearly as gross."
+  },
+  "place-cntsq": {
+    "available": true,
+    "location": "Inside and outside fare control",
+    "notes": "Bathroom is located on the outbound platform, between the Prospect Street and Pearl Street entrances. Locked."
+  },
+  "place-coecl": {
+    "available": true,
+    "location": "Outside fare control",
+    "notes": "Both bathrooms were locked. The outbound one is on the platform; I didn't give myself enough locational context for the inbound one in my photos or notes, but it's probably somewhere in the mezzanine. Either way, they were both locked anyway. The outbound bathroom seems to have an emergency exit reset panel in it, so it might not even be in use as a bathroom anymore."
+  },
+  "place-davis": {
+    "available": true,
+    "location": "Inside and outside fare control • multiple stalls, men/women",
+    "notes": "Bathrooms are located straight ahead after you enter the faregates. The men's room had an excruciating smell that was enough to call it a 1 on the spot, and the grim aesthetic and lack of soap didn't help. The women's room is also dour, looks-wise, and it didn't have soap either, but there was no smell and the room itself was relatively clean."
+  },
+  "place-forhl": {
+    "available": true,
+    "location": "Inside and outside fare control • multiple stalls, men/women",
+    "notes": "The men's room is located to the right as you enter the faregates from outside, while the women's room is located to the left. The only problems with the women's room were less-than-ideal aesthetics and a tiny bit of liquid on the floor, but it was otherwise fine. The men's room, on the other hand, was disgusting in nearly every way. Both toilets had residue from past users, there was no soap, and it smelled."
+  },
+  "place-gover": {
+    "available": true,
+    "location": "Inside and outside fare control",
+    "notes": "Bathroom is located to the right as you head toward the faregates to exit. It was locked. The Transit Ambassador said that the few times she's seen it unlocked, people would \"shoot up\" in it."
+  },
+  "place-harsq": {
+    "available": true,
+    "location": "Outside fare control • single stall, all genders",
+    "notes": "Bathroom is located to the left of the main entrance stairs in the mezzanine. Inside, it's fairly clean and not too smelly. Although the bathroom locks, the \"Occupied\" light above its door doesn't light up. The door-open button for disabled people works, but if one locked the door and is trying to get out, they have to first unlock the door, then back up to the button, which is further into the bathroom. It's an inconvenient process."
+  },
+  "place-jfk": {
+    "available": true,
+    "location": "Inside and outside fare control • single stall, all genders",
+    "notes": "Bathroom is located to the left as you head toward the faregates to exit. It is a single stall; when we were here, it was a fairly long wait, causing the first person in line to give up. Inside, the bathroom was smelly, with toilet paper and liquid on the floor. The door was covered in graffiti."
+  },
+  "place-nqncy": {
+    "available": true,
+    "location": "Inside and outside fare control • single stall, all genders",
+    "notes": "Bathroom is located at the Hancock Street entrance, on the left as you're heading up the stairs to exit. The door is basically unmarked; the station inspector said it doesn't lock, but it seemed to lock fine. Inside, there was some toilet paper on the floor and a bit of a grim atmosphere, but it wasn't bad otherwise."
+  },
+  "place-north": {
+    "available": true,
+    "location": "Outside fare control • multiple stalls, men/women",
+    "notes": "To get to these bathrooms, head to the far left front portion of the Commuter Rail station. Walk down the hallway, and the bathrooms will be on the right. The men's room is dingy, with gross stalls and toilet paper everywhere; its only redeeming quality was a neat basketball-wrapped dryer. The women's room was cleaner, with much less on the floor, but still very unappealing."
+  },
+  "place-ogmnl": {
+    "available": true,
+    "location": "Inside and outside fare control • Single stall, all genders",
+    "notes": "Bathroom is located to the left as you're heading toward the stairs down to the platform. It had a slightly weird (not necessarily bad) smell and no soap, but was perfectly serviceable otherwise."
+  },
+  "place-pktrm": {
+    "available": true,
+    "location": "Inside and outside fare control",
+    "notes": "Bathroom is located in the very back of the eastbound Green Line platform. Locked."
+  },
+  "place-portr": {
+    "available": true,
+    "location": "Inside and outside fare control • multiple stalls, men/women",
+    "notes": "Bathrooms are located in the hallway to the elevators in the mezzanine after passing through the faregates. The men's room lacks soap and paper towels, but it was relatively clean and it didn't smell. The women's room, although it didn't smell either, is plastered with graffiti and had toilet paper and trash on the floor."
+  },
+  "place-qamnl": {
+    "available": true,
+    "location": "Inside and outside fare control • multiple stalls, men/women",
+    "notes": "Bathrooms are located to the right as you head toward the faregates to exit. The women's room had all of the required amenities, and aside from toilet paper on the floor, was not particularly disgusting. The men's room, on the other hand, was smelly, had no soap, and featured a scuffed-up mirror."
+  },
+  "place-river": {
+    "available": true,
+    "location": "Outside fare control",
+    "notes": "There are two sets of bathrooms that can't be used. Firstly, two doors to the right of the faregates as you enter the station are single-stall bathrooms, but they're for employees only. Secondly, the GoBus building has bathrooms, but they are very explicitly for GoBus passengers only."
+  },
+  "place-shmnl": {
+    "available": true,
+    "location": "Inside and outside fare control",
+    "notes": "Bathroom is located to the left on the way to the Savin Hill Ave exit. Locked. I forgot to take photos of Savin Hill..."
+  },
+  "place-sstat": {
+    "available": true,
+    "location": "Outside fare control • multiple stalls, men/women",
+    "notes": "The bathrooms are located in the Commuter Rail station; once you get into the building, take a right for men and a left for women. Both are clean, albeit busy."
+  },
+  "place-state": {
+    "available": true,
+    "location": "Inside and outside fare control",
+    "notes": "Tucked away in the Old State House entrance. Locked."
+  },
+  "place-sull": {
+    "available": true,
+    "location": "Inside and outside fare control • multiple stalls, men/women",
+    "notes": "The bathrooms are located to the left after you enter the faregates. These could get a 1 entirely on the basis of their smell - in particular, the men's room door was open, wafting its odor across the whole mezzanine. The women's room was just as bad. Combine it with incredibly depressing aesthetics and missing amenities (the women's room had no paper towels, while the men's room lacked paper towels, soap, and even the mirror), and these are some awful bathrooms."
+  },
+  "place-tumnl": {
+    "available": true,
+    "location": "Inside and outside fare control",
+    "notes": "Bathrooms are located to the left after you enter the faregates from the Washington Street entrance. Locked."
+  },
+  "place-welln": {
+    "available": true,
+    "location": "Inside and outside fare control • Single stall, all genders",
+    "notes": "Bathroom is located to the left as you approach the faregates to exit. There is just a single stall here, and there were three people waiting to use the bathroom. Once inside, it is absolutely disgusting, from the looks to the smell."
+  },
+  "place-wlsta": {
+    "available": true,
+    "location": "Inside and outside fare control • single stall, men/women",
+    "notes": "Bathrooms are located to the right as you walk from the staircase from the station's footbridge towards the fare gates. These were visited on the day of the station's opening, and may have changed since. The men's and women's rooms were both quite clean; the doors didn't lock at the time, but they apparently do now. The women's room has a tampon dispenser that was empty at the time."
+  },
+  "place-wondl": {
+    "available": true,
+    "location": "Inside and outside fare control • single stall, men/women",
+    "notes": "Bathrooms are located on the platform, to the left after you enter the faregates. Both the men's and women's rooms were a little smelly, but aside from a little bit of liquid residue in the men's toilet, the bathrooms were otherwise clean."
+  }
+}
