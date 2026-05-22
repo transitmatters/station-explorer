@@ -4,15 +4,22 @@ import { Popover, PopoverButton, PopoverPanel, Transition } from '@headlessui/re
 interface TooltipButtonProps {
   tooltipContent: React.ReactNode;
   item: React.ReactNode;
+  ariaLabel: string;
 }
 
 export const TooltipButton: React.FunctionComponent<TooltipButtonProps> = ({
   tooltipContent,
   item,
+  ariaLabel,
 }) => {
   return (
     <Popover className="relative">
-      <PopoverButton>{item}</PopoverButton>
+      <PopoverButton
+        aria-label={ariaLabel}
+        className="flex h-6 w-6 items-center justify-center rounded hover:bg-slate-200/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+      >
+        {item}
+      </PopoverButton>
 
       <Transition
         as={Fragment}

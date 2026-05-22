@@ -52,6 +52,7 @@ export const DataSection: React.FunctionComponent<DataSectionProps> = ({
                     </div>
                   }
                   item={<FontAwesomeIcon icon={faInfoCircle} className="text-xs text-slate-400" />}
+                  ariaLabel={`Data source for ${title}`}
                 />
               </p>
               {!isMobile && (

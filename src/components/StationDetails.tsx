@@ -744,6 +744,7 @@ const CompareMetricRow: React.FC<CompareMetricRowProps> = ({
             </div>
           }
           item={<FontAwesomeIcon icon={faInfoCircle} className="text-xs text-slate-400" />}
+          ariaLabel={`Data source for ${title}`}
         />
       </div>
       <p className="mb-2 text-start text-xs leading-4 text-gray-500 dark:text-gray-400">

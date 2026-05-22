@@ -69,6 +69,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
                 </div>
               }
               item={<FontAwesomeIcon icon={faInfoCircle} className="text-xs text-slate-400" />}
+              ariaLabel={`Data source for ${title}`}
             />
           )}
         </h3>
