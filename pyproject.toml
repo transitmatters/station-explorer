@@ -13,11 +13,11 @@ aiohttp = "3.11.18"
 json-api-doc = "0.15.0"
 boto3 = "^1.38.12"
 pytz = "2025.2"
-datadog_lambda = "8.113.0"
+datadog_lambda = "8.125.0"
 
 [tool.poetry.group.dev.dependencies]
 pip = ">=24.1"
-chalice = "1.32.0"
+chalice = "1.33.0"
 flake8 = "^7.3.0"
 black = "^25.1.0"
 
