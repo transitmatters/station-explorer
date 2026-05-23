@@ -19,7 +19,12 @@ export const ElevatorsPill: React.FunctionComponent<ElevatorsPillProps> = ({
   const isMobile = !useBreakpoint('sm');
 
   const totalElevators = elevators?.length || 0;
-  const closedElevators = elevatorAlerts?.length || 0;
+
+  let closedElevators = 0;
+  if (elevatorAlerts) {
+    const affectedIds = new Set(elevatorAlerts?.flatMap((a: Alert) => a.informed_entity.map(e => e.facility)));
+    closedElevators = affectedIds.size;
+  }
   const openElevators = totalElevators - closedElevators;
 
   return (
