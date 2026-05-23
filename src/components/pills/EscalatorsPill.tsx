@@ -21,7 +21,9 @@ export const EscalatorsPill: React.FunctionComponent<EscalatorsPillProps> = ({
   const totalEscalators = escalators?.length || 0;
   let closedEscalators = 0;
   if (escalatorAlerts) {
-    const affectedIds = new Set(escalatorAlerts?.flatMap((a: Alert) => a.informed_entity.map(e => e.facility)));
+    const affectedIds = new Set(
+      escalatorAlerts?.flatMap((a: Alert) => a.informed_entity.map((e) => e.facility))
+    );
     closedEscalators = affectedIds.size;
   }
   const openEscalators = totalEscalators - closedEscalators;
