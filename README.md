@@ -12,6 +12,8 @@ This is the repository for the TransitMatters Station Explorer. Client code is w
   - `poetry self update` to update poetry
   - If using `pyenv`, `pyenv install 3.13.0`
 
+- If using `mise` or you can install all of the above with `mise install`.
+
 ## Development Instructions
 
 1. In the root directory, run `npm install` to install all frontend and backend dependencies
