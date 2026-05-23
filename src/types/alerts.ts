@@ -32,4 +32,5 @@ export interface InformedEntity {
   route_type: number;
   trip?: string;
   stop?: string;
+  facility?: string;
 }

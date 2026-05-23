@@ -180,7 +180,7 @@ const SingleLayout: React.FC<{ station: Station; metrics: StationMetrics }> = ({
         <MetricCard
           title="Escalators"
           description="Open vs. installed (alerts factored in)"
-          accessory={<EscalatorsPill escalators={escalators} elevatorAlerts={escalatorAlerts} />}
+          accessory={<EscalatorsPill escalators={escalators} escalatorAlerts={escalatorAlerts} />}
         />
         {isCommuterRail && (
           <MetricCard
@@ -821,7 +821,7 @@ const PillStack: React.FC<{ side: Side }> = ({ side }) => {
     <div className="flex flex-col items-center gap-2 rounded-md border border-gray-200 bg-white p-3 dark:border-gray-600 dark:bg-slate-800">
       <AccessiblePill accessible={station.accessible} />
       <ElevatorsPill elevators={metrics.elevators} elevatorAlerts={metrics.elevatorAlerts} />
-      <EscalatorsPill escalators={metrics.escalators} elevatorAlerts={metrics.escalatorAlerts} />
+      <EscalatorsPill escalators={metrics.escalators} escalatorAlerts={metrics.escalatorAlerts} />
       {metrics.isCommuterRail && (
         <div className="text-center text-xs text-gray-600 dark:text-gray-300">
           {metrics.levelBoarding?.length ?? '—'} level boarding /{' '}
