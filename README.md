@@ -19,6 +19,21 @@ This is the repository for the TransitMatters Station Explorer. Client code is w
    2. `npm run start-python` to just run the Chalice backend server
 3. Navigate to [http://localhost:3000](http://localhost:3000) (or the url provided after running `npm start`)
 
+Walk Scores come from the separate [walkscore-proxy](https://github.com/transitmatters/walkscore-proxy) service, which the frontend expects at `http://localhost:5001` in development.
+
+## Project Structure
+
+```
+src/
+  api/          # React Query hooks for the backend, Walk Score proxy, and Overpass (OpenStreetMap)
+  components/   # React components (map/ has the Leaflet map and layers)
+  constants/    # Hand-maintained station and bathroom data (stations.json, bathrooms.json)
+  routes/       # TanStack Router routes; routeTree.gen.ts is generated from these
+server/
+  app.py        # Chalice routes that proxy the MBTA V3 API (facilities, routes, alerts, shapes)
+  chalicelib/   # MBTA V3 API client
+```
+
 ## Local Deployment Instructions
 
 You shouldn't need to do this, merging to `main` will deploy to production. However if you need to, follow these to deploy form a local machine.
