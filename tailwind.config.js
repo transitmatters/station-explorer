@@ -30,6 +30,15 @@ export default {
       display: ['Helvetica', 'sans-serif'],
     },
     extend: {
+      keyframes: {
+        bob: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(8px)' },
+        },
+      },
+      animation: {
+        bob: 'bob 2.4s ease-in-out infinite',
+      },
       colors: {
         design: {
           darkGrey: '#353535',
