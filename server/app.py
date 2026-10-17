@@ -1,9 +1,11 @@
 import asyncio
 import json
 import os
+import time
 from datadog_lambda.wrapper import datadog_lambda_wrapper
-from chalice import Chalice, CORSConfig, ConvertToMiddleware, Response
+from chalice import Chalice, CORSConfig, ConvertToMiddleware, NotFoundError, Response
 
+from chalicelib import overpass
 from chalicelib.mbta_api import getV3
 
 app = Chalice(app_name="station-explorer")
@@ -65,3 +67,26 @@ def route_pattern(route):
         )
     )
     return Response(json.dumps(stop_data), headers={"Content-Type": "application/json"})
+
+
+# OpenStreetMap data within walking distance of a station. layer is one of overpass.QUERIES.
+# Cache-Control lets the CloudFront distribution in front of this API share one response
+# between visitors until the S3-cached result expires, so most page loads never reach Lambda.
+@app.route("/api/osm/{layer}/{station_id}", cors=cors_config)
+def osm(layer, station_id):
+    if layer not in overpass.QUERIES or station_id not in overpass.STATION_COORDINATES:
+        raise NotFoundError(f"No OSM layer {layer} for station {station_id}")
+    try:
+        data, expires_at = asyncio.run(overpass.get_osm_data(layer, station_id))
+    except Exception as e:
+        print(f"Failed to get OSM {layer} data for {station_id}: {e!r}")
+        return Response(
+            json.dumps({"error": "OpenStreetMap data is unavailable"}),
+            status_code=502,
+            headers={"Content-Type": "application/json", "Cache-Control": "no-store"},
+        )
+    max_age = max(int(expires_at - time.time()), 0)
+    return Response(
+        json.dumps(data, separators=(",", ":")),
+        headers={"Content-Type": "application/json", "Cache-Control": f"public, max-age={max_age}"},
+    )

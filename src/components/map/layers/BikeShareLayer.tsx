@@ -3,7 +3,6 @@ import React from 'react';
 import { LayerGroup, GeoJSON } from 'react-leaflet';
 import L from 'leaflet';
 import { useGetBikeShareDataForStation } from '../../../api/overpass';
-import { WALKING_RADIUS } from '../../../constants/mobility';
 import type { Station } from '../../../types/station';
 import { MapLoadingSpinner } from '../MapLoadingSpinner';
 
@@ -16,7 +15,7 @@ export const BikeShareLayer: React.FunctionComponent<BikeShareLayerProps> = ({
   station,
   setShowLayer,
 }) => {
-  const { data: bikeData, isLoading } = useGetBikeShareDataForStation(station, WALKING_RADIUS);
+  const { data: bikeData, isLoading } = useGetBikeShareDataForStation(station);
 
   if (!bikeData) {
     if (isLoading) {

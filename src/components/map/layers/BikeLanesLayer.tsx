@@ -2,7 +2,6 @@ import type { FeatureCollection, Geometry, GeoJsonProperties } from 'geojson';
 import { LayerGroup, GeoJSON } from 'react-leaflet';
 import React from 'react';
 import { useGetCyclePathDataForStation } from '../../../api/overpass';
-import { WALKING_RADIUS } from '../../../constants/mobility';
 import type { Station } from '../../../types/station';
 import { MapLoadingSpinner } from '../MapLoadingSpinner';
 
@@ -15,7 +14,7 @@ export const BikeLanesLayer: React.FunctionComponent<BikeLanesLayerProps> = ({
   station,
   setShowLayer,
 }) => {
-  const { data: bikeData, isLoading } = useGetCyclePathDataForStation(station, WALKING_RADIUS);
+  const { data: bikeData, isLoading } = useGetCyclePathDataForStation(station);
 
   if (!bikeData) {
     if (isLoading) {

@@ -14,6 +14,7 @@ json-api-doc = "0.15.0"
 boto3 = "^1.38.12"
 pytz = "2025.2"
 datadog_lambda = "8.125.0"
+certifi = "^2026.4.22"
 
 [tool.poetry.group.dev.dependencies]
 pip = ">=24.1"
