@@ -1,9 +1,14 @@
 name: first-contribution
 
 on:
-  pull_request:
+  # pull_request_target so the token can comment on fork PRs; safe because this job never checks out PR code
+  pull_request_target:
     branches: [main]
     types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
 
 jobs:
   check:

@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,6 +19,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       TM_LABS_WILDCARD_CERT_ARN: ${{ secrets.TM_LABS_WILDCARD_CERT_ARN }}
       DD_API_KEY: ${{ secrets.DD_API_KEY }}
+      MBTA_V3_API_KEY: ${{ secrets.MBTA_V3_API_KEY }}
 
     steps:
       - name: Checkout repo
