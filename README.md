@@ -5,14 +5,11 @@ This is the repository for the TransitMatters Station Explorer. Client code is w
 ## Requirements to develop locally
 
 - node 24.x and npm 11+ required
-  - With `nvm` installed, use `nvm install && nvm use`
   - verify with `node -v`
 - Python 3.13 with recent poetry (1.7.0 or later)
   - Verify with `python --version && poetry --version`
   - `poetry self update` to update poetry
-  - If using `pyenv`, `pyenv install 3.13.0`
-
-- If using `mise` or you can install all of the above with `mise install`.
+- With [mise](https://mise.jdx.dev) installed, `mise trust && mise install` sets up all of the above (versions are pinned in `.nvmrc` / `.python-version`)
 
 ## Development Instructions
 
