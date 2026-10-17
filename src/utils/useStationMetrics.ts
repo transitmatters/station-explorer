@@ -18,14 +18,16 @@ export const useStationMetrics = (station: Station) => {
   const alerts = useGetAlertsForStation(station);
   const routes = useGetRoutesForStation(station);
 
-  const { data: bikeData, isLoading: isBikeDataLoading } = useGetCyclePathDataForStation(
-    station,
-    WALKING_RADIUS
-  );
-  const { data: bikeShareData, isLoading: isBikeShareDataLoading } = useGetBikeShareDataForStation(
-    station,
-    WALKING_RADIUS
-  );
+  const {
+    data: bikeData,
+    isLoading: isBikeDataLoading,
+    isError: isBikeDataError,
+  } = useGetCyclePathDataForStation(station);
+  const {
+    data: bikeShareData,
+    isLoading: isBikeShareDataLoading,
+    isError: isBikeShareDataError,
+  } = useGetBikeShareDataForStation(station);
 
   const parking = useParkingStats(station, WALKING_RADIUS);
 
@@ -90,8 +92,10 @@ export const useStationMetrics = (station: Station) => {
     bikeLength,
     bikeData,
     isBikeDataLoading,
+    isBikeDataError,
     bikeShareData,
     isBikeShareDataLoading,
+    isBikeShareDataError,
     isCommuterRail,
     facilitiesLoading: facilities.isLoading,
     amenities,
