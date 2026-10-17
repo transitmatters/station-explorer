@@ -34,18 +34,7 @@ server/
   chalicelib/   # MBTA V3 API client
 ```
 
-## Local Deployment Instructions
-
-You shouldn't need to do this, merging to `main` will deploy to production. However if you need to, follow these to deploy form a local machine.
-
-1. Configure AWS CLI 1.x or 2.x with your AWS access key ID and secret under the profile name `transitmatters`.
-2. Configure shell environment variables for AWS ACM domain certificates.
-   - `TM_LABS_WILDCARD_CERT_ARN`
-   - (You may also need to set `AWS_DEFAULT_REGION` in your shell to `us-east-1`. Maybe not! We're not sure.)
-   - `DD_API_KEY` (Datadog API key, needed to deploy to TransitMatters stack in prod)
-3. Execute `./deploy.sh`.
-
-### Linting
+## Linting
 
 To lint frontend and backend code, run `npm run lint` in the root directory
 
@@ -53,9 +42,32 @@ To lint just frontend code, run `npm run lint-frontend`
 
 To lint just backend code, run `npm run lint-backend`
 
-#### VSCode
+### VSCode
 
-If you're using VSCode, `.vscode` contains a based default workspace setup. It also includes recommended extentions that will improve the dev experience. This config is meant to be as small as possible to enable an "out of the box" easy experience for handling eslint.
+If you're using VSCode, `.vscode` contains a basic default workspace setup. It also includes recommended extensions that will improve the dev experience. This config is meant to be as small as possible to enable an "out of the box" easy experience for handling eslint.
+
+## Data Sources
+
+- Station facilities, routes, alerts, and shapes come from the [MBTA V3 API](https://www.mbta.com/developers/v3-api).
+- Parking, bike lanes, and bike share data come from [OpenStreetMap](https://www.openstreetmap.org/copyright) via the Overpass API (© OpenStreetMap contributors, ODbL).
+- Map tiles are from [Stadia Maps](https://www.stadiamaps.com/) and [OpenMapTiles](https://openmaptiles.org/).
+- Walk Scores come from [Walk Score](https://www.walkscore.com) through [walkscore-proxy](https://github.com/transitmatters/walkscore-proxy).
+- Bathroom information was initially seeded from Miles in Transit's [Unofficial MBTA Bathroom Map](https://milesintransit.com/2019/09/01/the-unofficial-mbta-bathroom-map/).
+
+## Contributing
+
+TransitMatters is volunteer-run. If you'd like to contribute, please fill out our [volunteer form](https://transitmatters.org/volunteer) and open a PR. If you're using an AI coding agent, see [AGENTS.md](AGENTS.md).
+
+## Deployment (Maintainers)
+
+Merging to `main` deploys to production, so you shouldn't need to do this. These steps are for TransitMatters maintainers with AWS access who need to deploy from a local machine.
+
+1. Configure AWS CLI 1.x or 2.x with your AWS access key ID and secret under the profile name `transitmatters`.
+2. Set `AWS_DEFAULT_REGION=us-east-1` and the following environment variables:
+   - `TM_LABS_WILDCARD_CERT_ARN` (ACM certificate for `*.labs.transitmatters.org`)
+   - `DD_API_KEY` (Datadog API key)
+   - `MBTA_V3_API_KEY` (MBTA V3 API key)
+3. Execute `./deploy.sh`.
 
 ## Support TransitMatters
 
