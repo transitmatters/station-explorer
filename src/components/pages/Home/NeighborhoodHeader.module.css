@@ -1,0 +1,363 @@
+/* The animated map sits behind the hero copy, faded out in the middle so the
+   title stays readable. Two fades, multiplied: a wide one behind the copy and
+   a small one behind the logo. */
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  mask-image:
+    radial-gradient(ellipse 44% 40% at 50% 50%, rgba(0, 0, 0, 0.12) 45%, black 100%),
+    radial-gradient(ellipse 16% 9% at 50% 5%, transparent 50%, black 100%);
+  mask-composite: intersect;
+}
+
+/* On phones the copy fills most of the width, so the fade behind it widens. */
+@media (max-width: 640px) {
+  .backdrop {
+    mask-image:
+      radial-gradient(ellipse 75% 34% at 50% 48%, rgba(0, 0, 0, 0.12) 50%, black 100%),
+      radial-gradient(ellipse 40% 6% at 50% 4%, transparent 50%, black 100%);
+  }
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------------------------------------------------------------- neighborhood */
+
+.fadeIn {
+  opacity: 0;
+  animation: fade-in 1s ease-out forwards;
+}
+
+.streets {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.07);
+  stroke-width: 2;
+}
+
+.avenues {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.07);
+  stroke-width: 5;
+}
+
+.river {
+  fill: none;
+  stroke: #0b3a4b;
+  stroke-width: 54;
+  stroke-linecap: round;
+}
+
+/* ---------------------------------------------------------------- lines */
+
+/* Lines (and their casings) draw from one end to the other at a steady
+   speed; neighborhoodGeometry.ts times stations to pop in as the line
+   reaches them. */
+.draw {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: var(--dash);
+  stroke-dashoffset: var(--hidden);
+  animation: draw var(--duration) linear var(--start) forwards;
+}
+
+.line {
+  stroke-width: 10;
+}
+
+/* A band of background color under each line, so later lines cut cleanly
+   across earlier ones like on a printed transit map. */
+.casing {
+  stroke: #164e63;
+  stroke-width: 18;
+}
+
+/* Dark lines (Blue) get a light outline instead so they read on cyan. */
+.outline {
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 15;
+}
+
+.pop {
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) var(--at) forwards;
+}
+
+.station {
+  fill: #ffffff;
+  stroke: #164e63;
+  stroke-width: 2.5;
+}
+
+/* Transfers look like the MBTA map's: a larger white circle with a dark ring. */
+.transfer {
+  fill: #ffffff;
+  stroke: #083344;
+  stroke-width: 4;
+}
+
+/* A small capsule that turns to follow the line, so it reads as a train
+   rather than another station. */
+.train {
+  fill: #ffffff;
+  stroke: #083344;
+  stroke-width: 2.5;
+  /* Hidden until its motion begins, so it doesn't sit at the SVG origin. */
+  opacity: 0;
+  animation: show 0s linear var(--train-start) forwards;
+}
+
+/* ---------------------------------------------------------------- station focus */
+
+/* Each focused station gets one window of a shared cycle (--cycle, which is
+   FOCUS_DURATION times the number of focuses) and stays hidden the rest of
+   the time. Every element in a focus runs on that same cycle, offset by
+   --at, so the keyframes below assume three focuses: visible for the first
+   third, hidden after. The group's own fade bounds its children, which only
+   need to appear on time and be gone before the next window. */
+.focus {
+  opacity: 0;
+  animation: focus-window var(--cycle) linear var(--at) infinite both;
+}
+
+.focusItem {
+  animation: var(--cycle) linear var(--at) infinite both;
+}
+
+.halo {
+  fill: rgba(255, 255, 255, 0.25);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: focus-pop;
+}
+
+.focusStation {
+  fill: #ffffff;
+  stroke: #083344;
+  stroke-width: 4;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: focus-pop;
+}
+
+.radius {
+  fill: rgba(255, 255, 255, 0.07);
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 2.5;
+  stroke-dasharray: 8 8;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: radius-grow;
+}
+
+/* A soft sonar ping off the radius while the station is in focus. */
+.ripple {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: ripple 2s ease-out var(--at) infinite;
+}
+
+.bikeLane {
+  fill: none;
+  stroke: #7bc97b;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 1 1;
+  animation-name: lane-draw;
+}
+
+.parkingLot {
+  fill: rgba(255, 255, 255, 0.16);
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1.5;
+}
+
+.parkingIcon {
+  fill: rgba(255, 255, 255, 0.8);
+}
+
+.parking {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: lot-appear;
+}
+
+.pin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-name: focus-pop;
+}
+
+.pinDisc {
+  stroke: #ffffff;
+  stroke-width: 3;
+}
+
+.pinIcon {
+  fill: #ffffff;
+}
+
+/* ---------------------------------------------------------------- keyframes */
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pop {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes focus-window {
+  0% {
+    opacity: 0;
+  }
+  2%,
+  29% {
+    opacity: 1;
+  }
+  32%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes focus-pop {
+  0% {
+    transform: scale(0);
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  3%,
+  30% {
+    transform: scale(1);
+  }
+  31%,
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes radius-grow {
+  0% {
+    transform: scale(0);
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  6%,
+  30% {
+    transform: scale(1);
+  }
+  31%,
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes lane-draw {
+  0% {
+    stroke-dashoffset: 1;
+    animation-timing-function: ease-out;
+  }
+  4%,
+  30% {
+    stroke-dashoffset: 0;
+  }
+  31%,
+  100% {
+    stroke-dashoffset: 1;
+  }
+}
+
+@keyframes lot-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+    animation-timing-function: ease-out;
+  }
+  3%,
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  31%,
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+/* ---------------------------------------------------------------- reduced motion */
+
+/* With reduced motion, show the finished map with the first station in
+   focus, and nothing moving. */
+@media (prefers-reduced-motion: reduce) {
+  .fadeIn,
+  .draw,
+  .pop,
+  .focus,
+  .focusItem,
+  .ripple {
+    animation: none;
+  }
+
+  .fadeIn {
+    opacity: 1;
+  }
+
+  .draw {
+    stroke-dashoffset: 0;
+  }
+
+  .pop {
+    transform: none;
+  }
+
+  .focus {
+    opacity: 0;
+  }
+
+  .focus:first-of-type {
+    opacity: 1;
+  }
+
+  .ripple,
+  .train {
+    display: none;
+  }
+}
