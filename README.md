@@ -25,13 +25,13 @@ Walk Scores come from the separate [walkscore-proxy](https://github.com/transitm
 
 ```
 src/
-  api/          # React Query hooks for the backend, Walk Score proxy, and Overpass (OpenStreetMap)
+  api/          # React Query hooks for the backend (including cached OpenStreetMap data) and Walk Score proxy
   components/   # React components (map/ has the Leaflet map and layers)
   constants/    # Hand-maintained station and bathroom data (stations.json, bathrooms.json)
   routes/       # TanStack Router routes; routeTree.gen.ts is generated from these
 server/
-  app.py        # Chalice routes that proxy the MBTA V3 API (facilities, routes, alerts, shapes)
-  chalicelib/   # MBTA V3 API client
+  app.py        # Chalice routes that proxy the MBTA V3 API (facilities, routes, alerts, shapes) and OpenStreetMap data
+  chalicelib/   # MBTA V3 API client and cached Overpass (OpenStreetMap) queries
 ```
 
 ## Linting

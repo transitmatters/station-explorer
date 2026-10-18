@@ -20,6 +20,7 @@ import { useStationMetrics } from '../utils/useStationMetrics';
 import type { StationMetrics } from '../utils/useStationMetrics';
 import type { Facility } from '../types/facilities';
 import { LoadingIndicator } from './LoadingIndicator';
+import { UnavailableIndicator } from './UnavailableIndicator';
 import { AccessiblePill } from './pills/AccessiblePill';
 import { ElevatorsPill } from './pills/ElevatorsPill';
 import { EscalatorsPill } from './pills/EscalatorsPill';
@@ -98,12 +99,15 @@ const SingleLayout: React.FC<{ station: Station; metrics: StationMetrics }> = ({
     bikeLength,
     bikeData,
     isBikeDataLoading,
+    isBikeDataError,
     bikeShareData,
     isBikeShareDataLoading,
+    isBikeShareDataError,
     isCommuterRail,
     percentParking,
     parkingSpots,
     parkingAcres,
+    isParkingError,
   } = metrics;
 
   const bikeReady = !!bikeData && !isBikeDataLoading;
@@ -219,7 +223,7 @@ const SingleLayout: React.FC<{ station: Station; metrics: StationMetrics }> = ({
             bikeReady ? (
               <NumberWithUnit value={bikeLength} unit="mile" fmt={(v) => v.toFixed(1)} />
             ) : (
-              <LoadingIndicator />
+              <PendingIndicator error={isBikeDataError} />
             )
           }
         />
@@ -231,7 +235,7 @@ const SingleLayout: React.FC<{ station: Station; metrics: StationMetrics }> = ({
             bikeShareReady ? (
               <NumberWithUnit value={bikeShareCount} unit="station" fmt={(v) => v.toFixed(0)} />
             ) : (
-              <LoadingIndicator />
+              <PendingIndicator error={isBikeShareDataError} />
             )
           }
         />
@@ -250,7 +254,7 @@ const SingleLayout: React.FC<{ station: Station; metrics: StationMetrics }> = ({
                 <span className="align-top text-base font-normal">%</span>
               </span>
             ) : (
-              <LoadingIndicator />
+              <PendingIndicator error={isParkingError} />
             )
           }
         />
@@ -262,7 +266,7 @@ const SingleLayout: React.FC<{ station: Station; metrics: StationMetrics }> = ({
             parkingSpots > 0 ? (
               <NumberWithUnit value={parkingSpots} unit="spot" />
             ) : (
-              <LoadingIndicator />
+              <PendingIndicator error={isParkingError} />
             )
           }
         />
@@ -274,7 +278,7 @@ const SingleLayout: React.FC<{ station: Station; metrics: StationMetrics }> = ({
             parkingAcres > 0 ? (
               <NumberWithUnit value={parkingAcres} unit="acre" />
             ) : (
-              <LoadingIndicator />
+              <PendingIndicator error={isParkingError} />
             )
           }
         />
@@ -584,6 +588,7 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           a={
             <UnitValue
               ready={!!a.metrics.bikeData && !a.metrics.isBikeDataLoading}
+              error={a.metrics.isBikeDataError}
               value={a.metrics.bikeLength}
               fmt={(v) => v.toFixed(1)}
               unit="mile"
@@ -592,6 +597,7 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           b={
             <UnitValue
               ready={!!b.metrics.bikeData && !b.metrics.isBikeDataLoading}
+              error={b.metrics.isBikeDataError}
               value={b.metrics.bikeLength}
               fmt={(v) => v.toFixed(1)}
               unit="mile"
@@ -607,6 +613,7 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           a={
             <UnitValue
               ready={!!a.metrics.bikeShareData && !a.metrics.isBikeShareDataLoading}
+              error={a.metrics.isBikeShareDataError}
               value={a.metrics.bikeShareData?.features.length ?? 0}
               fmt={(v) => v.toFixed(0)}
               unit="station"
@@ -615,6 +622,7 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           b={
             <UnitValue
               ready={!!b.metrics.bikeShareData && !b.metrics.isBikeShareDataLoading}
+              error={b.metrics.isBikeShareDataError}
               value={b.metrics.bikeShareData?.features.length ?? 0}
               fmt={(v) => v.toFixed(0)}
               unit="station"
@@ -634,8 +642,8 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           description="Share of the walkshed taken up by parking — lower is better"
           dataSourceName="OpenStreetMap"
           dataSourceUrl="https://www.openstreetmap.org/about"
-          a={<PercentValue value={a.metrics.percentParking} />}
-          b={<PercentValue value={b.metrics.percentParking} />}
+          a={<PercentValue value={a.metrics.percentParking} error={a.metrics.isParkingError} />}
+          b={<PercentValue value={b.metrics.percentParking} error={b.metrics.isParkingError} />}
           winner={pickLower(a.metrics.percentParking, b.metrics.percentParking)}
         />
         <CompareMetricRow
@@ -646,6 +654,7 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           a={
             <UnitValue
               ready={a.metrics.parkingSpots > 0}
+              error={a.metrics.isParkingError}
               value={a.metrics.parkingSpots}
               fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })}
               unit="spot"
@@ -654,6 +663,7 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           b={
             <UnitValue
               ready={b.metrics.parkingSpots > 0}
+              error={b.metrics.isParkingError}
               value={b.metrics.parkingSpots}
               fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })}
               unit="spot"
@@ -669,6 +679,7 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           a={
             <UnitValue
               ready={a.metrics.parkingAcres > 0}
+              error={a.metrics.isParkingError}
               value={a.metrics.parkingAcres}
               fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })}
               unit="acre"
@@ -677,6 +688,7 @@ const CompareLayout: React.FC<{ a: Side; b: Side }> = ({ a, b }) => {
           b={
             <UnitValue
               ready={b.metrics.parkingAcres > 0}
+              error={b.metrics.isParkingError}
               value={b.metrics.parkingAcres}
               fmt={(v) => v.toLocaleString(undefined, { maximumFractionDigits: 0 })}
               unit="acre"
@@ -790,13 +802,18 @@ const ScoreValue: React.FC<{ value?: number; link?: string }> = ({ value, link }
   );
 };
 
+const PendingIndicator: React.FC<{ error?: boolean }> = ({ error }) => {
+  return error ? <UnavailableIndicator /> : <LoadingIndicator />;
+};
+
 const UnitValue: React.FC<{
   ready: boolean;
+  error?: boolean;
   value: number;
   fmt: (v: number) => string;
   unit: string;
-}> = ({ ready, value, fmt, unit }) => {
-  if (!ready) return <LoadingIndicator />;
+}> = ({ ready, error, value, fmt, unit }) => {
+  if (!ready) return <PendingIndicator error={error} />;
   return (
     <div className="text-inherit">
       {fmt(value)}&nbsp;
@@ -805,8 +822,8 @@ const UnitValue: React.FC<{
   );
 };
 
-const PercentValue: React.FC<{ value: number }> = ({ value }) => {
-  if (!(value > 0)) return <LoadingIndicator />;
+const PercentValue: React.FC<{ value: number; error?: boolean }> = ({ value, error }) => {
+  if (!(value > 0)) return <PendingIndicator error={error} />;
   return (
     <div className="text-inherit">
       {value.toFixed(1)}

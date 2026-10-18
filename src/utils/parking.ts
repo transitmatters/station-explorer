@@ -4,11 +4,12 @@ import { useGetDataForStation } from '../api/overpass';
 import type { Station } from '../types/station';
 
 export const useParkingStats = (station: Station, radius: number) => {
-  const { data: surfaceData } = useGetDataForStation(station, radius, false);
-  const { data: allData } = useGetDataForStation(station, radius, true);
+  const { data: surfaceData, isError: isSurfaceError } = useGetDataForStation(station, false);
+  const { data: allData, isError: isAllError } = useGetDataForStation(station, true);
+  const isParkingError = isSurfaceError || isAllError;
 
   if (!surfaceData || !allData) {
-    return { percentParking: 0, parkingSpots: 0, parkingAcres: 0 };
+    return { percentParking: 0, parkingSpots: 0, parkingAcres: 0, isParkingError };
   }
 
   const allParkingData: FeatureCollection<Geometry, GeoJsonProperties> = {
@@ -47,5 +48,5 @@ export const useParkingStats = (station: Station, radius: number) => {
 
   const parkingAcres = surface_parking_area / 4047;
 
-  return { percentParking, parkingSpots, parkingAcres };
+  return { percentParking, parkingSpots, parkingAcres, isParkingError };
 };
