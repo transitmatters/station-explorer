@@ -18,7 +18,7 @@ certifi = "^2026.4.22"
 
 [tool.poetry.group.dev.dependencies]
 pip = ">=24.1"
-chalice = "1.33.0"
+chalice = "1.34.0"
 flake8 = "^7.3.0"
 black = "^25.1.0"
 
