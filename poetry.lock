@@ -291,22 +291,22 @@ files = [
 
 [[package]]
 name = "chalice"
-version = "1.33.0"
+version = "1.34.0"
 description = "Microframework"
 optional = false
 python-versions = ">=3.10"
 groups = ["dev"]
 files = [
-    {file = "chalice-1.33.0-py3-none-any.whl", hash = "sha256:b7748cac1e23633c3e72e6de5a17a90627dd0335cc3166ef7fc7043b6d4792ca"},
-    {file = "chalice-1.33.0.tar.gz", hash = "sha256:a2b483e0365d676e3b5a8e1315a8729406ec11f8360f73d106013200992d7b6e"},
+    {file = "chalice-1.34.0-py3-none-any.whl", hash = "sha256:e0b01050a9dc3f4818a8bb4e36b67decf9066639db4cb21b8eb18edb99e9d1c9"},
+    {file = "chalice-1.34.0.tar.gz", hash = "sha256:38a96338e6592c5605e3da2ebd29c8d402ad5cbcbac635d2ef3ad4024bbc8041"},
 ]
 
 [package.dependencies]
-botocore = ">=1.14.0,<2.0.0"
+botocore = ">=1.21.51,<2.0.0"
 click = ">=7,<9.0"
 inquirer = ">=3.0.0,<4.0.0"
 jmespath = ">=0.9.3,<2.0.0"
-pip = ">=9,<26.2"
+pip = ">=9,<26.3"
 pyyaml = ">=5.3.1,<7.0.0"
 setuptools = "*"
 six = ">=1.10.0,<2.0.0"
@@ -1959,4 +1959,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "~3.13"
-content-hash = "161f6cba2ad8b36c551ec77bfbb12f3b6f0d7dd28c16106c2eee9ab2253bda37"
+content-hash = "183800a72f057904184802432835809c8964a1dedce838c8e21097eb9e70359f"
