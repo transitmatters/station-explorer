@@ -17,13 +17,13 @@ export const CompareSelector: React.FunctionComponent<CompareSelectorProps> = ({
 
   return (
     <>
-      <div className="absolute right-2 top-48 z-[450] flex flex-col content-center items-end text-center lg:right-8">
+      <div className="absolute top-48 right-2 z-450 flex flex-col content-center items-end text-center lg:right-8">
         <hr className="mr-3 h-[40vh] w-px border-0 bg-gray-200 dark:bg-gray-500" />
         {compareStation ? (
           <button
             title="Stop comparing"
             onClick={() => setCompareStation(undefined)}
-            className="group flex items-center justify-center rounded-full bg-emerald-500 p-1.5 text-white shadow-sm hover:bg-emerald-600 focus:outline-none sm:rounded-lg sm:px-2"
+            className="group flex items-center justify-center rounded-full bg-emerald-500 p-1.5 text-white shadow-xs hover:bg-emerald-600 focus:outline-hidden sm:rounded-lg sm:px-2"
           >
             <FontAwesomeIcon icon={faXmark} className="my-0.5" />
             <span className="ml-1 hidden text-xs sm:inline">Stop Comparing</span>
@@ -32,7 +32,7 @@ export const CompareSelector: React.FunctionComponent<CompareSelectorProps> = ({
           <button
             title="Compare Stations"
             onClick={() => setIsOpen(true)}
-            className="group z-[450] flex items-center justify-center rounded-full bg-cyan-700 p-1.5 text-white shadow-sm hover:bg-cyan-800 focus:outline-none dark:bg-cyan-800 dark:hover:bg-cyan-900 sm:rounded-lg sm:px-2"
+            className="group z-450 flex items-center justify-center rounded-full bg-cyan-700 p-1.5 text-white shadow-xs hover:bg-cyan-800 focus:outline-hidden sm:rounded-lg sm:px-2 dark:bg-cyan-800 dark:hover:bg-cyan-900"
           >
             <FontAwesomeIcon icon={faPlusCircle} className="my-0.5" />
             <span className="ml-1 hidden text-xs sm:inline">Compare</span>
@@ -74,7 +74,7 @@ const ComparePicker: React.FunctionComponent<ComparePickerProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-[100000] flex items-start justify-center bg-black/60 p-4 pt-16"
+      className="fixed inset-0 z-100000 flex items-start justify-center bg-black/60 p-4 pt-16"
       onClick={onClose}
     >
       <div
@@ -97,7 +97,7 @@ const ComparePicker: React.FunctionComponent<ComparePickerProps> = ({
           <div className="relative">
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400"
             />
             <input
               autoFocus
@@ -105,7 +105,7 @@ const ComparePicker: React.FunctionComponent<ComparePickerProps> = ({
               placeholder="Search stations…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm text-gray-900 ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-cyan-600 dark:border-gray-600 dark:bg-slate-700 dark:text-gray-100"
+              className="w-full rounded-md border border-gray-300 bg-white py-2 pr-3 pl-10 text-sm text-gray-900 ring-1 ring-transparent ring-inset focus:ring-2 focus:ring-cyan-600 dark:border-gray-600 dark:bg-slate-700 dark:text-gray-100"
             />
           </div>
         </div>
@@ -118,7 +118,7 @@ const ComparePicker: React.FunctionComponent<ComparePickerProps> = ({
             >
               <div
                 className={classNames(
-                  'h-10 w-1.5 rounded-sm',
+                  'h-10 w-1.5 rounded-xs',
                   LINE_BG_COLOR_MAP[s.lines[0]] ?? 'bg-slate-500'
                 )}
               />

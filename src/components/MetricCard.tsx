@@ -44,19 +44,19 @@ export const MetricCard: React.FC<MetricCardProps> = ({
     <Wrapper
       {...wrapperProps}
       className={classNames(
-        'group flex flex-col gap-2 rounded-lg border border-gray-200 bg-white p-4 text-start shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-slate-800',
+        'group flex flex-col gap-2 rounded-lg border border-gray-200 bg-white p-4 text-start shadow-xs transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-slate-800',
         href && 'cursor-pointer',
         spanClass[span],
         className
       )}
     >
       <div className="flex items-start justify-between gap-2">
-        <h3 className="flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-300">
+        <h3 className="flex items-center gap-1.5 text-sm font-semibold tracking-wide text-gray-600 uppercase dark:text-gray-300">
           {title}
           {dataSource && (
             <TooltipButton
               tooltipContent={
-                <div className="inline-block whitespace-nowrap rounded-lg bg-slate-700 bg-opacity-90 p-2 text-xs text-white">
+                <div className="inline-block rounded-lg bg-slate-700/90 p-2 text-xs whitespace-nowrap text-white">
                   Source:{' '}
                   <a
                     className="cursor-pointer underline decoration-dotted hover:font-semibold hover:decoration-solid"
@@ -76,7 +76,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
       </div>
       {accessory && <div className="flex justify-center">{accessory}</div>}
       {value !== undefined && (
-        <div className="font-mono text-3xl font-semibold leading-none text-gray-900 dark:text-gray-50">
+        <div className="font-mono text-3xl leading-none font-semibold text-gray-900 dark:text-gray-50">
           {value}
         </div>
       )}

@@ -35,11 +35,11 @@ export const DataSection: React.FunctionComponent<DataSectionProps> = ({
         <div className="flex flex-row justify-between rounded-md">
           <div className="flex min-w-0 gap-x-4">
             <div className="ml-2 min-w-0 flex-auto">
-              <p className="flex gap-1.5 text-start text-sm font-semibold leading-6 text-gray-600 dark:text-gray-200">
+              <p className="flex gap-1.5 text-start text-sm leading-6 font-semibold text-gray-600 dark:text-gray-200">
                 {title}
                 <TooltipButton
                   tooltipContent={
-                    <div className="inline-block whitespace-nowrap rounded-lg bg-slate-600 bg-opacity-85 p-2 text-xs text-white">
+                    <div className="inline-block rounded-lg bg-slate-600/85 p-2 text-xs whitespace-nowrap text-white">
                       This data comes from{' '}
                       <a
                         className="cursor-pointer underline decoration-dotted hover:font-semibold hover:decoration-solid"

@@ -37,8 +37,8 @@ export const Station: React.FunctionComponent<StationProps> = ({ stationId }) =>
       <main className="flex w-full flex-col">
         <StationDetails station={station} compareStation={compareStation} />
         {!isComparing && <HorizontalDivider />}
-        <div className="w-full px-4 pb-8 pt-4 sm:px-6 lg:px-10">
-          <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-4 text-start text-sm text-gray-600 shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:text-gray-300">
+        <div className="w-full px-4 pt-4 pb-8 sm:px-6 lg:px-10">
+          <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-4 text-start text-sm text-gray-600 shadow-xs dark:border-gray-700 dark:bg-slate-800 dark:text-gray-300">
             <FontAwesomeIcon
               icon={faCircleInfo}
               className="mt-0.5 shrink-0 text-cyan-700 dark:text-cyan-400"

@@ -55,7 +55,7 @@ export const ScoreGauge: React.FC<ScoreGaugeProps> = ({ score, label, size = 96 
           {score ?? '—'}
         </span>
         {label && (
-          <span className="text-[10px] font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+          <span className="text-[10px] font-medium tracking-wider text-gray-500 uppercase dark:text-gray-400">
             {label}
           </span>
         )}

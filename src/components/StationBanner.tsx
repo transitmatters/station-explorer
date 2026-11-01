@@ -25,11 +25,11 @@ export const StationBanner: React.FC<StationBannerProps> = ({
   const hasActions = onSwap || onCompare || onClose;
 
   return (
-    <div className="min-w-0 overflow-hidden rounded-md bg-white shadow-sm dark:bg-slate-100">
+    <div className="min-w-0 overflow-hidden rounded-md bg-white shadow-xs dark:bg-slate-100">
       {/* Line-colored top half: station name */}
       <div
         className={classNames(
-          'relative flex items-center justify-center font-bold uppercase text-white',
+          'relative flex items-center justify-center font-bold text-white uppercase',
           lineColorClass,
           isLarge
             ? 'h-20 px-6 text-2xl sm:text-3xl lg:h-24 lg:text-4xl'
@@ -38,7 +38,7 @@ export const StationBanner: React.FC<StationBannerProps> = ({
       >
         <span className="truncate text-center">{station.stop_name}</span>
         {hasActions && (
-          <div className="absolute right-2 top-2 hidden items-center gap-1 sm:flex">
+          <div className="absolute top-2 right-2 hidden items-center gap-1 sm:flex">
             {onSwap && (
               <button
                 onClick={onSwap}
@@ -76,7 +76,7 @@ export const StationBanner: React.FC<StationBannerProps> = ({
       {/* White bottom half: municipality */}
       <div
         className={classNames(
-          'flex items-center justify-center font-semibold uppercase text-slate-600',
+          'flex items-center justify-center font-semibold text-slate-600 uppercase',
           isLarge ? 'h-12 text-base sm:text-lg' : 'h-9 text-sm'
         )}
       >
@@ -89,7 +89,7 @@ export const StationBanner: React.FC<StationBannerProps> = ({
             <button
               onClick={onSwap}
               aria-label="Change station"
-              className="flex flex-1 items-center justify-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm ring-1 ring-inset ring-gray-200 hover:bg-gray-100"
+              className="flex flex-1 items-center justify-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-700 shadow-xs ring-1 ring-gray-200 ring-inset hover:bg-gray-100"
             >
               <FontAwesomeIcon icon={faRightLeft} />
               Change
@@ -99,7 +99,7 @@ export const StationBanner: React.FC<StationBannerProps> = ({
             <button
               onClick={onCompare}
               aria-label="Compare with another station"
-              className="flex flex-1 items-center justify-center gap-2 rounded-md bg-cyan-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-800"
+              className="flex flex-1 items-center justify-center gap-2 rounded-md bg-cyan-700 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-cyan-800"
             >
               <FontAwesomeIcon icon={faPlus} />
               Compare
@@ -109,7 +109,7 @@ export const StationBanner: React.FC<StationBannerProps> = ({
             <button
               onClick={onClose}
               aria-label="Stop comparing"
-              className="flex flex-1 items-center justify-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-semibold text-red-600 shadow-sm ring-1 ring-inset ring-red-200 hover:bg-red-50"
+              className="flex flex-1 items-center justify-center gap-2 rounded-md bg-white px-3 py-2 text-sm font-semibold text-red-600 shadow-xs ring-1 ring-red-200 ring-inset hover:bg-red-50"
             >
               <FontAwesomeIcon icon={faXmark} />
               Stop

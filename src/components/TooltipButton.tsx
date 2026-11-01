@@ -16,7 +16,7 @@ export const TooltipButton: React.FunctionComponent<TooltipButtonProps> = ({
     <Popover className="relative">
       <PopoverButton
         aria-label={ariaLabel}
-        className="flex h-6 w-6 items-center justify-center rounded hover:bg-slate-200/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500"
+        className="flex h-6 w-6 items-center justify-center rounded-sm hover:bg-slate-200/40 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-cyan-500"
       >
         {item}
       </PopoverButton>
