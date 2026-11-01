@@ -6,14 +6,13 @@ This is the repository for the TransitMatters Station Explorer. Client code is w
 
 - node 24.x and npm 11+ required
   - verify with `node -v`
-- Python 3.13 with recent poetry (1.7.0 or later)
-  - Verify with `python --version && poetry --version`
-  - `poetry self update` to update poetry
+- Python 3.13 and [uv](https://docs.astral.sh/uv/)
+  - Verify with `python --version && uv --version`
 - With [mise](https://mise.jdx.dev) installed, `mise trust && mise install` sets up all of the above (versions are pinned in `.nvmrc` / `.python-version`)
 
 ## Development Instructions
 
-1. In the root directory, run `npm install` to install all frontend and backend dependencies
+1. In the root directory, run `npm install` to install all frontend and backend dependencies (it runs `uv sync` for the backend and installs a pre-commit hook that runs Ruff)
 2. Run `npm start` to start both the Vite development server and the Python backend at the same time.
    1. `npm run dev` to just run the Vite development server
    2. `npm run start-python` to just run the Chalice backend server
@@ -40,11 +39,11 @@ To lint frontend and backend code, run `npm run lint` in the root directory
 
 To lint just frontend code, run `npm run lint-frontend`
 
-To lint just backend code, run `npm run lint-backend`
+To lint just backend code, run `npm run lint-backend`. The backend is linted and formatted with [Ruff](https://docs.astral.sh/ruff/); `uv run ruff format .` fixes formatting.
 
 ### VSCode
 
-If you're using VSCode, `.vscode` contains a basic default workspace setup. It also includes recommended extensions that will improve the dev experience. This config is meant to be as small as possible to enable an "out of the box" easy experience for handling eslint.
+If you're using VSCode, `.vscode` contains a basic default workspace setup. It also includes recommended extensions that will improve the dev experience. This config is meant to be as small as possible to enable an "out of the box" easy experience for handling ESLint, Prettier, and Ruff.
 
 ## Data Sources
 

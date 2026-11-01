@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "start": "concurrently npm:start-python npm:dev",
-    "start-python": "cd server && poetry run chalice local --port=5555",
+    "start-python": "cd server && uv run chalice local --port=5555",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint-frontend": "eslint . --report-unused-disable-directives --max-warnings 15",
-    "lint-backend": "cd server && poetry run flake8 && poetry run black . --check",
+    "lint-backend": "uv run ruff check . && uv run ruff format --check .",
     "lint": "concurrently npm:lint-frontend npm:lint-backend",
-    "postinstall": "cd server && poetry install",
+    "postinstall": "uv sync && (uv run pre-commit install --install-hooks || true)",
     "preview": "vite preview"
   },
   "engines": {

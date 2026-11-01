@@ -13,7 +13,7 @@ Guidance for AI coding agents working on the Station Explorer, which shows acces
 ## Commands
 
 ```bash
-npm run lint             # ESLint (max 15 warnings) + flake8 and Black (via Poetry)
+npm run lint             # ESLint (max 15 warnings) + Ruff lint and format check (via uv)
 npm run build            # tsc + Vite build
 npm start                # Vite on :3000 + chalice local on :5555
 ```
@@ -25,4 +25,4 @@ npm start                # Vite on :3000 + chalice local on :5555
 - Walk Score data comes from the separate `walkscore-proxy` service (`http://localhost:5001` in development), not this repo's backend.
 - OpenStreetMap data comes from public Overpass servers, which are unreliable and rate-limited by IP. The browser never calls them directly: `server/chalicelib/overpass.py` queries them with fallbacks, and keeps results in S3 indefinitely. Copies older than 72 hours are replaced only when Overpass answers within 15 seconds; otherwise the old copy is served, since weeks-old data beats none. A CloudFront distribution in front of the API shares those responses between visitors based on their `Cache-Control`. Add new queries to `QUERIES` there instead of calling Overpass from `src/`.
 - `server/chalicelib/stations.json` is a symlink to `src/constants/stations.json` so the backend can look up station coordinates. Edit the original.
-- The backend still uses Poetry with flake8 and Black, not uv and Ruff.
+- The backend uses uv for dependencies and Ruff for linting and formatting. Run Python tools with `uv run`.

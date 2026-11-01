@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Python
+.venv/
+.ruff_cache/
+
 # chalice
 .chalice/deployments/
 .chalice/venv/
@@ -40,3 +44,6 @@ server/.chalice/deployments/*
 .envrc
 .cursor
 .claude/settings.local.json
+
+# Playwright MCP screenshots and logs
+.playwright*/

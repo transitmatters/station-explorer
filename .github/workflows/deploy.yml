@@ -23,14 +23,11 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Set up Node/Python via mise
+        uses: actions/checkout@v7
+      - name: Set up Node, Python, and uv via mise
         uses: jdx/mise-action@v5
-      - name: Install Poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | python3 -
       - name: Set up CI Cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             ~/.npm

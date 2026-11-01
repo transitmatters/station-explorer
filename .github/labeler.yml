@@ -5,6 +5,7 @@ ci/cd:
 dependencies:
   - package.json
   - package-lock.json
+  - uv.lock
 
 documentation:
   - README.md
