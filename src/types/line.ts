@@ -10,14 +10,7 @@ export type Line =
   | 'line-mattapan'
   | CommuterRailLines;
 export type LineShort =
-  | 'Red'
-  | 'Orange'
-  | 'Green'
-  | 'Blue'
-  | 'Silver'
-  | 'Mattapan'
-  | 'Bus'
-  | CommuterRailShort;
+  'Red' | 'Orange' | 'Green' | 'Blue' | 'Silver' | 'Mattapan' | 'Bus' | CommuterRailShort;
 export type BusRoute =
   | '1'
   | '15'
@@ -97,11 +90,6 @@ export type LineMetadata = {
 export type LineObject = { [key in Line]: LineMetadata };
 
 export type LineRouteId =
-  | Exclude<LineShort, 'Bus' | 'Green'>
-  | 'bus'
-  | 'Green-B'
-  | 'Green-C'
-  | 'Green-D'
-  | 'Green-E';
+  Exclude<LineShort, 'Bus' | 'Green'> | 'bus' | 'Green-B' | 'Green-C' | 'Green-D' | 'Green-E';
 
 export type GtfsColorLineId = (typeof GTFS_COLOR_LINE_IDS)[number];
