@@ -9,7 +9,7 @@ export const getStation = (stationId: string) => {
 
 export const chooseRandomStations = (num = 1) => {
   const res = [];
-  for (let i = 0; i < num; ) {
+  for (let i = 0; i < num;) {
     const random = Math.floor(Math.random() * stations.length);
     if (res.indexOf(stations[random]) !== -1) {
       continue;

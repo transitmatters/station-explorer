@@ -1,0 +1,12 @@
+# Ruff replaces Black (formatting) and flake8 (linting) for the backend
+line-length = 120
+target-version = "py314"
+extend-exclude = [".chalice"]
+
+[lint]
+# Pyflakes plus the pycodestyle errors that don't overlap with the formatter
+select = ["E4", "E7", "E9", "F"]
+ignore = ["E731"]
+
+[format]
+quote-style = "double"

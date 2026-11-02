@@ -27,7 +27,7 @@ const STRIPE_COLORS = [
   COLORS.mbta.silver,
 ];
 
-const CARD = 'flex h-full flex-col gap-3.5 rounded-xl border border-white/10 bg-white/[0.06] p-7';
+const CARD = 'flex h-full flex-col gap-3.5 rounded-xl border border-white/10 bg-white/6 p-7';
 const CARD_TITLE = 'text-xl font-bold leading-snug';
 const CARD_BODY = 'text-[0.9375rem] leading-relaxed text-white/75';
 
@@ -59,7 +59,7 @@ const SectionHeader: React.FunctionComponent<{ id: string; title: string; intro:
     </div>
     <h2
       id={id}
-      className="text-[clamp(2rem,5vw,3rem)] font-extrabold italic leading-tight tracking-tight"
+      className="text-[clamp(2rem,5vw,3rem)] leading-tight font-extrabold tracking-tight italic"
     >
       {title}
     </h2>
@@ -159,7 +159,7 @@ export const FeaturesSection: React.FunctionComponent = () => (
     <div className="grid auto-rows-auto grid-cols-1 gap-5 sm:auto-rows-[minmax(200px,auto)] sm:grid-cols-2 lg:grid-cols-4">
       {features.tiles.map((tile) => (
         <div key={tile.id} className={classNames(CARD, TILE_LAYOUT[tile.id])}>
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/50">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-white/50 uppercase">
             <FontAwesomeIcon icon={TILE_ICONS[tile.id]} className="h-3.5 w-3.5" />
             {tile.label}
           </span>
@@ -181,7 +181,7 @@ export const ExploreSection: React.FunctionComponent = () => {
   const [picks] = React.useState(() => chooseRandomStations(6));
 
   return (
-    <Section labelledBy="explore-title" className="!pb-14">
+    <Section labelledBy="explore-title" className="pb-14!">
       <SectionHeader id="explore-title" title={explore.title} intro={explore.intro} />
       {/* The cards evoke real station signage, so they keep their own look. */}
       <div className="grid w-full grid-cols-1 gap-8 text-center md:grid-cols-2">
@@ -199,11 +199,11 @@ export const ExploreSection: React.FunctionComponent = () => {
 // TM-red block with a short pitch and a white button.
 export const DonateSection: React.FunctionComponent = () => (
   <section aria-labelledby="donate-title" className="px-4 pb-14 md:pb-16">
-    <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-6 rounded-xl bg-tm-red px-6 py-7 shadow md:flex-row md:items-center md:justify-between md:gap-10 md:px-10 md:py-9">
+    <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-6 rounded-xl bg-tm-red px-6 py-7 shadow-sm md:flex-row md:items-center md:justify-between md:gap-10 md:px-10 md:py-9">
       <div className="flex max-w-2xl flex-col gap-2">
         <h2
           id="donate-title"
-          className="text-[clamp(1.5rem,3.5vw,2rem)] font-extrabold italic leading-tight"
+          className="text-[clamp(1.5rem,3.5vw,2rem)] leading-tight font-extrabold italic"
         >
           {donate.title}
         </h2>
@@ -211,7 +211,7 @@ export const DonateSection: React.FunctionComponent = () => (
       </div>
       <a
         href={donate.href}
-        className="inline-flex shrink-0 items-center gap-2 rounded-md bg-white px-6 py-3.5 font-bold text-tm-red shadow transition-transform hover:scale-[1.04] focus-visible:scale-[1.04] motion-reduce:transition-none motion-reduce:hover:scale-100"
+        className="inline-flex shrink-0 items-center gap-2 rounded-md bg-white px-6 py-3.5 font-bold text-tm-red shadow-sm transition-transform hover:scale-[1.04] focus-visible:scale-[1.04] motion-reduce:transition-none motion-reduce:hover:scale-100"
       >
         <FontAwesomeIcon icon={faHeart} className="h-4 w-4" aria-hidden="true" />
         {donate.cta}
@@ -221,7 +221,7 @@ export const DonateSection: React.FunctionComponent = () => (
 );
 
 export const LandingFooter: React.FunctionComponent = () => (
-  <footer className="flex flex-col items-center gap-5 border-t border-white/10 bg-cyan-950 px-4 pb-10 pt-12 text-center">
+  <footer className="flex flex-col items-center gap-5 border-t border-white/10 bg-cyan-950 px-4 pt-12 pb-10 text-center">
     <a href="https://transitmatters.org" aria-label="TransitMatters" className="leading-none">
       <img src="/TMLogo.png" alt="" width={3189} height={299} className="h-auto w-44" />
     </a>

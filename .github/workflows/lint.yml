@@ -14,12 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Set up Node/Python via mise
+        uses: actions/checkout@v7
+      - name: Set up Node, Python, and uv via mise
         uses: jdx/mise-action@v5
       - name: Lint frontend code with ESLint
         run: |
-          curl -sSL https://install.python-poetry.org | python3 -
           npm ci
           npm run lint-frontend
 
@@ -27,11 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Set up Node/Python via mise
+        uses: actions/checkout@v7
+      - name: Set up Node, Python, and uv via mise
         uses: jdx/mise-action@v5
-      - name: Lint backend code with Flake8
+      - name: Lint backend code with Ruff
         run: |
-          curl -sSL https://install.python-poetry.org | python3 -
           npm ci
           npm run lint-backend

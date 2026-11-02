@@ -14,7 +14,7 @@ import {
  */
 export const Home: React.FunctionComponent = () => {
   return (
-    <div className="min-h-screen overflow-x-clip bg-cyan-900 text-white [&_:focus-visible]:outline [&_:focus-visible]:outline-2 [&_:focus-visible]:outline-offset-2 [&_:focus-visible]:outline-white">
+    <div className="min-h-screen overflow-x-clip bg-cyan-900 text-white **:focus-visible:outline-2 **:focus-visible:outline-offset-2 **:focus-visible:outline-white **:focus-visible:outline-solid">
       <Hero />
       <main>
         <AboutSection />

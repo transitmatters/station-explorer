@@ -32,14 +32,12 @@ export const useStationMetrics = (station: Station) => {
   const parking = useParkingStats(station, WALKING_RADIUS);
 
   const elevators = facilities.data?.filter?.((facility) => facility.type === 'ELEVATOR') as
-    | Elevator[]
-    | undefined;
+    Elevator[] | undefined;
   const elevatorAlerts = alerts.data?.filter?.((alert) =>
     alert.informed_entity.some((entity) => entity.activities.includes('USING_WHEELCHAIR'))
   );
   const escalators = facilities.data?.filter?.((facility) => facility.type === 'ESCALATOR') as
-    | Escalator[]
-    | undefined;
+    Escalator[] | undefined;
   const escalatorAlerts = alerts.data?.filter?.((alert) =>
     alert.informed_entity.some((entity) => entity.activities.includes('USING_ESCALATOR'))
   );

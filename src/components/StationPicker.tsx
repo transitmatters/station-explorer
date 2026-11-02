@@ -28,7 +28,7 @@ export const StationPicker: React.FC<StationPickerProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-[100000] flex items-start justify-center bg-black/60 p-4 pt-16"
+      className="fixed inset-0 z-100000 flex items-start justify-center bg-black/60 p-4 pt-16"
       onClick={onClose}
     >
       <div
@@ -49,7 +49,7 @@ export const StationPicker: React.FC<StationPickerProps> = ({
           <div className="relative">
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400"
             />
             <input
               autoFocus
@@ -57,7 +57,7 @@ export const StationPicker: React.FC<StationPickerProps> = ({
               placeholder="Search stations…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm text-gray-900 ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-cyan-600 dark:border-gray-600 dark:bg-slate-700 dark:text-gray-100"
+              className="w-full rounded-md border border-gray-300 bg-white py-2 pr-3 pl-10 text-sm text-gray-900 ring-1 ring-transparent ring-inset focus:ring-2 focus:ring-cyan-600 dark:border-gray-600 dark:bg-slate-700 dark:text-gray-100"
             />
           </div>
         </div>
@@ -70,7 +70,7 @@ export const StationPicker: React.FC<StationPickerProps> = ({
             >
               <div
                 className={classNames(
-                  'h-10 w-1.5 rounded-sm',
+                  'h-10 w-1.5 rounded-xs',
                   LINE_BG_COLOR_MAP[s.lines[0]] ?? 'bg-slate-500'
                 )}
               />

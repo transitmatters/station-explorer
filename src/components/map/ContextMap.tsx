@@ -40,7 +40,7 @@ interface ContextMapProps {
 export const ContextMap: React.FC<ContextMapProps> = ({
   station,
   layers,
-  height = 'h-full min-h-[18rem]',
+  height = 'h-full min-h-72',
 }) => {
   const { darkMode } = useStore();
   const [mounted, setMounted] = useState(false);
@@ -52,7 +52,7 @@ export const ContextMap: React.FC<ContextMapProps> = ({
 
   return (
     <div
-      className={`${height} w-full overflow-hidden rounded-lg border border-gray-200 shadow-sm dark:border-gray-700`}
+      className={`${height} w-full overflow-hidden rounded-lg border border-gray-200 shadow-xs dark:border-gray-700`}
     >
       {mounted && center && (
         <MapContainer

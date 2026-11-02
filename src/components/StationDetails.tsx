@@ -383,7 +383,7 @@ const AmenityCard: React.FC<AmenityCardProps> = ({
   return (
     <div
       className={classNames(
-        'flex items-start gap-3 rounded-lg border p-3 shadow-sm',
+        'flex items-start gap-3 rounded-lg border p-3 shadow-xs',
         loading
           ? 'border-gray-200 bg-white dark:border-gray-700 dark:bg-slate-800'
           : present
@@ -436,7 +436,7 @@ const AmenityCard: React.FC<AmenityCardProps> = ({
           )}
         </p>
         {description && !loading && (
-          <p className="mt-1 text-[11px] italic leading-snug text-gray-500 dark:text-gray-400">
+          <p className="mt-1 text-[11px] leading-snug text-gray-500 italic dark:text-gray-400">
             {description}
           </p>
         )}
@@ -480,7 +480,7 @@ const SingleSection: React.FC<{
   return (
     <section className="mb-8 last:mb-0">
       <div className="mb-3 flex items-center gap-3">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-300">
+        <h2 className="text-xs font-semibold tracking-widest text-gray-500 uppercase dark:text-gray-300">
           {name}
         </h2>
         <div className="h-px flex-1 bg-gray-200 dark:bg-gray-600" />
@@ -708,7 +708,7 @@ const CompareSection: React.FC<{ name: string; children: React.ReactNode }> = ({
   return (
     <section className="relative mb-4">
       <div className="mb-2 flex items-center gap-3">
-        <span className="bg-slate-50 pr-2 text-xs font-semibold uppercase tracking-widest text-gray-500 dark:bg-slate-700 dark:text-gray-300">
+        <span className="bg-slate-50 pr-2 text-xs font-semibold tracking-widest text-gray-500 uppercase dark:bg-slate-700 dark:text-gray-300">
           {name}
         </span>
         <div className="h-px flex-1 bg-gray-200 dark:bg-gray-600" />
@@ -743,7 +743,7 @@ const CompareMetricRow: React.FC<CompareMetricRowProps> = ({
         {title}
         <TooltipButton
           tooltipContent={
-            <div className="inline-block whitespace-nowrap rounded-lg bg-slate-600 bg-opacity-85 p-2 text-xs text-white">
+            <div className="inline-block rounded-lg bg-slate-600/85 p-2 text-xs whitespace-nowrap text-white">
               This data comes from{' '}
               <a
                 className="cursor-pointer underline decoration-dotted hover:font-semibold hover:decoration-solid"

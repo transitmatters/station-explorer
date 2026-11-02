@@ -46,13 +46,13 @@ export const StationSelector: React.FunctionComponent<StationSelectorProps> = ({
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        className="relative w-full cursor-pointer bg-cyan-700 p-2 text-center font-semibold text-white dark:bg-cyan-800 lg:p-3"
+        className="relative w-full cursor-pointer bg-cyan-700 p-2 text-center font-semibold text-white lg:p-3 dark:bg-cyan-800"
       >
         {isOpen ? 'Close Selector' : 'Select Station'}{' '}
         <FontAwesomeIcon icon={isOpen ? faSquareCaretUp : faSquareCaretDown} />
       </button>
       {isOpen && (
-        <div className="absolute z-[100000] bg-cyan-700 dark:bg-cyan-800">
+        <div className="absolute z-100000 bg-cyan-700 dark:bg-cyan-800">
           <div className="flex w-full items-center justify-center">
             <div className="mr-1 w-3/5">
               <label htmlFor="search" className="sr-only">
@@ -69,12 +69,12 @@ export const StationSelector: React.FunctionComponent<StationSelectorProps> = ({
                   placeholder="Search"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="block w-full rounded-md border-0 bg-white bg-opacity-95 py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 bg-white/95 py-1.5 pr-3 pl-10 text-gray-900 ring-1 ring-gray-300 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-indigo-500 focus:ring-inset sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
             <span
-              className="m-1 rounded-lg bg-slate-100 bg-opacity-30 p-1.5 text-white"
+              className="m-1 rounded-lg bg-slate-100/30 p-1.5 text-white"
               onClick={() => {
                 alert('Sorting not yet implemented');
               }}
@@ -83,7 +83,7 @@ export const StationSelector: React.FunctionComponent<StationSelectorProps> = ({
               Sort by {sortedBy}
             </span>
             <span
-              className="m-1 rounded-lg bg-slate-100 bg-opacity-30 p-1.5 text-white"
+              className="m-1 rounded-lg bg-slate-100/30 p-1.5 text-white"
               onClick={() => {
                 alert('Filters not yet implemented');
               }}

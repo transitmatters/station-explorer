@@ -21,11 +21,11 @@ export const Hero: React.FunctionComponent = () => {
 
   return (
     <>
-      <header className="relative isolate flex min-h-svh flex-col items-center justify-center overflow-hidden bg-cyan-900 px-4 pb-14 pt-24">
+      <header className="relative isolate flex min-h-svh flex-col items-center justify-center overflow-hidden bg-cyan-900 px-4 pt-24 pb-14">
         <NeighborhoodHeader />
 
         <a
-          className="absolute left-1/2 top-7 block -translate-x-1/2 leading-none"
+          className="absolute top-7 left-1/2 block -translate-x-1/2 leading-none"
           href="https://transitmatters.org"
           aria-label="TransitMatters"
         >
@@ -33,7 +33,7 @@ export const Hero: React.FunctionComponent = () => {
         </a>
 
         <div className="flex max-w-3xl flex-col items-center gap-6 text-center">
-          <h1 className="text-[clamp(2.75rem,8vw,6rem)] font-extrabold uppercase italic leading-none tracking-tight">
+          <h1 className="text-[clamp(2.75rem,8vw,6rem)] leading-none font-extrabold tracking-tight uppercase italic">
             {hero.title}
           </h1>
           <p className="text-[clamp(1.25rem,3vw,1.75rem)] font-semibold">{hero.tagline}</p>
@@ -42,7 +42,7 @@ export const Hero: React.FunctionComponent = () => {
             <button
               type="button"
               onClick={openPicker}
-              className="rounded-md border-2 border-white bg-cyan-900/80 px-8 py-3.5 font-bold uppercase italic tracking-wider transition-colors hover:bg-white hover:text-cyan-900 focus-visible:bg-white focus-visible:text-cyan-900"
+              className="rounded-md border-2 border-white bg-cyan-900/80 px-8 py-3.5 font-bold tracking-wider uppercase italic transition-colors hover:bg-white hover:text-cyan-900 focus-visible:bg-white focus-visible:text-cyan-900"
             >
               {hero.primaryCta}
             </button>
