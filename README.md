@@ -6,7 +6,7 @@ This is the repository for the TransitMatters Station Explorer. Client code is w
 
 - node 24.x and npm 11+ required
   - verify with `node -v`
-- Python 3.13 and [uv](https://docs.astral.sh/uv/)
+- Python 3.14 and [uv](https://docs.astral.sh/uv/)
   - Verify with `python --version && uv --version`
 - With [mise](https://mise.jdx.dev) installed, `mise trust && mise install` sets up all of the above (versions are pinned in `.nvmrc` / `.python-version`)
 

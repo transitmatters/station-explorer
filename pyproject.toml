@@ -4,7 +4,7 @@ version = "0.0.1"
 description = "Backend to fetch data from the stations of the MBTA"
 authors = [{ name = "TransitMatters Labs Team" }]
 license = "MIT"
-requires-python = "~=3.13.0"
+requires-python = "~=3.14.0"
 dependencies = [
     "requests~=2.34.2",
     "aiohttp==3.14.5",
